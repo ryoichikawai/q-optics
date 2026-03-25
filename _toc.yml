@@ -1,0 +1,25 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: cover
+parts:
+-  caption:
+   chapters:
+   -  file: aboutme
+   -  file: preface
+-  caption: Photons from a cluster of quantum dots
+   numbered: true
+   chapters:
+   -  file: detection/counting
+   -  file: monomer/intro
+      sections:
+      -  file: monomer/model
+      -  file: monomer/steady_state
+   -  file: dimer/intro
+      sections:
+      -  file: dimer/numerical
+-  caption:
+   numbered: false
+   chapters:
+   -  file: references/references
