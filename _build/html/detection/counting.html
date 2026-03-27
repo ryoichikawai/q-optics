@@ -60,6 +60,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'detection/counting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -410,9 +412,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-types-of-statistics">1.1. Three types of statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-correlation">1.2. First-order correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-correlation">1.3. Second-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-of-classical-lights">1.1. Intensity of classical lights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2. Photon counting statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-correlation">1.3. First-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-correlation">1.4. Second-order correlation</a></li>
 </ul>
             </nav>
         </div>
@@ -426,9 +429,58 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="photon-counting-statistics">
 <h1><span class="section-number">1. </span>Photon Counting Statistics<a class="headerlink" href="#photon-counting-statistics" title="Link to this heading">#</a></h1>
-<section id="three-types-of-statistics">
-<h2><span class="section-number">1.1. </span>Three types of statistics<a class="headerlink" href="#three-types-of-statistics" title="Link to this heading">#</a></h2>
-<p>When a photon arrives at a detector, its arrival time is recorded.  After many photons arrived, the history of photon arrival is recorded as a time sequence. We are interested in the time intervals between two successive photon arrivals.  The statistical distribution of the intervals tells us how the photons are generated.</p>
+<section id="intensity-of-classical-lights">
+<h2><span class="section-number">1.1. </span>Intensity of classical lights<a class="headerlink" href="#intensity-of-classical-lights" title="Link to this heading">#</a></h2>
+<p>In the classical theory, light is electromagnetic wave which is continuous in space and time. Mathematically, it is expressed as vector field <span class="math notranslate nohighlight">\(\mathbf{E}(\mathbf{x},t)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}(\mathbf{x},t)\)</span> Its character is measured with two temporal correlation functions, the first-order and second-order correlation defined respectively by</p>
+<div class="math notranslate nohighlight">
+\[
+g^{(1)}(\tau) = \frac{\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t+\tau)\rangle_t}{\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t)\rangle_t} = \frac{\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t+\tau)\rangle_t}{\langle I(t) \rangle_t}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+g^{(2)}(\tau) = \frac{\langle\left[\mathbf{E}^{*}(t) \cdot \mathbf{E}(t)\right]\left[\mathbf{E}^{*}(t+\tau) \cdot \mathbf{E}(t+\tau)\right]\rangle_t}{(\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t)\rangle_t)^2}
+= \frac{\langle I(t) I(t+\tau)\rangle_t}{(\langle I(t) \rangle_t)^2}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I(t)=\mathbf{E}^{*}(t)\cdot \mathbf{E}(t)\)</span> is the intensity of the field and <span class="math notranslate nohighlight">\(\langle\cdots\rangle_t\)</span> indicates average over time <span class="math notranslate nohighlight">\(t\)</span>.   We have use the complex expression of the electric fields for mathematical convenience.</p>
+<p>Usually, the correlation vanishes for a large <span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t+\tau)\rangle_t \rightarrow (\langle \mathbf{E}(t) \rangle_t)^2 = 0\)</span> and <span class="math notranslate nohighlight">\(\langle I(t) I(t+\tau)\rangle_t = (\langle I(t) \rangle_t)^2\)</span>, from which we obatin.</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{\tau\rightarrow\infty} g^{(1)}(\tau) = 0
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{\tau\rightarrow\infty} g^{(2)}(\tau) = 1
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is very important to keep it in our mind that the measurement is done at a certain fixed point in space, which is not explicitly written in the above expression. <span class="math notranslate nohighlight">\(g^{(1)}(\tau)\)</span> and <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> can
+strongly depend on the location.</p>
+</div>
+<p>The fist-order correlation provides information about the oscillatory behavior of the field through its Fourier transform known as power spectrum (Wiener–Khinchin theorem):</p>
+<div class="math notranslate nohighlight">
+\[
+I(\omega) = \frac{1}{2\pi} \int_{-\infty}^\infty g^{(1)}(\tau) e^{-i \omega \tau} d\tau
+\]</div>
+<p>In other words, the first-order correlation gives us frequency distribution of the light.</p>
+<p>While <span class="math notranslate nohighlight">\(g^{(1)}(0)=1\)</span> is always true, the value of <span class="math notranslate nohighlight">\(g^{(2)}(0)\)</span> varies depending on the character of light.  Introducing mean intensity <span class="math notranslate nohighlight">\(I = \langle I(t) \rangle_t\)</span> and the deviation from it as</p>
+<div class="math notranslate nohighlight">
+\[
+(\Delta I)^{2} = \langle I^{2}(t) \rangle_t - I^{2}
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+g^{(2)}(0) = \frac{\langle I^{2}(t)\rangle_t}{(\langle I(t) \rangle_t)^2} = 1 + \left(\frac{\Delta I}{I}\right)^{2}
+\]</div>
+<p>which suggests that <span class="math notranslate nohighlight">\(g^{(2)}(0) \ge 1\)</span>. If and only if <span class="math notranslate nohighlight">\(\Delta I =0\)</span>, then <span class="math notranslate nohighlight">\(g^{(2)}(0)=1\)</span>.  This means that if an experiment data shows <span class="math notranslate nohighlight">\(g^{(2)}(0)=1\)</span> then the light intensity is not fluctuating.
+It turns out that negative value of <span class="math notranslate nohighlight">\(g^{(2)}(0)\)</span> has been observed<span id="id1">[<a class="reference internal" href="../references/references.html#id20" title="H. J. Kimble, M. Dagenais, and L. Mandel. Photon antibunching in resonance fluorescence. Phys. Rev. Lett., 39:691–695, Sep 1977. doi:10.1103/PhysRevLett.39.691.">Kimble <em>et al.</em>, 1977</a>, <a class="reference internal" href="../references/references.html#id21" title="P. Grangier, G. Roger, and A. Aspect. Experimental evidence for a photon anticorrelation effect on a beam splitter: a new light on single-photon interferences. Europhysics Letters, 1(4):173, feb 1986. doi:10.1209/0295-5075/1/4/004.">Grangier <em>et al.</em>, 1986</a>]</span> in violation of the above discussion.  Such results can be explained only with quantum mechanics.</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">1.2. </span>Photon counting statistics<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>In the classical theory, the light is described as continuous fields. The situation changes dramatically in the quantum theory of light.  The light is no longer continuous.  It consists of photons.
+When a photon arrives at a detector, its arrival time is recorded.  After many photons arrived, the history of photon arrival is recorded as a time sequence. We are interested in the time intervals between two successive photon arrivals.  The statistical distribution of the intervals tells us how the photons are generated.</p>
 <ol class="arabic simple">
 <li><p>Poisson distribution:   Photons arrive independently at a constant average rate, and the variance in counts equals the mean.</p></li>
 <li><p>Super-poissonian distribution:  Photons tend to bunch together, leading to a variance that is larger than the mean.</p></li>
@@ -437,14 +489,14 @@
 <p>To determine the type of distribution, various temporal correlation functions are measured.  Our goal is to predict the temporal correlation functions  using quantum master equations or stochastic methods.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There is an important remark in place.   Popular theoretical approaches seen in books and papersdo not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, experimental data show that both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device.<span id="id1">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">Wolf <em>et al.</em>, 2020</a>]</span>.</p>
+<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, experimental data show that both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device.<span id="id3">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">Wolf <em>et al.</em>, 2020</a>]</span>.</p>
 </div>
 </section>
 <section id="first-order-correlation">
-<h2><span class="section-number">1.2. </span>First-order correlation<a class="headerlink" href="#first-order-correlation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>First-order correlation<a class="headerlink" href="#first-order-correlation" title="Link to this heading">#</a></h2>
 </section>
 <section id="second-order-correlation">
-<h2><span class="section-number">1.3. </span>Second-order correlation<a class="headerlink" href="#second-order-correlation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Second-order correlation<a class="headerlink" href="#second-order-correlation" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -514,9 +566,10 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-types-of-statistics">1.1. Three types of statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-correlation">1.2. First-order correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-correlation">1.3. Second-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-of-classical-lights">1.1. Intensity of classical lights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2. Photon counting statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-correlation">1.3. First-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-correlation">1.4. Second-order correlation</a></li>
 </ul>
   </nav></div>
 
