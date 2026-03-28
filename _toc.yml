@@ -11,7 +11,10 @@ parts:
 -  caption: Photons from a cluster of quantum dots
    numbered: true
    chapters:
-   -  file: detection/counting
+   -  file: detection/intro
+      sections:
+      -  file: detection/classical-lights
+      -  file: detection/quantum-lights
    -  file: monomer/intro
       sections:
       -  file: monomer/model
