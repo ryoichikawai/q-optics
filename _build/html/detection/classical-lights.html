@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.1. Classical lights &#8212; Computational Methods for Physics with Python.</title>
+    <title>1.1. Detection of classical lights &#8212; Computational Methods for Physics with Python.</title>
   
   
   
@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'detection/classical-lights';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.2. Quantum lights" href="quantum-lights.html" />
+    <link rel="next" title="1.2. Detection of quantum lights" href="quantum-lights.html" />
     <link rel="prev" title="1. Photon counting statistics" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,8 +177,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Photons from a cluster of quantum dots</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">1. Photon counting statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. Classical lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quantum-lights.html">1.2. Quantum lights</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. Detection of classical lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum-lights.html">1.2. Detection of quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="photon-measurement.html">1.3. Quantum measurement of photons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">2. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -252,7 +254,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/ryoichikawai/comp-phys/blob/main/detection/classical-lights.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/ryoichikawai/q-optics/blob/main/detection/classical-lights.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/ryoichikawai/comp-phys" target="_blank"
+      <li><a href="https://github.com/ryoichikawai/q-optics" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/ryoichikawai/comp-phys/issues/new?title=Issue%20on%20page%20%2Fdetection/classical-lights.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ryoichikawai/q-optics/issues/new?title=Issue%20on%20page%20%2Fdetection/classical-lights.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +408,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Classical lights</h1>
+    <h1>Detection of classical lights</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,6 +420,7 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-of-classical-lights">1.1.1. Intensity of classical lights</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-delay-correlation">1.1.2. No-delay correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-little-history-of-quantum-optics">1.1.3. A little history of quantum optics</a></li>
 </ul>
             </nav>
         </div>
@@ -429,18 +432,18 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="classical-lights">
-<h1><span class="section-number">1.1. </span>Classical lights<a class="headerlink" href="#classical-lights" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="detection-of-classical-lights">
+<span id="sec-classical-lights"></span><h1><span class="section-number">1.1. </span>Detection of classical lights<a class="headerlink" href="#detection-of-classical-lights" title="Link to this heading">#</a></h1>
 <section id="intensity-of-classical-lights">
 <h2><span class="section-number">1.1.1. </span>Intensity of classical lights<a class="headerlink" href="#intensity-of-classical-lights" title="Link to this heading">#</a></h2>
 <p>In the classical theory, light is electromagnetic wave which is continuous in space and time. Mathematically, it is expressed as vector field <span class="math notranslate nohighlight">\(\mathbf{E}(\mathbf{x},t)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}(\mathbf{x},t)\)</span> Its character is measured with two temporal correlation functions, the first-order and second-order correlation defined respectively by</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-g1-classical">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-g1-classical" title="Link to this equation">#</a></span>\[
 g^{(1)}(\tau) = \frac{\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t+\tau)\rangle_t}{\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t)\rangle_t} = \frac{\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t+\tau)\rangle_t}{\langle I(t) \rangle_t}
 \]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-g2-classical">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-g2-classical" title="Link to this equation">#</a></span>\[
 g^{(2)}(\tau) = \frac{\langle\left[\mathbf{E}^{*}(t) \cdot \mathbf{E}(t)\right]\left[\mathbf{E}^{*}(t+\tau) \cdot \mathbf{E}(t+\tau)\right]\rangle_t}{(\langle\mathbf{E}^{*}(t) \cdot \mathbf{E}(t)\rangle_t)^2}
 = \frac{\langle I(t) I(t+\tau)\rangle_t}{(\langle I(t) \rangle_t)^2}
 \]</div>
@@ -480,8 +483,20 @@ While <span class="math notranslate nohighlight">\(g^{(1)}(0)=1\)</span> is alwa
 \[
 g^{(2)}(0) = \frac{\langle I^{2}(t)\rangle_t}{(\langle I(t) \rangle_t)^2} = 1 + \left(\frac{\Delta I}{I}\right)^{2}
 \]</div>
-<p>which suggests that <span class="math notranslate nohighlight">\(g^{(2)}(0) \ge 1\)</span>. If and only if <span class="math notranslate nohighlight">\(\Delta I =0\)</span>, then <span class="math notranslate nohighlight">\(g^{(2)}(0)=1\)</span>.  This means that if an experiment data shows <span class="math notranslate nohighlight">\(g^{(2)}(0)=1\)</span> then the light intensity is not fluctuating.
-It turns out that negative value of <span class="math notranslate nohighlight">\(g^{(2)}(0)\)</span> has been observed<span id="id1">[<a class="reference internal" href="../references/references.html#id20" title="H. J. Kimble, M. Dagenais, and L. Mandel. Photon antibunching in resonance fluorescence. Phys. Rev. Lett., 39:691–695, Sep 1977. doi:10.1103/PhysRevLett.39.691.">Kimble <em>et al.</em>, 1977</a>, <a class="reference internal" href="../references/references.html#id21" title="P. Grangier, G. Roger, and A. Aspect. Experimental evidence for a photon anticorrelation effect on a beam splitter: a new light on single-photon interferences. Europhysics Letters, 1(4):173, feb 1986. doi:10.1209/0295-5075/1/4/004.">Grangier <em>et al.</em>, 1986</a>]</span> in violation of the above discussion.  Such results can be explained only with quantum mechanics.</p>
+<p>which suggests that <span class="math notranslate nohighlight">\(g^{(2)}(0) \ge 1\)</span>.</p>
+<p>The positive correlation suggests that  This was first confirmed by Hanbury Brown and Twiss.<span id="id1">[<a class="reference internal" href="../references/references.html#id28" title="R. Hanbury Brown and R. Q. Twiss. Correlation between photons in two coherent beams of light. Nature, 177(4497):27–29, 1956. doi:10.1038/177027a0.">1</a>]</span>  with the advent of modern experimental technique,  cleaner results have been obtained.<span id="id2">[<a class="reference internal" href="../references/references.html#id25" title="P. K. Tan, G. H. Yeo, H. S. Poh, A. H. Chan, and C. Kurtsiefer. Measuring temporal photon bunching in blackbody radiation. The Astrophysical Journal Letters, 789(1):L10, jun 2014. doi:10.1088/2041-8205/789/1/L10.">2</a>, <a class="reference internal" href="../references/references.html#id30" title="P. K. Tan and C. Kurtsiefer. Temporal intensity interferometry for characterization of very narrow spectral lines. Monthly Notices of the Royal Astronomical Society, 469(2):1617-1621, 04 2017. doi:10.1093/mnras/stx968.">3</a>]</span>    If and only if <span class="math notranslate nohighlight">\(\Delta I =0\)</span>, then <span class="math notranslate nohighlight">\(g^{(2)}(0)=1\)</span>.  This means that if an experiment data shows <span class="math notranslate nohighlight">\(g^{(2)}(0)=1\)</span> then the light intensity is not fluctuating.
+It turns out that negative value of <span class="math notranslate nohighlight">\(g^{(2)}(0)\)</span> has been observed<span id="id3">[<a class="reference internal" href="../references/references.html#id20" title="H. J. Kimble, M. Dagenais, and L. Mandel. Photon antibunching in resonance fluorescence. Phys. Rev. Lett., 39:691–695, Sep 1977. doi:10.1103/PhysRevLett.39.691.">4</a>, <a class="reference internal" href="../references/references.html#id21" title="P. Grangier, G. Roger, and A. Aspect. Experimental evidence for a photon anticorrelation effect on a beam splitter: a new light on single-photon interferences. Europhysics Letters, 1(4):173, feb 1986. doi:10.1209/0295-5075/1/4/004.">5</a>]</span> in violation of the above discussion.  Such results can be explained only with quantum mechanics.</p>
+</section>
+<section id="a-little-history-of-quantum-optics">
+<h2><span class="section-number">1.1.3. </span>A little history of quantum optics<a class="headerlink" href="#a-little-history-of-quantum-optics" title="Link to this heading">#</a></h2>
+<p>In 1954, Hanbury Brown and Twiss proposed a new type of interferometer.<span id="id4">[<a class="reference internal" href="../references/references.html#id29" title="R. Hanbury Brown and R.Q. Twiss. A new type of interferometer for use in radio astronomy. The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science, 45(366):663–682, 1954. doi:10.1080/14786440708520475.">6</a>]</span> Light from a single source is split in half, a half light goes to a detector and the other half to another detector.  The time-delayed correlation of the intensity fluctuation is measured between the two detectors. In 1956, they carried out the proposed experiment and observed strong correlation between the two detectors, especially at no time-delay.<span id="id5">[<a class="reference internal" href="../references/references.html#id28" title="R. Hanbury Brown and R. Q. Twiss. Correlation between photons in two coherent beams of light. Nature, 177(4497):27–29, 1956. doi:10.1038/177027a0.">1</a>]</span>  The result is known as Hanbury Brown and Twiss effect.  Essentially, this experiment confirmed that <span class="math notranslate nohighlight">\(g^(2)(0) &gt; 1\)</span>. The results were seemingly obvious from the classical theory since the same light just took two separate paths.  But in 1950s, physicists were all excited by the success of quantum mechanics including photons. Many of them learned quantum mechanics from  Dirac’s book “The principle of Quantum Mechanics” which said  “Each photon interferes only with itself.”  Based on this, the results of Hanbury Brown and Twiss experiment was unacceptable to them. The two detectors are measuring two different group of photons which are independent to each other.</p>
+<p>The controversy was resolved by Fano<span id="id6">[<a class="reference internal" href="../references/references.html#id26" title="U. Fano. Quantum theory of interference effects in the mixing of light from phase-independent sources. American Journal of Physics, 29(8):539-545, 08 1961. doi:10.1119/1.1937827.">7</a>]</span>.  Two photons can be coherent if they are indistinguishable.  Suppose that photons <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are detected respectively by detectors <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.  The probability that happens can be written as <span class="math notranslate nohighlight">\(|\langle AB| ab\rangle|^2\)</span>. There is another possiblity that photon <span class="math notranslate nohighlight">\(a\)</span> goes to <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to <span class="math notranslate nohighlight">\(A\)</span>. In other words, the state of photon must be \frac{1}{\sqrt{2}} \left(|ab\rangle + |ba\rangle$ since they are bosons.  Then, the probability that the two detectors find photons are</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{2} \left | \langle AB | (|ab\rangle + |ba\rangle ) \right |^2 = \frac{1}{2} \left(|\langle AB|ab\rangle|^2 + |\langle AB|ba\rangle|^2 \right) + \text{Re} \langle AB | ab \rangle \langle ba | AB\rangle
+\]</div>
+<p>Due to the interference term, the probability increases.   Therefore, two photons interfere themselves. Notice that the Dirac’s statement is not violated. Note also that if the particles were fermions, then the inteference term is negative and thus the correlation is reduced, which has been confirmed.</p>
+<p>Immediately after Hanbury Brown and Twiss physicists realized that a better theory on the coherence of light was urgently needed and modern quantum optics was born.<span id="id7">[<a class="reference internal" href="../references/references.html#id24" title="R. J. Glauber. Coherence and quantum detection. In R. J. Glauber, editor, Quantum Optics, 15-56. New York, 1969. Academic Press. Reprinted in Quantum Theory of Optical Coherence (Wiley-VHC, 2007). doi:10.1002/9783527610075.ch11.">8</a>]</span>. While the Hanbury Brown and Twiss effect can be easily explained by the classical theory of light, it initiated the modern quantum optics and even now their method is used.</p>
 </section>
 </section>
 
@@ -529,7 +544,7 @@ It turns out that negative value of <span class="math notranslate nohighlight">\
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.2. </span>Quantum lights</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>Detection of quantum lights</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -553,6 +568,7 @@ It turns out that negative value of <span class="math notranslate nohighlight">\
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-of-classical-lights">1.1.1. Intensity of classical lights</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-delay-correlation">1.1.2. No-delay correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-little-history-of-quantum-optics">1.1.3. A little history of quantum optics</a></li>
 </ul>
   </nav></div>
 

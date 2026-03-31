@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.2. Quantum lights &#8212; Computational Methods for Physics with Python.</title>
+    <title>1.2. Detection of quantum lights &#8212; Computational Methods for Physics with Python.</title>
   
   
   
@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'detection/quantum-lights';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. A single two-level system" href="../monomer/intro.html" />
-    <link rel="prev" title="1.1. Classical lights" href="classical-lights.html" />
+    <link rel="next" title="1.3. Quantum measurement of photons" href="photon-measurement.html" />
+    <link rel="prev" title="1.1. Detection of classical lights" href="classical-lights.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -177,8 +177,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Photons from a cluster of quantum dots</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">1. Photon counting statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="classical-lights.html">1.1. Classical lights</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classical-lights.html">1.1. Detection of classical lights</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Detection of quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="photon-measurement.html">1.3. Quantum measurement of photons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">2. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -252,7 +254,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/ryoichikawai/comp-phys/blob/main/detection/quantum-lights.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/ryoichikawai/q-optics/blob/main/detection/quantum-lights.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/ryoichikawai/comp-phys" target="_blank"
+      <li><a href="https://github.com/ryoichikawai/q-optics" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/ryoichikawai/comp-phys/issues/new?title=Issue%20on%20page%20%2Fdetection/quantum-lights.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ryoichikawai/q-optics/issues/new?title=Issue%20on%20page%20%2Fdetection/quantum-lights.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +408,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Quantum lights</h1>
+    <h1>Detection of quantum lights</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,9 +418,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#photon-counting-statistics">1.2.1. Photon counting statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-correlation">1.2.2. First-order correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-correlation">1.2.3. Second-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-counting-statistics">1.2.1. Full counting statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bunching-and-anti-bunching">1.2.2. Bunching and Anti-bunching</a></li>
 </ul>
             </nav>
         </div>
@@ -430,12 +431,14 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="quantum-lights">
-<h1><span class="section-number">1.2. </span>Quantum lights<a class="headerlink" href="#quantum-lights" title="Link to this heading">#</a></h1>
-<section id="photon-counting-statistics">
-<h2><span class="section-number">1.2.1. </span>Photon counting statistics<a class="headerlink" href="#photon-counting-statistics" title="Link to this heading">#</a></h2>
-<p>In the classical theory, the light is described as continuous fields. The situation changes dramatically in the quantum theory of light.  The light is no longer continuous.  It consists of photons.  Hence, quantum optics experiments measure photons rather than electric fields.<br />
-When a photon arrives at a detector, its arrival time is recorded.  More photons are detected during a fixed time periods,  stronger is the light.     After many photons arrived, the history of photon arrival is recorded as a time sequence. We are interested in the time intervals between two successive photon arrivals (known as waiting time).  The statistical distribution of the intervals tells us the certain characters of the light beam.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="detection-of-quantum-lights">
+<span id="sec-quantum-lights"></span><h1><span class="section-number">1.2. </span>Detection of quantum lights<a class="headerlink" href="#detection-of-quantum-lights" title="Link to this heading">#</a></h1>
+<section id="full-counting-statistics">
+<h2><span class="section-number">1.2.1. </span>Full counting statistics<a class="headerlink" href="#full-counting-statistics" title="Link to this heading">#</a></h2>
+<p>In the classical theory, the light is described as continuous fields. The quantum light consists of photons and thus it is  discrete. Hence, modern quantum optics experiments measure individual photons rather than the continuous electric fields.<br />
+When a photon arrives at a detector, its arrival time is recorded.  More photons are detected during a fixed time periods,  stronger is the light.</p>
+<p>After many photons arrived, the history of photon arrival is recorded as a time sequence. We are interested in the time intervals between two successive photon arrivals (known as waiting time).  The statistical distribution of the intervals tells us the certain characters of the light beam.</p>
+<p>In this section, we assume that <em>photons are all in a single mode</em>.<a class="footnote-reference brackets" href="#note-mode" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <ol class="arabic simple">
 <li><p>Poisson distribution:   Photons arrive independently at a constant average rate. The variance in its intensity equals the mean.</p></li>
 <li><p>Super-poissonian distribution:  Photons tend to arrive together in bunch during a short period of time (bunching) but it takes a longer time before a next bunch arrive. Statistically a variance of the intensity is larger than the mean.</p></li>
@@ -461,8 +464,10 @@ When <span class="math notranslate nohighlight">\(k=1\)</span>, the fluctuation 
 <p>In the following figure, three distributions with <span class="math notranslate nohighlight">\(k=1\)</span>, <span class="math notranslate nohighlight">\(k=0.5\)</span>, and <span class="math notranslate nohighlight">\(k=2.0\)</span> are plotted.  <span class="math notranslate nohighlight">\(\lambda\)</span> is chosen such that all distribution have the same mean value (dashed line) so that the width of the distribution (fluctuation) can be compared.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">myst_nb</span><span class="w"> </span><span class="kn">import</span> <span class="n">glue</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
 
 <span class="c1"># all three distributions have the same mean value</span>
 <span class="n">mean</span><span class="o">=</span><span class="mi">1</span>
@@ -474,8 +479,9 @@ When <span class="math notranslate nohighlight">\(k=1\)</span>, the fluctuation 
 
 <span class="c1"># subpoisson distribution k=2</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">dist_subpoisson</span><span class="p">(</span><span class="n">tau</span><span class="p">):</span>
-    <span class="n">lam</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">mean</span>
-    <span class="k">return</span> <span class="n">lam</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span><span class="o">*</span><span class="n">tau</span><span class="p">)</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">lam</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="n">mean</span>
+    <span class="k">return</span> <span class="n">lam</span><span class="o">**</span><span class="n">k</span> <span class="o">*</span> <span class="n">tau</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span><span class="o">*</span><span class="n">tau</span><span class="p">)</span>
 
 <span class="c1"># superpoisson distribution k=1/2</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">dist_superpoisson</span><span class="p">(</span><span class="n">tau</span><span class="p">):</span>
@@ -493,27 +499,37 @@ When <span class="math notranslate nohighlight">\(k=1\)</span>, the fluctuation 
 <span class="n">subpoisson</span> <span class="o">=</span> <span class="n">dist_subpoisson</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
 <span class="n">superpoisson</span> <span class="o">=</span> <span class="n">dist_superpoisson</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="n">poisson</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;poissonian&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="n">superpoisson</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;super-poissonian&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="n">subpoisson</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;sub-poissonian&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$p(\tau)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;0.8&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="n">poisson</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;poissonian&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="n">superpoisson</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;super-poissonian&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="n">subpoisson</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;sub-poissonian&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;0.8&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$p(\tau)$&quot;</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;plot-waiting-times&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</div>
+<figure class="align-default" id="fig-waiting-times">
 <img alt="../_images/70513403aadbd52c206aac49cc72e8b982559ddc37f6f41640d0661e3c508082.png" src="../_images/70513403aadbd52c206aac49cc72e8b982559ddc37f6f41640d0661e3c508082.png" />
-</div>
-</div>
-<p>In the above plot, notice that <span class="math notranslate nohighlight">\(p(0)=0\)</span> for subpoissonian. That means the chance that two photon arrive at the same time is null for distribution, suggesting anti-bunching behavior.  On the other hand, <span class="math notranslate nohighlight">\(\lim_{\tau\rightarrow 0}p(\tau) = \infty\)</span> for the superpoissonian case.  Then, the chance that two or more photons arrive at the same time is huge, suggesting bunching behavior.</p>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Wating time distributions.</span><a class="headerlink" href="#fig-waiting-times" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the above plot, notice that <span class="math notranslate nohighlight">\(p(0)=0\)</span> for the subpoissonian distribution. That means the chance that two photons arrive at the same time is null.  On the other hand, the superpoissonian distribution has <span class="math notranslate nohighlight">\(\lim_{\tau\rightarrow 0}p(\tau) = \infty\)</span>, suggesting that the chance of two or more photons arriving at the same time is high.  In between, the poisson distribution has <span class="math notranslate nohighlight">\(p(0)=1\)</span>.</p>
 <p>The spike plots in the following figure shows simulated arrival times of photons at the detector using the above three distributions.</p>
+</section>
+<section id="bunching-and-anti-bunching">
+<h2><span class="section-number">1.2.2. </span>Bunching and Anti-bunching<a class="headerlink" href="#bunching-and-anti-bunching" title="Link to this heading">#</a></h2>
+<p>We try to visualize what we found in the previous section. the arrival times of photons are simulated as the Gamma renewal processes.  In the following figure, the arrival of a photon is plotted as a spike.  About 100 photons are detected for each probability distribution.  The same parameter values is used as in Figure <a class="reference internal" href="#fig-waiting-times"><span class="std std-numref">Fig. 1.1</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">myst_nb</span><span class="w"> </span><span class="kn">import</span> <span class="n">glue</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># reset random number</span>
@@ -535,11 +551,12 @@ When <span class="math notranslate nohighlight">\(k=1\)</span>, the fluctuation 
         <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>    
 
-<span class="n">spikes_poisson</span> <span class="o">=</span> <span class="n">spike_train</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">spikes_subpoisson</span> <span class="o">=</span> <span class="n">spike_train</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spikes_superpoisson</span> <span class="o">=</span> <span class="n">spike_train</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">tmax</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">spikes_poisson</span> <span class="o">=</span> <span class="n">spike_train</span><span class="p">(</span><span class="n">tmax</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">spikes_subpoisson</span> <span class="o">=</span> <span class="n">spike_train</span><span class="p">(</span><span class="n">tmax</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">spikes_superpoisson</span> <span class="o">=</span> <span class="n">spike_train</span><span class="p">(</span><span class="n">tmax</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of photons detected during time period 100&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of photons detected during time period of &quot;</span><span class="p">,</span><span class="n">tmax</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  sub-poisson =&quot;</span><span class="p">,</span><span class="n">spikes_subpoisson</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;      poisson =&quot;</span><span class="p">,</span><span class="n">spikes_poisson</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;super-poisson =&quot;</span><span class="p">,</span><span class="n">spikes_superpoisson</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
@@ -552,30 +569,35 @@ When <span class="math notranslate nohighlight">\(k=1\)</span>, the fluctuation 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">&quot;super-poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;sub-poisson&quot;</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;plot-spike-trains&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of photons detected during time period 100
-  sub-poisson = 98
-      poisson = 86
-super-poisson = 99
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of photons detected during time period of  100
+  sub-poisson = 107
+      poisson = 95
+super-poisson = 130
 </pre></div>
 </div>
-<img alt="../_images/46e25b67490fe5ac034ac60958bdb0b2b645d3c09136401965aad63c75d0ca08.png" src="../_images/46e25b67490fe5ac034ac60958bdb0b2b645d3c09136401965aad63c75d0ca08.png" />
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, experimental data show that both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device.<span id="id1">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">Wolf <em>et al.</em>, 2020</a>]</span>.</p>
-</div>
-</section>
-<section id="first-order-correlation">
-<h2><span class="section-number">1.2.2. </span>First-order correlation<a class="headerlink" href="#first-order-correlation" title="Link to this heading">#</a></h2>
-</section>
-<section id="second-order-correlation">
-<h2><span class="section-number">1.2.3. </span>Second-order correlation<a class="headerlink" href="#second-order-correlation" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="fig-photon-arrival-times">
+<img alt="../_images/cc7c6dcadd0f9c1fb721f2b955a8ba447bf665c36989070da2347323a517472d.png" src="../_images/cc7c6dcadd0f9c1fb721f2b955a8ba447bf665c36989070da2347323a517472d.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Three different statistics of photon arrival times.</span><a class="headerlink" href="#fig-photon-arrival-times" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Roughly speaking the spikes are spread evenly for the sub-poissonian distribution, indicating that photons arrive constantly with little fluctuation.  For super-poissonian distribution, on the other hand, wide gaps between spikes can be seen and photons tend to arrive together in clusters .  Since photons in coherent laser is known to obey the poisson distribution, we consider it as a reference.  The tendency that photons in the super-poissonian distribution arrive together in clusters with respect to photons in  the poisson distribution is known as <em>photon bunching</em>.  In the opposite direction, the tendency that photons in the sub-poissonian distribution arrive constantly is called <em>photon anti-bunching</em>.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="note-mode" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>A single mode of photons is defined as a specific quantum state of the electromagnetic field characterized by a unique, discrete spatial structure, polarization, and frequency or a precise superpostion of frequencies.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -615,15 +637,15 @@ super-poisson = 99
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>Classical lights</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Detection of classical lights</p>
       </div>
     </a>
     <a class="right-next"
-       href="../monomer/intro.html"
+       href="photon-measurement.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>A single two-level system</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Quantum measurement of photons</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -645,9 +667,8 @@ super-poisson = 99
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#photon-counting-statistics">1.2.1. Photon counting statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-correlation">1.2.2. First-order correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-correlation">1.2.3. Second-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-counting-statistics">1.2.1. Full counting statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bunching-and-anti-bunching">1.2.2. Bunching and Anti-bunching</a></li>
 </ul>
   </nav></div>
 

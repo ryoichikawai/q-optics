@@ -176,7 +176,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Photons from a cluster of quantum dots</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../detection/counting.html">1. Photon Counting Statistics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Detection of quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/photon-measurement.html">1.3. Quantum measurement of photons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">2. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../monomer/model.html">2.1. Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../monomer/steady_state.html">2.2. Steady state solution</a></li>
@@ -248,7 +254,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/ryoichikawai/comp-phys/blob/main/dimer/intro.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/ryoichikawai/q-optics/blob/main/dimer/intro.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/ryoichikawai/comp-phys" target="_blank"
+      <li><a href="https://github.com/ryoichikawai/q-optics" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/ryoichikawai/comp-phys/issues/new?title=Issue%20on%20page%20%2Fdimer/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ryoichikawai/q-optics/issues/new?title=Issue%20on%20page%20%2Fdimer/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -416,7 +422,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-pair-of-identical-quantum-dots">
 <h1><span class="section-number">3. </span>A pair of identical quantum dots<a class="headerlink" href="#a-pair-of-identical-quantum-dots" title="Link to this heading">#</a></h1>
-<p>In this chapter, we consider a pair of identical quantum dots. We shall call the pair a dimer.  In addition to absorption and emission of photons by individual QDs,  collective processes carried out jointly and coherently by the two QDs are expected to happen.  They are theoretically investigated by pioneering work  <span id="id1">[<a class="reference internal" href="../references/references.html#id17" title="R. H. Lehmberg. Radiation from an $n$-atom system. ii. spontaneous emission from a pair of atoms. Phys. Rev. A, 2:889–896, Sep 1970. doi:10.1103/PhysRevA.2.889.">Lehmberg, 1970</a>]</span> and <span id="id2">[<a class="reference internal" href="../references/references.html#id15" title="G. S. Agarwal. Master-equation approach to spontaneous emission. Phys. Rev. A, 2:2038–2046, Nov 1970. doi:10.1103/PhysRevA.2.2038.">Agarwal, 1970</a>]</span>.  Since then, quantum master equations become a standard method to study the coupled systems, which we also use in this chapter.</p>
+<p>In this chapter, we consider a pair of identical quantum dots. We shall call the pair a dimer.  In addition to absorption and emission of photons by individual QDs,  collective processes carried out jointly and coherently by the two QDs are expected to happen.  They are theoretically investigated by pioneering work  <span id="id1">[<a class="reference internal" href="../references/references.html#id17" title="R. H. Lehmberg. Radiation from an $n$-atom system. ii. spontaneous emission from a pair of atoms. Phys. Rev. A, 2:889–896, Sep 1970. doi:10.1103/PhysRevA.2.889.">5</a>]</span> and <span id="id2">[<a class="reference internal" href="../references/references.html#id15" title="G. S. Agarwal. Master-equation approach to spontaneous emission. Phys. Rev. A, 2:2038–2046, Nov 1970. doi:10.1103/PhysRevA.2.2038.">6</a>]</span>.  Since then, quantum master equations become a standard method to study the coupled systems, which we also use in this chapter.</p>
 <p>The state of the dimer is described by the four-dimensional Hilbert space and the corresponding density matrix is <span class="math notranslate nohighlight">\(4 \times 4\)</span>.  If the QDs are completely independent from each other, photons are also emitted independently from each QD.</p>
 <p>There are two possible ways that the two QDs  are coupled.  First of all, if two QDs directly interact through some mechanism such as the dipole-dipole interaction, the Hamiltonian of the system contains an interaction term <span class="math notranslate nohighlight">\(H_{int}\)</span>.  The net Hamiltonian looks like
 $<span class="math notranslate nohighlight">\(
