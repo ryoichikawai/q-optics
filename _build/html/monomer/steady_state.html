@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.2. Steady state solution &#8212; Computational Methods for Physics with Python.</title>
+    <title>3.2. Steady State &#8212; Computational Methods for Physics with Python.</title>
   
   
   
@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'monomer/steady_state';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. A pair of identical quantum dots" href="../dimer/intro.html" />
-    <link rel="prev" title="2.1. Model" href="model.html" />
+    <link rel="next" title="4. A pair of identical quantum dots" href="../dimer/intro.html" />
+    <link rel="prev" title="3.1. Model" href="model.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -183,13 +183,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. A single two-level system</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="model.html">2.1. Model</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Steady state solution</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum mechanics approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../openqm/lindblad.html">2.1. Quantum master equation (Lindblad equation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openqm/jumps.html">2.2. Stochstic jumps (quantum trajectory)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">3. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">3.1. Numerical calculation</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">3. A single two-level system</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">3.1. Model</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Steady State</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
 </ul>
 </details></li>
 </ul>
@@ -241,6 +246,37 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ryoichikawai/q-optics/blob/main/monomer/steady_state.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -301,7 +337,7 @@
       
       
       
-      <li><a href="../_sources/monomer/steady_state.md" target="_blank"
+      <li><a href="../_sources/monomer/steady_state.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +347,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -377,7 +413,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Steady state solution</h1>
+    <h1>Steady State</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,10 +423,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements">2.2.1. Matrix elements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">2.2.1.1. Case 1: Thermal state</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">2.2.1.2. Case 2: resonant fluorescence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">2.2.1.3. Case 3: Off-resonance fluorescence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements">3.2.1. Matrix elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">3.2.1.1. Case 1: Thermal state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">3.2.1.2. Case 2: resonant fluorescence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">3.2.1.3. Case 3: Off-resonance fluorescence</a></li>
 </ul>
 </li>
 </ul>
@@ -404,12 +440,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="steady-state-solution">
-<h1><span class="section-number">2.2. </span>Steady state solution<a class="headerlink" href="#steady-state-solution" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="steady-state">
+<h1><span class="section-number">3.2. </span>Steady State<a class="headerlink" href="#steady-state" title="Link to this heading">#</a></h1>
 <p>Now we solve the quantum master equation.  Under the presence of dissipation, the system is expected to approach a steady state.  Our goal is to find the steady state.  The quantum master equations is an ordinary differential equation for a density matrix.  It is not difficult to solve it numerically.  For two-dimensional Hilbert space, the equation can be solved analytically.  There is a beautiful method known as the Bloch equation.  However, it works only for two-dimensional Hilbert space.  We first solve the master equation for matrix elements, extension to the higher dimension is in mind.  Then, solve it again using the Bloch equation.</p>
 <p>Here after, we assume <span class="math notranslate nohighlight">\(\hbar=1\)</span>.</p>
 <section id="matrix-elements">
-<h2><span class="section-number">2.2.1. </span>Matrix elements<a class="headerlink" href="#matrix-elements" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2.1. </span>Matrix elements<a class="headerlink" href="#matrix-elements" title="Link to this heading">#</a></h2>
 <p>The density matrix can be expressed in <span class="math notranslate nohighlight">\(2\times2\)</span> matrix.  Using <span class="math notranslate nohighlight">\(|g\rangle\)</span> and <span class="math notranslate nohighlight">\(|e\rangle\)</span> as basis set, the matrix elements are <span class="math notranslate nohighlight">\(\rho_{gg} = \langle g|\rho|g\rangle\)</span>, <span class="math notranslate nohighlight">\(\rho_{ee}=\langle e|\rho|e\rangle\)</span>, <span class="math notranslate nohighlight">\(\rho_{eg} = \langle e |\rho| g\rangle\)</span>, and <span class="math notranslate nohighlight">\(\rho_{ge} = \langle{g}|\rho|e\rangle\)</span>.  The master equation is just a coupled ODEs.  Since the off-diagonal elements are complex, it is a coupled ODEs of six real functions.  However, not all six functions are independent.  Using the normalization <span class="math notranslate nohighlight">\(\rho_{gg}+\rho_{ee}= 1\)</span>,  we can get rid of one matrix element. Furthermore, the density matrix is self-adjoint, and thus <span class="math notranslate nohighlight">\(\rho_{eg}=\rho_{ge}^{*}\)</span>.    Hence, only two matrix elements are independent.  For example, it is enough to compute <span class="math notranslate nohighlight">\(\rho_{ee}\)</span> and <span class="math notranslate nohighlight">\(\rho_{eg}\)</span>. We need only three differential equations for real functions, <span class="math notranslate nohighlight">\(Z\equiv\rho_{ee}\)</span>, <span class="math notranslate nohighlight">\(X\equiv\text{Re}~\rho_{eq}\)</span> and <span class="math notranslate nohighlight">\(Y\equiv\text{Im}~\rho_{eg}\)</span>.  Then, the matrix  elements are given by <span class="math notranslate nohighlight">\(\rho_{gg}=1-Z\)</span>, <span class="math notranslate nohighlight">\(\rho_{ee}=Z\)</span>, <span class="math notranslate nohighlight">\(\rho_{eg}=X+iY\)</span>, and <span class="math notranslate nohighlight">\(\rho_{ge}=X-iY\)</span>.  The equations for <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, and <span class="math notranslate nohighlight">\(Z\)</span> are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -461,7 +497,7 @@ X^{ss} \\ Y^{ss} \\ Z^{ss}
 \end{split}\]</div>
 <p>We first solve simple cases.</p>
 <section id="case-1-thermal-state">
-<h3><span class="section-number">2.2.1.1. </span>Case 1: Thermal state<a class="headerlink" href="#case-1-thermal-state" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.1.1. </span>Case 1: Thermal state<a class="headerlink" href="#case-1-thermal-state" title="Link to this heading">#</a></h3>
 <p>When no external drive is applied, the system relax to a thermal equilibrium.  Let <span class="math notranslate nohighlight">\(\Delta=0\)</span> and <span class="math notranslate nohighlight">\(\Omega=0\)</span>, The steady steady state solution is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -495,7 +531,7 @@ X^{ss} \\ Y^{ss} \\ Z^{ss}
 <p><span class="math notranslate nohighlight">\(X^{ss}=Y^{ss}=0\)</span> imply <span class="math notranslate nohighlight">\(\rho_{eg}^{ss}=\rho_{ge}^{ss}=0\)</span>.  <span class="math notranslate nohighlight">\(Z^{ss}=\rho_{ee}^{ss} = \frac{\gamma-\gamma_0}{2\gamma} = \frac{N}{2N+1} = \frac{1}{e^{\omega_0/T}+1}\)</span>, which is the probability of finding the atom in the excited state under the thermal equilibrium.  The last matrix element is <span class="math notranslate nohighlight">\(\rho_{gg} = 1-\rho_{ee} = \frac{e^{\omega_0/T}}{e^{\omega_0/T}+1}\)</span>.</p>
 </section>
 <section id="case-2-resonant-fluorescence">
-<h3><span class="section-number">2.2.1.2. </span>Case 2: resonant fluorescence<a class="headerlink" href="#case-2-resonant-fluorescence" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.1.2. </span>Case 2: resonant fluorescence<a class="headerlink" href="#case-2-resonant-fluorescence" title="Link to this heading">#</a></h3>
 <p>The external drive is tuned to the excitation energy, and thus <span class="math notranslate nohighlight">\(\Delta=0\)</span>.  Then, the equation becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -532,7 +568,7 @@ Y^{ss} \\ Z^{ss}
 \end{split}\]</div>
 </section>
 <section id="case-3-off-resonance-fluorescence">
-<h3><span class="section-number">2.2.1.3. </span>Case 3: Off-resonance fluorescence<a class="headerlink" href="#case-3-off-resonance-fluorescence" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.1.3. </span>Case 3: Off-resonance fluorescence<a class="headerlink" href="#case-3-off-resonance-fluorescence" title="Link to this heading">#</a></h3>
 <p>Now, we have to invert the full matrix, which can be done but needs a bit of algebra.  The result is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -577,16 +613,16 @@ Z^{ss} = \frac{\gamma\left(\gamma(\gamma-\gamma_0) + 2 \Omega^2\right)-4 \Delta^
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "book"
         },
         kernelOptions: {
-            name: "python3",
+            name: "book",
             path: "./monomer"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'book'</script>
 
                 </article>
               
@@ -604,7 +640,7 @@ Z^{ss} = \frac{\gamma\left(\gamma(\gamma-\gamma_0) + 2 \Omega^2\right)-4 \Delta^
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Model</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Model</p>
       </div>
     </a>
     <a class="right-next"
@@ -612,7 +648,7 @@ Z^{ss} = \frac{\gamma\left(\gamma(\gamma-\gamma_0) + 2 \Omega^2\right)-4 \Delta^
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>A pair of identical quantum dots</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>A pair of identical quantum dots</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -634,10 +670,10 @@ Z^{ss} = \frac{\gamma\left(\gamma(\gamma-\gamma_0) + 2 \Omega^2\right)-4 \Delta^
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements">2.2.1. Matrix elements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">2.2.1.1. Case 1: Thermal state</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">2.2.1.2. Case 2: resonant fluorescence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">2.2.1.3. Case 3: Off-resonance fluorescence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements">3.2.1. Matrix elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">3.2.1.1. Case 1: Thermal state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">3.2.1.2. Case 2: resonant fluorescence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">3.2.1.3. Case 3: Off-resonance fluorescence</a></li>
 </ul>
 </li>
 </ul>

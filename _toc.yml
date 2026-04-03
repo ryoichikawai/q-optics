@@ -17,6 +17,10 @@ parts:
       -  file: detection/quantum-lights
       -  file: detection/photon-measurement
       -  file: detection/quantum-correlations
+   -  file: openqm/intro
+      sections:
+      -  file: openqm/lindblad
+      -  file: openqm/jumps
    -  file: monomer/intro
       sections:
       -  file: monomer/model

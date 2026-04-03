@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. A single two-level system &#8212; Computational Methods for Physics with Python.</title>
+    <title>3. A single two-level system &#8212; Computational Methods for Physics with Python.</title>
   
   
   
@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'monomer/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1. Model" href="model.html" />
-    <link rel="prev" title="1.4. Quantum correlation functions" href="../detection/quantum-correlations.html" />
+    <link rel="next" title="3.1. Model" href="model.html" />
+    <link rel="prev" title="2.2. Stochstic jumps (quantum trajectory)" href="../openqm/jumps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -183,13 +183,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. A single two-level system</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="model.html">2.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="steady_state.html">2.2. Steady state solution</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum mechanics approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../openqm/lindblad.html">2.1. Quantum master equation (Lindblad equation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openqm/jumps.html">2.2. Stochstic jumps (quantum trajectory)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">3. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">3.1. Numerical calculation</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. A single two-level system</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html">3.1. Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steady_state.html">3.2. Steady State</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
 </ul>
 </details></li>
 </ul>
@@ -241,6 +246,37 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ryoichikawai/q-optics/blob/main/monomer/intro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -301,7 +337,7 @@
       
       
       
-      <li><a href="../_sources/monomer/intro.md" target="_blank"
+      <li><a href="../_sources/monomer/intro.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +347,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -390,7 +426,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-single-two-level-system">
-<h1><span class="section-number">2. </span>A single two-level system<a class="headerlink" href="#a-single-two-level-system" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>A single two-level system<a class="headerlink" href="#a-single-two-level-system" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -404,16 +440,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "book"
         },
         kernelOptions: {
-            name: "python3",
+            name: "book",
             path: "./monomer"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'book'</script>
 
                 </article>
               
@@ -426,12 +462,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../detection/quantum-correlations.html"
+       href="../openqm/jumps.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.4. </span>Quantum correlation functions</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Stochstic jumps (quantum trajectory)</p>
       </div>
     </a>
     <a class="right-next"
@@ -439,7 +475,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Model</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Model</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
