@@ -60,11 +60,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'openqm/lindblad';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.2. Stochstic jumps (quantum trajectory)" href="jumps.html" />
-    <link rel="prev" title="2. Open quantum mechanics approaches" href="intro.html" />
+    <link rel="prev" title="2. Open quantum system approaches" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -181,7 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum mechanics approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum system approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Quantum master equation (Lindblad equation)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jumps.html">2.2. Stochstic jumps (quantum trajectory)</a></li>
 </ul>
@@ -398,7 +400,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -414,6 +418,17 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-quantum-master-equation-a-summary">2.1.1. Derivation of quantum master equation - a summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-atom">2.1.2. A simple example - optical master equation for a two-level atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-equations">2.1.3. Bloch equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-master-equation-numerically-using-qutip">2.1.4. Solving a master equation numerically using QuTiP</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -425,6 +440,218 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quantum-master-equation-lindblad-equation">
 <h1><span class="section-number">2.1. </span>Quantum master equation (Lindblad equation)<a class="headerlink" href="#quantum-master-equation-lindblad-equation" title="Link to this heading">#</a></h1>
+<section id="derivation-of-quantum-master-equation-a-summary">
+<h2><span class="section-number">2.1.1. </span>Derivation of quantum master equation - a summary<a class="headerlink" href="#derivation-of-quantum-master-equation-a-summary" title="Link to this heading">#</a></h2>
+<p>Here a very brief summary of the derivation steps is provided so that we know what approximations are used.  Read a textbook listed in the previous page for the full derivation.
+Consider a system S surrounded by a thermal reservoir R.  We assume that the reservoir is an ideal heat bath which remains in thermal equilibrium all time.  which is a key assumption to derive quantum master equation. The total system S+R is completely isolated and thus its time evolution is unitary.  The Hamiltonian of the total system can be divided to three parts:</p>
+<div class="math notranslate nohighlight">
+\[
+H_\text{S+R} = H_\text{S} \otimes I_\text{R} + I_\text{S} \otimes H_\text{R} + V_\text{SR}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(H_\text{S}\)</span>,  <span class="math notranslate nohighlight">\(H_\text{R}\)</span> and <span class="math notranslate nohighlight">\(V_\text{SR}\)</span> are the Hamiltonian for the system S, the reservoir R, and the interaction between S and R.  <span class="math notranslate nohighlight">\(I_\text{S}\)</span> and <span class="math notranslate nohighlight">\(I_\text{R}\)</span> are identity operators in each Hilbert space.</p>
+<p>The state of the total system is described by the density operator <span class="math notranslate nohighlight">\(\rho_\text{SR}\)</span> and its time evolution is determined by the Liouville-von Neumann equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \rho_\text{SR} = -i \left[H_\text{SR}, \rho_\text{SR}\right].
+\]</div>
+<p>To solve this equation, two approximations are introduced.</p>
+<ol class="arabic">
+<li><p>The interaction between S and R is weak enough to use the Born approximation (1st order perturbation). Only <span class="math notranslate nohighlight">\(V_\text{SR}\)</span> and (V_text{SR})^2$ are taken into account and all higher order terms are neglected.</p></li>
+<li><p>The reservoir is always in the thermal state <span class="math notranslate nohighlight">\(\rho_\text{R} = \text{tr}_\text{S} \left( \rho_\text{SR} \right)= \frac{1}{Z_\text{R}} e^{-\beta H_\text{R}}\)</span> where <span class="math notranslate nohighlight">\(\text{tr}_\text{S}\)</span> is a partial trace over the system Hilbert space.  <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(Z_\text{R}=\text{tr}_\text{R} e^{-\beta H_\text{R}}\)</span> are usual inverse temperature and the partition function.</p></li>
+<li><p>When the reservoir is disturbed, it <em>instantaneously</em> relaxes to the original equilibrium state.  Hence, the state of reservoir remains in <span class="math notranslate nohighlight">\(\rho_\text{R}\)</span> all time.  This implies that the reservoir has no memory of past events. This assumption is called the Markovian approximation.</p></li>
+<li><p>The coupling Hamiltonian is separable.  Mathematically, <span class="math notranslate nohighlight">\(V_\text{SR} = \sum_{i} A_i \otimes B_i\)</span>.  Further we assume that <span class="math notranslate nohighlight">\(\langle B_i \rangle = \text{tr} \left( B_{i} \rho_\text{R} \right) = 0\)</span>.</p></li>
+<li><p>We introduce jump operators, each of which represents either excitation or deexcitation process.</p>
+<div class="math notranslate nohighlight">
+\[
+   A_{i} (\omega) = \sum_{k,k'} \delta(E_{k} - E_{k'} - \omega) |k\rangle \langle k | A_{i} |k' \rangle \langle k'|
+   \]</div>
+<p><span class="math notranslate nohighlight">\(A_{i}(\omega)\)</span> and <span class="math notranslate nohighlight">\(A_{i}^{\dagger}(\omega)\)</span> behave like annihilation and creation operators for <span class="math notranslate nohighlight">\(i\)</span>-th mode. From the completeness relation <span class="math notranslate nohighlight">\(\sum_{\omega} A_{i}(\omega) = \sum_{\omega} A_{i}^{\dagger}(\omega) = A_i\)</span>.</p>
+</li>
+<li><p>All the effects of the reservoir are taken into account through the temporal correlation of the reservoir operators.</p>
+<div class="math notranslate nohighlight">
+\[
+   C_{ij}(\tau) = \text{tr}_\text{R} \left(B_j(\tau) B_i(0) \rho_\text{R}\right), \quad \tau&gt;0.
+   \]</div>
+</li>
+<li><p>Based on the Born-Markovian approximation, the state of the system can be approximated as <span class="math notranslate nohighlight">\(\rho_\text{SR} (t) \approx \rho_\text{S} (t) \otimes \rho_\text{R}\)</span> where <span class="math notranslate nohighlight">\(\rho_\text{S} = \text{tr}_\text{R} \rho_\text{SR}\)</span>.</p></li>
+</ol>
+<p>At last we have a standard form (Lindblad form) of quantum master equation.</p>
+<div class="math notranslate nohighlight" id="equation-eq-qme-general">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-qme-general" title="Link to this equation">#</a></span>\[
+\frac{d}{dt} \rho_\text{S} = -i \left[ H_\text{S} + H_\text{LS}, \rho_\text{S}\right] + \mathcal{D}(\rho_\text{S})
+\]</div>
+<p>where the <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is known as dissipator defined by</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{D}(\rho_\text{S}) = \sum_{\omega} \sum_{ij} \Gamma_{ij}(\omega) \left[ A_{j}(\omega) \rho_\text{S} A_{j}^{\dagger}(\omega) - \frac{1}{2} \left\{ A_{i}^{\dagger}A_{j}(\omega), \rho_\text{S}\right\} \right]
+\]</div>
+<p>where the dissipation rate is the Fourier transform of the correlation function:</p>
+<div class="math notranslate nohighlight">
+\[
+\Gamma_{ij} (\omega) = \int_{-\infty}^{+\infty} C_{ij}(\tau) e^{i\omega \tau} d\tau.
+\]</div>
+<p>In Equation {eq}`eq:qme_general}, the unitary part include is a Lamb shift <span class="math notranslate nohighlight">\(H_\text{LS}\)</span> defined by</p>
+<div class="math notranslate nohighlight">
+\[
+H_\text{SL} = \frac{1}{2i} \sum_{\omega} \sum{ij}  \left(\Gamma_{ij}(\omega) - \Gamma_{ji}^{*}(\omega)\right)
+\]</div>
+<p>In most applications, the Lam-Shift is small.  Hence, we shall omit it throughout this note.</p>
+<p>The quantum master equation <a class="reference internal" href="#equation-eq-qme-general">(2.1)</a> works well only when the Born-Markovian approximation is valid.  In many applications in quantum optics, the approximation holds reasonably well.</p>
+</section>
+<section id="a-simple-example-optical-master-equation-for-a-two-level-atom">
+<h2><span class="section-number">2.1.2. </span>A simple example - optical master equation for a two-level atom<a class="headerlink" href="#a-simple-example-optical-master-equation-for-a-two-level-atom" title="Link to this heading">#</a></h2>
+<p>Consider a system with two energy levels, a ground state <span class="math notranslate nohighlight">\(| g\rangle\)</span> of energy <span class="math notranslate nohighlight">\(E_{g}\)</span> and  an excited state <span class="math notranslate nohighlight">\(|e\rangle\)</span> of energy <span class="math notranslate nohighlight">\(E_{e}\)</span>. I shall call such a system a two-level atom in this note.  However, it can be a molecule, a quantum dot or some other systems in which only two energy levels are dominantly involved in the processes we are interested in and contribution from other levels is assumed to be negligibly small.</p>
+<p>Lowering and raising operators are defined with <span class="math notranslate nohighlight">\(\ket{g}\)</span> and <span class="math notranslate nohighlight">\(\ket{e}\)</span> as basis  respectively by</p>
+<div class="math notranslate nohighlight" id="equation-eq-sigma-plus-minus">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-sigma-plus-minus" title="Link to this equation">#</a></span>\[
+\sigma_{+} =  | e \rangle\langle g |  \qquad \sigma_{-} = | g \rangle\langle e |
+\]</div>
+<p>The standard Pauli operators are expressed in the same basis as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\sigma_{1} &amp;=&amp; \sigma_{+}+\sigma_{-} = | e \rangle\langle g |+| g \rangle\langle e | \\
+\sigma_{2} &amp;=&amp; -i \left(\sigma_{+}-\sigma_{-}\right) = -i (| e \rangle\langle g | - | g \rangle\langle e |) \\
+\sigma_{3} &amp;=&amp; | e \rangle\langle e | - | g \rangle\langle g |
+\end{eqnarray}
+\end{split}\]</div>
+<p>The Hamiltonian of the atom is given by</p>
+<div class="math notranslate nohighlight">
+\[
+H_\text{S} = \frac{\hbar}{2} \omega_{0} \sigma_{3}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hbar\omega_{0} = E_{e} - E_{g}\)</span> is the excitation energy.</p>
+<p>Since there is only one <span class="math notranslate nohighlight">\(\omega\)</span>, and two transitions, we have two modes,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{D}_{a} = \Gamma_{a} \left(\sigma_{+}\rho\sigma_{-} - \frac{1}{2} \sigma_{-}\sigma_{+}\rho - \frac{1}{2} \rho \sigma_{-}\sigma_{+} \right)
+\]</div>
+<p>for absorption and</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{D}_{e} = \Gamma_{e} \left(\sigma_{+}\rho\sigma_{-} - \frac{1}{2} \sigma_{-}\sigma_{+}\rho - \frac{1}{2} \rho \sigma_{-}\sigma_{+} \right)
+\]</div>
+<p>for emission.</p>
+<p>The dissipation rates are</p>
+<div class="math notranslate nohighlight">
+\[
+\Gamma_{a} = \gamma_{0} N, \qquad \Gamma_{e} = \gamma_{0}(N+1)
+\]</div>
+<p>where  the rate of spontaneous emission is defined by</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma_{0} = \frac{4 \omega_{0}^{3} |\vec{d}|^2}{3\hbar c^3}
+\]</div>
+<p>and the Planck distribution by</p>
+<div class="math notranslate nohighlight">
+\[
+N=\frac{1}{e^{\hbar \omega_0/T}-1}
+\]</div>
+<p>The jump operators are <span class="math notranslate nohighlight">\(A_{a} = \sigma_{-}\)</span>  for absorption and <span class="math notranslate nohighlight">\(A_{e} = \sigma_{+}\)</span> which are obvious from the definition of <span class="math notranslate nohighlight">\(\sigma_{\pm}\)</span>.</p>
+<p>The quantum master equation</p>
+<div class="math notranslate nohighlight" id="equation-eq-qme-optical">
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-qme-optical" title="Link to this equation">#</a></span>\[
+\frac{d}{dt} \rho = -i \frac{\omega_{0}}{2} [\sigma_{3},\rho] + \mathcal{D}_{a} + \mathcal{D}_{e}
+\]</div>
+<p>which is simply an ordinary differential equation of <span class="math notranslate nohighlight">\(2\times2\)</span> matrix.  This is simple enough to solve analytically.</p>
+</section>
+<section id="bloch-equations">
+<h2><span class="section-number">2.1.3. </span>Bloch equations<a class="headerlink" href="#bloch-equations" title="Link to this heading">#</a></h2>
+<p>There are many ways to solve Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.3)</a>.  There is a special method that works only for the two-dimensional Hilbert space.  Recalling that the identity matrix <span class="math notranslate nohighlight">\(I\)</span> and the Pauli matrices <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> form a basis set. Expanding the density operator in the basis set,</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(t) = \frac{1}{2}\left(I + \vec{v}(t) \cdot \vec{\sigma} \right)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{v}(t) = (v_{1}(t),v_{2}(t),v_{3}(t))\)</span> is the expansion coefficients which uniquely determine the density operator.  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{v} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.3)</a> and taking trace, we obtain the equation of motion (known as the Bloch equation):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\frac{d}{dt} \langle \sigma_1(t)\rangle &amp;=&amp; - \frac{\gamma}{2} \langle \sigma_1(t)\rangle \\
+\frac{d}{dt} \langle \sigma_2(t)\rangle &amp;=&amp; - \frac{\gamma}{2} \langle \sigma_2(t)\rangle \\
+\frac{d}{dt} \langle \sigma_3(t)\rangle &amp;=&amp; - \gamma \langle \sigma_1(t)\rangle  - \gamma_{0}
+\end{eqnarray}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.</p>
+<p>By letting the left hand side 0, we can immediately find the steady state.</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \sigma_1\rangle_{ss} = \langle \sigma_2\rangle_{ss} = 0, \qquad \langle \sigma_3\rangle_{ss} = -\frac{\gamma_0}{\gamma} = -\frac{1}{2N+1}
+\]</div>
+<p>The probability to find the atom in the excited state is given by</p>
+<div class="math notranslate nohighlight">
+\[
+p_{e}^{ss} = \frac{1}{2} \left(1 + \langle \sigma_3\rangle_{ss}\right) = \frac{N}{2N+1} = \frac{1}{Z_R}e^{-\beta \omega_0}
+\]</div>
+<p>which is just the thermal equilibrium state.  If the system is initially in the ground state, it is easy to find the solution to the Bloch equation and the system  relaxation to the thermal state as</p>
+<div class="math notranslate nohighlight">
+\[
+p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
+\]</div>
+<p>which indicates <span class="math notranslate nohighlight">\(\gamma\)</span> is the relaxation rate.</p>
+<p>A nice things about the Bloch equation is that you can visualize the solution on the Bloch sphere.  We will see it in the numerical example.</p>
+</section>
+<section id="solving-a-master-equation-numerically-using-qutip">
+<h2><span class="section-number">2.1.4. </span>Solving a master equation numerically using QuTiP<a class="headerlink" href="#solving-a-master-equation-numerically-using-qutip" title="Link to this heading">#</a></h2>
+<p>We solve the master equation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qutip</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># excitation energy</span>
+<span class="n">gamma0</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># spontaneous emission rate</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># tempeature of photon gas</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">omega0</span><span class="o">/</span><span class="n">temperature</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Planck distribution</span>
+
+<span class="n">gamma1</span> <span class="o">=</span> <span class="n">gamma0</span> <span class="o">*</span> <span class="n">N</span>   <span class="c1"># coefficient to absorption</span>
+<span class="n">gamma2</span> <span class="o">=</span> <span class="n">gamma0</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># coefficient to emission</span>
+
+<span class="c1"># Hamiltonian for a two-level system (in the rotating frame)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">omega0</span> <span class="o">*</span> <span class="n">sigmaz</span><span class="p">()</span> 
+
+<span class="c1"># Jump operators</span>
+<span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmam</span><span class="p">(),</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmap</span><span class="p">()]</span>
+
+<span class="c1"># Initial state: start in the ground state |g&gt;</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">Qobj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]))</span>
+
+<span class="c1"># simulation time</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># observables to compute</span>
+<span class="n">observables</span> <span class="o">=</span> <span class="p">[</span><span class="n">sigmax</span><span class="p">(),</span><span class="n">sigmay</span><span class="p">(),</span><span class="n">sigmaz</span><span class="p">()]</span>
+
+<span class="c1"># solve the Lindblad Equation</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span>
+
+<span class="c1"># probability to find the atom in the excited state</span>
+<span class="c1"># p = (1+result.expect[2])/2</span>
+
+<span class="c1"># 4. Plotting the Time Evolution</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma_x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma_y$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma_z$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Time Evolution of a Two-Level System (Lindblad)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;&lt;sigma_z&gt;&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/kawai/anaconda3/envs/book/lib/python3.13/site-packages/qutip/solver/solver_base.py:598: FutureWarning: e_ops will be keyword only from qutip 5.3 for all solver
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../_images/dcf548b3fa3cf58c44a2c71801f2c45448d7b98cf6dd3752a41716dff8d6c294.png" src="../_images/dcf548b3fa3cf58c44a2c71801f2c45448d7b98cf6dd3752a41716dff8d6c294.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,7 +690,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Open quantum mechanics approaches</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Open quantum system approaches</p>
       </div>
     </a>
     <a class="right-next"
@@ -481,6 +708,26 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-quantum-master-equation-a-summary">2.1.1. Derivation of quantum master equation - a summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-atom">2.1.2. A simple example - optical master equation for a two-level atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-equations">2.1.3. Bloch equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-master-equation-numerically-using-qutip">2.1.4. Solving a master equation numerically using QuTiP</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
