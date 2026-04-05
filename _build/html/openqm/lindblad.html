@@ -427,6 +427,8 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-atom">2.1.2. A simple example - optical master equation for a two-level atom</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-equations">2.1.3. Bloch equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-master-equation-numerically-using-qutip">2.1.4. Solving a master equation numerically using QuTiP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-g2">2.1.5. Calculation of g2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-regression-theorem">2.1.6. Quantum regression theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -440,6 +442,16 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quantum-master-equation-lindblad-equation">
 <h1><span class="section-number">2.1. </span>Quantum master equation (Lindblad equation)<a class="headerlink" href="#quantum-master-equation-lindblad-equation" title="Link to this heading">#</a></h1>
+<p>The state of a system is described by a state vector <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> if it is a pure state or a density operator <span class="math notranslate nohighlight">\(\rho\)</span> if it is a mixed state.  If the system is not fully isolated, the state is necessarily mixed and thus we must use the density operator.  In this section, we develop an approximated approach to find the time evolution of a density operator for a system interacting with a thermal reservoir.   Lindblad originally developed the method (the Lindblad equation) which is now commonly known as the quantum master equation.</p>
+<p>Using this methods, we can obtain for examples:</p>
+<ol class="arabic simple">
+<li><p>the evolution of the state <span class="math notranslate nohighlight">\(\rho(t)\)</span> and the steady state as asymptotic limit <span class="math notranslate nohighlight">\(\rho^{ss} = \lim_{t \rightarrow \infty} \rho(t)\)</span>.</p></li>
+<li><p>the expectation value of observable <span class="math notranslate nohighlight">\(A\)</span> as <span class="math notranslate nohighlight">\(\langle A(t) \rangle = \text{tr}[A \rho(t)]\)</span>.</p></li>
+<li><p>temporal correlation functions such as <span class="math notranslate nohighlight">\(g^{(1)}(\tau)\)</span> and <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> with the help of quantum regression theorem.</p></li>
+<li><p>quantum information using the von Neumann entropy <span class="math notranslate nohighlight">\(S(t) = \text{tr} [\rho(t) \ln \rho(t)]\)</span>.</p></li>
+</ol>
+<p>and more.</p>
+<p>However, it is not easy to obtain full counting statistics (in principle possible but very tedious.)  For that, there is a better method known as quantum trajectory simulation which we discuss in next chapter.</p>
 <section id="derivation-of-quantum-master-equation-a-summary">
 <h2><span class="section-number">2.1.1. </span>Derivation of quantum master equation - a summary<a class="headerlink" href="#derivation-of-quantum-master-equation-a-summary" title="Link to this heading">#</a></h2>
 <p>Here a very brief summary of the derivation steps is provided so that we know what approximations are used.  Read a textbook listed in the previous page for the full derivation.
@@ -497,6 +509,22 @@ H_\text{SL} = \frac{1}{2i} \sum_{\omega} \sum{ij}  \left(\Gamma_{ij}(\omega) - \
 \]</div>
 <p>In most applications, the Lam-Shift is small.  Hence, we shall omit it throughout this note.</p>
 <p>The quantum master equation <a class="reference internal" href="#equation-eq-qme-general">(2.1)</a> works well only when the Born-Markovian approximation is valid.  In many applications in quantum optics, the approximation holds reasonably well.</p>
+<p>To simplify mathematical notation, the master equation <a class="reference internal" href="#equation-eq-qme-general">(2.1)</a> is often expressed as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \rho = \mathcal{L} \rho
+\]</div>
+<p>with  a super operator  <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> defined as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L} = -i \left[ H_\text{S} + H_\text{LS}, \cdot \right] + \mathcal{D}(\cdot)
+\]</div>
+<p>and a symbolical solution to the equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(t) = e^{\mathcal{L} t} \rho(0).
+\]</div>
+<p>We shall utilize the simplistic expression from time to time.</p>
 </section>
 <section id="a-simple-example-optical-master-equation-for-a-two-level-atom">
 <h2><span class="section-number">2.1.2. </span>A simple example - optical master equation for a two-level atom<a class="headerlink" href="#a-simple-example-optical-master-equation-for-a-two-level-atom" title="Link to this heading">#</a></h2>
@@ -524,12 +552,12 @@ H_\text{S} = \frac{\hbar}{2} \omega_{0} \sigma_{3}
 <p>Since there is only one <span class="math notranslate nohighlight">\(\omega\)</span>, and two transitions, we have two modes,</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal{D}_{a} = \Gamma_{a} \left(\sigma_{+}\rho\sigma_{-} - \frac{1}{2} \sigma_{-}\sigma_{+}\rho - \frac{1}{2} \rho \sigma_{-}\sigma_{+} \right)
+\mathcal{D}_{a}(\rho) = \Gamma_{a} \left(\sigma_{+}\rho\sigma_{-} - \frac{1}{2} \sigma_{-}\sigma_{+}\rho - \frac{1}{2} \rho \sigma_{-}\sigma_{+} \right)
 \]</div>
 <p>for absorption and</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal{D}_{e} = \Gamma_{e} \left(\sigma_{+}\rho\sigma_{-} - \frac{1}{2} \sigma_{-}\sigma_{+}\rho - \frac{1}{2} \rho \sigma_{-}\sigma_{+} \right)
+\mathcal{D}_{e}(\rho) = \Gamma_{e} \left(\sigma_{-}\rho\sigma_{+} - \frac{1}{2} \sigma_{+}\sigma_{-}\rho - \frac{1}{2} \rho \sigma_{+}\sigma_{-} \right)
 \]</div>
 <p>for emission.</p>
 <p>The dissipation rates are</p>
@@ -547,11 +575,11 @@ H_\text{S} = \frac{\hbar}{2} \omega_{0} \sigma_{3}
 \[
 N=\frac{1}{e^{\hbar \omega_0/T}-1}
 \]</div>
-<p>The jump operators are <span class="math notranslate nohighlight">\(A_{a} = \sigma_{-}\)</span>  for absorption and <span class="math notranslate nohighlight">\(A_{e} = \sigma_{+}\)</span> which are obvious from the definition of <span class="math notranslate nohighlight">\(\sigma_{\pm}\)</span>.</p>
-<p>The quantum master equation</p>
+<p>The jump operators are <span class="math notranslate nohighlight">\(A_{a} = \sigma_{-}\)</span>  for absorption and <span class="math notranslate nohighlight">\(A_{e} = \sigma_{+}\)</span>,  which are obvious from the definition of <span class="math notranslate nohighlight">\(\sigma_{\pm}\)</span>.</p>
+<p>The final form of the quantum master equation  is</p>
 <div class="math notranslate nohighlight" id="equation-eq-qme-optical">
 <span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-qme-optical" title="Link to this equation">#</a></span>\[
-\frac{d}{dt} \rho = -i \frac{\omega_{0}}{2} [\sigma_{3},\rho] + \mathcal{D}_{a} + \mathcal{D}_{e}
+\frac{d}{dt} \rho = -i \frac{\omega_{0}}{2} [\sigma_{3},\rho] + \mathcal{D}_{a}(\rho) + \mathcal{D}_{e}(\rho)
 \]</div>
 <p>which is simply an ordinary differential equation of <span class="math notranslate nohighlight">\(2\times2\)</span> matrix.  This is simple enough to solve analytically.</p>
 </section>
@@ -560,18 +588,18 @@ N=\frac{1}{e^{\hbar \omega_0/T}-1}
 <p>There are many ways to solve Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.3)</a>.  There is a special method that works only for the two-dimensional Hilbert space.  Recalling that the identity matrix <span class="math notranslate nohighlight">\(I\)</span> and the Pauli matrices <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> form a basis set. Expanding the density operator in the basis set,</p>
 <div class="math notranslate nohighlight">
 \[
-\rho(t) = \frac{1}{2}\left(I + \vec{v}(t) \cdot \vec{\sigma} \right)
+\rho(t) = \frac{1}{2}\left(I + \vec{r}(t) \cdot \vec{\sigma} \right)
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\vec{v}(t) = (v_{1}(t),v_{2}(t),v_{3}(t))\)</span> is the expansion coefficients which uniquely determine the density operator.  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{v} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.3)</a> and taking trace, we obtain the equation of motion (known as the Bloch equation):</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>where <span class="math notranslate nohighlight">\(\vec{r}(t) = (r_{1}(t),r_{2}(t),r_{3}(t))\)</span> is the Bloch vector, which uniquely determine the density operator.  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{r} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.3)</a> and taking trace, we obtain the equation of motion for the Bloch vector is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-bloch-eq">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-bloch-eq" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{eqnarray}
-\frac{d}{dt} \langle \sigma_1(t)\rangle &amp;=&amp; - \frac{\gamma}{2} \langle \sigma_1(t)\rangle \\
-\frac{d}{dt} \langle \sigma_2(t)\rangle &amp;=&amp; - \frac{\gamma}{2} \langle \sigma_2(t)\rangle \\
+\frac{d}{dt} \langle \sigma_1(t)\rangle &amp;=&amp; \omega_0 \langle \sigma_2 (t)\rangle - \frac{\gamma}{2} \langle \sigma_1(t)\rangle \\
+\frac{d}{dt} \langle \sigma_2(t)\rangle &amp;=&amp; \omega_0 \langle \sigma_1 (t)\rangle - \frac{\gamma}{2} \langle \sigma_2(t)\rangle \\
 \frac{d}{dt} \langle \sigma_3(t)\rangle &amp;=&amp; - \gamma \langle \sigma_1(t)\rangle  - \gamma_{0}
 \end{eqnarray}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.  Equation <a class="reference internal" href="#equation-eq-bloch-eq">(2.4)</a> is called the Bloch equation.</p>
 <p>By letting the left hand side 0, we can immediately find the steady state.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -582,11 +610,26 @@ N=\frac{1}{e^{\hbar \omega_0/T}-1}
 \[
 p_{e}^{ss} = \frac{1}{2} \left(1 + \langle \sigma_3\rangle_{ss}\right) = \frac{N}{2N+1} = \frac{1}{Z_R}e^{-\beta \omega_0}
 \]</div>
-<p>which is just the thermal equilibrium state.  If the system is initially in the ground state, it is easy to find the solution to the Bloch equation and the system  relaxation to the thermal state as</p>
+<p>which is just the thermal equilibrium state.  Hence, the system is relaxed to the thermal state.</p>
+<p>Next, we calculate the relaxation to the thermal state starting from a pure state <span class="math notranslate nohighlight">\(|\psi_0\rangle = \cos \theta |g\rangle + \sin \theta |e\rangle\)</span>, which gives the initial density operator</p>
 <div class="math notranslate nohighlight">
 \[
-p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
+\rho(0) = |\psi_0\rangle\langle \psi_0| = \cos^2\theta |g\rangle\langle g| + \cos\theta\sin\theta |g\rangle\langle e| + \cos\theta\sin\theta |e\rangle\langle g| + + \sin^2\theta |e\rangle\langle e| 
 \]</div>
+<p>The initial condition for the Bloch equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \sigma_1(0) \rangle =\sin (2\theta), \quad \langle \sigma_2(0) \rangle = 0, \quad \langle \sigma_3(0) \rangle = \cos(2\theta)
+\]</div>
+<p>The solution is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\langle \sigma_1(t) \rangle &amp;=&amp; e^{\gamma t/2} \cos(\omega_{0} t) \sin(2\theta) \\
+\langle \sigma_2(t) \rangle &amp;=&amp; e^{\gamma t/2} \sin(\omega_{0} t) \sin(2\theta) \\
+\langle \sigma_3(t) \rangle &amp;=&amp; e^{\gamma t}  \cos(2\theta)  + (1- e^{-\gamma t}) \rangle \sigma_3(t) \langle_{ss}
+\end{eqnarray}
+\end{split}\]</div>
 <p>which indicates <span class="math notranslate nohighlight">\(\gamma\)</span> is the relaxation rate.</p>
 <p>A nice things about the Bloch equation is that you can visualize the solution on the Bloch sphere.  We will see it in the numerical example.</p>
 </section>
@@ -595,7 +638,11 @@ p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
 <p>We solve the master equation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignore warnings (qutip issues avrious unwnated warnings)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">qutip</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
@@ -604,6 +651,7 @@ p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
 <span class="n">gamma0</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># spontaneous emission rate</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># tempeature of photon gas</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">omega0</span><span class="o">/</span><span class="n">temperature</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Planck distribution</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span> <span class="c1"># initial condition</span>
 
 <span class="n">gamma1</span> <span class="o">=</span> <span class="n">gamma0</span> <span class="o">*</span> <span class="n">N</span>   <span class="c1"># coefficient to absorption</span>
 <span class="n">gamma2</span> <span class="o">=</span> <span class="n">gamma0</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># coefficient to emission</span>
@@ -615,7 +663,8 @@ p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
 <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmam</span><span class="p">(),</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmap</span><span class="p">()]</span>
 
 <span class="c1"># Initial state: start in the ground state |g&gt;</span>
-<span class="n">rho</span> <span class="o">=</span> <span class="n">Qobj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]))</span>
+<span class="n">psi0</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
 
 <span class="c1"># simulation time</span>
 <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
@@ -624,7 +673,7 @@ p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
 <span class="n">observables</span> <span class="o">=</span> <span class="p">[</span><span class="n">sigmax</span><span class="p">(),</span><span class="n">sigmay</span><span class="p">(),</span><span class="n">sigmaz</span><span class="p">()]</span>
 
 <span class="c1"># solve the Lindblad Equation</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span>
 
 <span class="c1"># probability to find the atom in the excited state</span>
 <span class="c1"># p = (1+result.expect[2])/2</span>
@@ -644,11 +693,97 @@ p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/kawai/anaconda3/envs/book/lib/python3.13/site-packages/qutip/solver/solver_base.py:598: FutureWarning: e_ops will be keyword only from qutip 5.3 for all solver
-  warnings.warn(
+<img alt="../_images/6c052efedfb74d2ff6d1ef0e1b125e62d0dbc8c6852be986ed2b5ef562fb127b.png" src="../_images/6c052efedfb74d2ff6d1ef0e1b125e62d0dbc8c6852be986ed2b5ef562fb127b.png" />
+</div>
+</div>
+<p>We plot the results in the Bloch sphere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">Bloch</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add_points</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">expect</span><span class="p">,</span> <span class="n">meth</span><span class="o">=</span><span class="s1">&#39;l&#39;</span><span class="p">)</span>  <span class="c1"># &#39;l&#39; adds a line between points</span>
+<span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../_images/dcf548b3fa3cf58c44a2c71801f2c45448d7b98cf6dd3752a41716dff8d6c294.png" src="../_images/dcf548b3fa3cf58c44a2c71801f2c45448d7b98cf6dd3752a41716dff8d6c294.png" />
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6d9862046b75811b79ff9df91f490f2d18edd360e50ee4e6dd4e545047fb388b.png" src="../_images/6d9862046b75811b79ff9df91f490f2d18edd360e50ee4e6dd4e545047fb388b.png" />
+</div>
+</div>
+</section>
+<section id="calculation-of-g2">
+<h2><span class="section-number">2.1.5. </span>Calculation of g2<a class="headerlink" href="#calculation-of-g2" title="Link to this heading">#</a></h2>
+<p>An extra step i sneeded to compute <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span>.  By definition, <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> measures the correlation of photon intensity.  But we are not calculating photons.  How can we calculate it?  When the transition from <span class="math notranslate nohighlight">\(|e\rangle\)</span> to <span class="math notranslate nohighlight">\(|g\rangle\)</span> takes place, a photon is emitted.  Therefore, if we know the statistics of the  emission transition, we have statistics of photons assuming that we measure all photons coming out from the atom. In other words, the optical mode we measure is all photons emitted by the atom.</p>
+<p>Since the creation of photon is equivalent to the deexcitation of the atom the filed opetators can be expressed as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+E^{(+)}(t) = \mathcal{E}_0 a(t) \propto  \sigma_{-}, \qquad E^{(-)}(t) = \mathcal{E}_0 a(t) \propto  \sigma_{+},
+\]</div>
+<p>and thus th eoperator corresponding to the intensity is</p>
+<div class="math notranslate nohighlight">
+\[
+I (t) = E^{(-)}(t) E^{(+)}(t) = \mathcal{E}_0^2 a^{\dagger}(t) a(t) \propto \sigma_{+}(t) \sigma_{-}(t)
+\]</div>
+<p>The correlation functions are now defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-g1-two-level-atom">
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-g1-two-level-atom" title="Link to this equation">#</a></span>\[
+g^{(1)}(\tau) = \frac{\langle \sigma_{+}(\tau) \sigma_{-}(0)\rangle_{ss}}{\langle I(0) \rangle_{ss}}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-eq-g2-two-level-atom">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-g2-two-level-atom" title="Link to this equation">#</a></span>\[
+g^{(2)}(\tau) = \frac{\langle :I(\tau)I(0): \rangle_{ss}}{(\langle I(0) \rangle_{ss})^2} = \frac{\langle \sigma_{+}(0)\sigma_{+}(\tau)\sigma_{-}(\tau) \sigma_{-}(0) \rangle_{ss}}{(\langle  \sigma_{+}(0)\sigma_{-}(0) \rangle_{ss})^2}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(:\cdots:\)</span> indicates normal order of creation and annihilation operators and <span class="math notranslate nohighlight">\(\langle \cdots\rangle_{ss}\)</span> average with the steady state.</p>
+<p>There is a problem with the definitions <a class="reference internal" href="#equation-eq-g1-two-level-atom">(2.5)</a> and <a class="reference internal" href="#equation-eq-g2-two-level-atom">(2.6)</a>.  We don’t how to calculate the expectation value  <span class="math notranslate nohighlight">\(\langle \cdots\rangle_{ss}\)</span> since two different times are involved. There is a trick that works only when the Born-Markovian approximation is valid as discussed next.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device due to quantum interference effects.<span id="id1">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">12</a>]</span>.  If all photons from the pair were counted, bunching and anti-bunching would be cancelled out.</p>
+</div>
+</section>
+<section id="quantum-regression-theorem">
+<h2><span class="section-number">2.1.6. </span>Quantum regression theorem<a class="headerlink" href="#quantum-regression-theorem" title="Link to this heading">#</a></h2>
+<p>Suppose that the expectation value of an operator <span class="math notranslate nohighlight">\(A\)</span> evolves in time. It should be written as <span class="math notranslate nohighlight">\(\langle A \rangle_t\)</span> (expectation evaluated at time <span class="math notranslate nohighlight">\(t\)</span>) but  often written as <span class="math notranslate nohighlight">\(\langle A(t) \rangle\)</span> which suggests that <span class="math notranslate nohighlight">\(A\)</span> depends on time. If the system evolution is unitary, then <span class="math notranslate nohighlight">\(A(t)\)</span> can be considered as an operator in the Heisenberg picture and the average is taken with respect to an initial state.  However, when the evolution of the system is not unitary, we can’t define the usual Heisenberg picture. We interpret it as <span class="math notranslate nohighlight">\(\langle A(t) \rangle \equiv \text{tr}(A \rho(t))\)</span>  where the state is evolving in time and the operator is stationary.</p>
+<p>A problem arises when operators depend on two different times.  For example, consider a correlation function <span class="math notranslate nohighlight">\(\langle A(t)B(0) \rangle\)</span>. What does <span class="math notranslate nohighlight">\(\langle \cdots \rangle\)</span> mean in this case?   The quantum regression theorem states that</p>
+<div class="math notranslate nohighlight">
+\[
+\langle A(\tau),B(0) \rangle = \text{tr} [ A e^{\mathcal{L}t} (B \rho(0)) ]
+\]</div>
+<p>Notice that neither <span class="math notranslate nohighlight">\(A\)</span> nor <span class="math notranslate nohighlight">\(B\)</span> depends on time. <span class="math notranslate nohighlight">\(B \rho(0)\)</span> is evaluated at <span class="math notranslate nohighlight">\(t=0\)</span> and evolves to t=<span class="math notranslate nohighlight">\(\tau\)</span> by the master equation.  Then we take the <a class="reference external" href="http://trace.It">trace.It</a> is a kind of surprising that the same evolution operator <span class="math notranslate nohighlight">\(e{\mathcal{L}t}\)</span> can be used to evolve <span class="math notranslate nohighlight">\(B\rho\)</span>.  We can calculate <span class="math notranslate nohighlight">\(e^{\mathcal{L} t} (B \rho(0))\)</span> by solving the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \eta = \mathcal{L} \eta
+\]</div>
+<p>with the initial condition  <span class="math notranslate nohighlight">\(\eta(0) = B\rho(0)\)</span>.</p>
+<p>Using the quantum regression theorem, the first order correlation can be computed as</p>
+<div class="math notranslate nohighlight">
+\[
+g^{(1)}(\tau) = \text{tr} [ \sigma_{+} e^{\mathcal{L}t} (\sigma_{-} \rho_{ss}] / \text{tr} [\sigma_{+}\sigma_{-} \rho_{ss}]
+\]</div>
+<p>and for the second order we have</p>
+<div class="math notranslate nohighlight">
+\[
+g^{(2)}(\tau) = \text{tr} [ \sigma_{+} \sigma_{-} e^{\mathcal{L} \tau} ( \sigma_{-} \rho_{ss} \sigma_{+}) ] / \left(\text{tr} [\sigma_{+}\sigma_{-} \rho_{ss}]\right)^2
+\]</div>
+<p>where we have rotated the operators inside the trace.</p>
+<p>The QuTiP package contains a module that do every thing for us. We just provide the information of the quantum master equation, namely the Hamiltonian and jump operators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Continued from the previous code block. </span>
+<span class="c1"># You need to execute it before running this code.</span>
+
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">g2</span><span class="p">,</span> <span class="n">G2</span> <span class="o">=</span> <span class="n">coherence_function_g2</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="n">sigmam</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">g2</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">times</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">g2</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\tau$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$g^{(2)}(\tau)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4cc398f9b40aaf2345ed7aa43b4a16e4c72a76a4161d2837093adde5101246b3.png" src="../_images/4cc398f9b40aaf2345ed7aa43b4a16e4c72a76a4161d2837093adde5101246b3.png" />
 </div>
 </div>
 </section>
@@ -724,6 +859,8 @@ p_{e}(t) = p_{e}^{ss} \left(1 - e^{-\gamma t} \right)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-atom">2.1.2. A simple example - optical master equation for a two-level atom</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-equations">2.1.3. Bloch equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-master-equation-numerically-using-qutip">2.1.4. Solving a master equation numerically using QuTiP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-g2">2.1.5. Calculation of g2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-regression-theorem">2.1.6. Quantum regression theorem</a></li>
 </ul>
   </nav></div>
 
