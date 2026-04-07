@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.2. Stochstic jumps (quantum trajectory) &#8212; Computational Methods for Physics with Python.</title>
+    <title>2.2. Jump method and quantum trajectory &#8212; Computational Methods for Physics with Python.</title>
   
   
   
@@ -60,6 +60,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'openqm/jumps';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -183,7 +185,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum system approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="lindblad.html">2.1. Quantum master equation (Lindblad equation)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Stochstic jumps (quantum trajectory)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Jump method and quantum trajectory</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -398,7 +400,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -409,11 +413,19 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Stochstic jumps (quantum trajectory)</h1>
+    <h1>Jump method and quantum trajectory</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-summary-of-the-jump-method">2.2.1. A brief summary of the jump method</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -423,8 +435,69 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="stochstic-jumps-quantum-trajectory">
-<h1><span class="section-number">2.2. </span>Stochstic jumps (quantum trajectory)<a class="headerlink" href="#stochstic-jumps-quantum-trajectory" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="jump-method-and-quantum-trajectory">
+<h1><span class="section-number">2.2. </span>Jump method and quantum trajectory<a class="headerlink" href="#jump-method-and-quantum-trajectory" title="Link to this heading">#</a></h1>
+<p>The quantum master equation  is useful if we are interested in the expectation value of observables.  We are able to calculate <span class="math notranslate nohighlight">\(g^{(2)(\tau)\)</span> utilizing the quantum regression theorem.  However, it is not the best way to calculate the full counting statistics.  In this section, we explore an alternative method suitable for counting statistics. The method is known as the jump method in which the system jumps from a state to another and produces quantum trajectories.  It seems that no quantum trajectory of two-level system has been reported, perhaps because the process is too rapid.  Quantum trajectories have been observed in a two-level system with additional staging state where jumps between the excited state and the staging state were clearly seen.<span id="id1">[<a class="reference internal" href="../references/references.html#id40" title="Warren Nagourney, Jon Sandberg, and Hans Dehmelt. Shelved optical electron amplifier: observation of quantum jumps. Phys. Rev. Lett., 56:2797–2799, Jun 1986. doi:10.1103/PhysRevLett.56.2797.">19</a>, <a class="reference internal" href="../references/references.html#id41" title="J. C. Bergquist, Randall G. Hulet, Wayne M. Itano, and D. J. Wineland. Observation of quantum jumps in a single atom. Phys. Rev. Lett., 57:1699–1702, Oct 1986. doi:10.1103/PhysRevLett.57.1699.">20</a>, <a class="reference internal" href="../references/references.html#id42" title="Th. Sauter, W. Neuhauser, R. Blatt, and P. E. Toschek. Observation of quantum jumps. Phys. Rev. Lett., 57:1696–1698, Oct 1986. URL: https://link.aps.org/doi/10.1103/PhysRevLett.57.1696, doi:10.1103/PhysRevLett.57.1696.">21</a>]</span>  The jump method has been used to simulate the observed quantum trajectories. <span id="id2">[<a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">22</a>]</span></p>
+<section id="a-brief-summary-of-the-jump-method">
+<h2><span class="section-number">2.2.1. </span>A brief summary of the jump method<a class="headerlink" href="#a-brief-summary-of-the-jump-method" title="Link to this heading">#</a></h2>
+<p>Here only a brief summary of the jump method is provided. Many textbooks of quantum optics or open quantum systems discuss the details of the method.<span id="id3">[<a class="reference internal" href="../references/references.html#id34" title="Howard Carmichael. An Open Systems Approach to Quantum Optics. Number v.18 in Lecture Notes in Physics Monographs. Springer Berlin / Heidelberg, Berlin, Heidelberg, 1st ed. edition, 1993. ISBN 9783540476207. Description based on publisher supplied metadata and other sources.">13</a>, <a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">15</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">16</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">17</a>, <a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">22</a>]</span></p>
+<p>We begin with the quantum master equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \rho = - i [H,\rho] + D(\rho)
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+D(\rho) = \sum_{i} \left[ C_{i} \rho C_{i}^{\dagger} - \frac{1}{2} \left\{ C_{i}^{\dagger} C_{i}, \rho \right\} \right]
+\]</div>
+<p>For simplicity, only one index <span class="math notranslate nohighlight">\(i\)</span> is used in place of <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span>.  By rearranging the terms, we write the master equation slightly in a different form:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \rho = -i [H_\text{eff},\rho] + \mathcal{L}_\text{jump}(\rho)
+\]</div>
+<p>where the effective Hamiltonian is defined by</p>
+<div class="math notranslate nohighlight">
+\[
+H_\text{eff} = H - \frac{i}{2} \sum_{i} C^{\dagger}_{i} C_{i}
+\]</div>
+<p>and the jump Liouvillian by</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}_\text{jump}(\rho) = \sum_{i} C_{i} \rho C^{\dagger}_{i}.
+\]</div>
+<p>So far we just wrote the same master equation in two different ways.</p>
+<p>For now, we ignore <span class="math notranslate nohighlight">\(\mathcal{L}_\text{jump}\)</span> and look at <span class="math notranslate nohighlight">\(\frac{t}{dt} \rho = -i [H_\text{eff},\rho]\)</span>, which resembles the Liouville-von Neumann equation.  The corresponding Schrödinger-like equation is</p>
+<div class="math notranslate nohighlight">
+\[
+i \frac{d}{dt} |\psi\rangle = H_\text{eff} | \psi\rangle.
+\]</div>
+<p>This is not exactly Schrödinger equation because <span class="math notranslate nohighlight">\(H_\text{eff}\)</span> is not self-adjoint, that is <span class="math notranslate nohighlight">\(H_\text{eff} \ne H^{\dagger}_\text{eff}\)</span>.  Hence, the norm of <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is not conserved.  We know that the master equation does conserve the norm of the density operator (<span class="math notranslate nohighlight">\(\text{tr}\rho = 1\)</span>).  If we take into account the jump term, the norm must be conserved but it cannot be included directly in the Schrödinger-like equation.  We need a mathematical trick to take into account the jump term.  What does the jump term do the the pure state <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>?   <span class="math notranslate nohighlight">\(\mathcal{L}_\text{jump} (|\psi\rangle\langle\psi|) = \sum_i C_{i}|\psi\rangle\langle\psi|C^{\dagger}_{i}\)</span> tells that the the system jump out from <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> to <span class="math notranslate nohighlight">\(C_{i}|\psi\rangle\)</span>, suggesting that the norm of <span class="math notranslate nohighlight">\(|psi\rangle\)</span> decreases.  In other words, the system changes in two different ways, smooth change according to the Schrödinger equation and jump by the jump operator <span class="math notranslate nohighlight">\(C_{i}\)</span>. We don’t know which one happens.  So, we resort to Monte Carlo method which chose one at random.</p>
+<p>Now, we implement this idea in a mathematical form.  Suppose that the system is in a pure state <span class="math notranslate nohighlight">\(|\psi(t)\rangle\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> and it is normalized as <span class="math notranslate nohighlight">\(\langle\psi(t)|\psi(t)\rangle=1\)</span>.  If the system were to evolve for a brief time <span class="math notranslate nohighlight">\(\delta t\)</span> according to the  Schrödinger equation, the new state is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-no-jump">
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-no-jump" title="Link to this equation">#</a></span>\[
+|\psi(t+\delta t)\rangle = \left(1 - i H_\text{eff} \delta t\right) |\psi(t)\rangle
+\]</div>
+<p>and its norm is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\langle \psi(t+\delta t)|\psi(t+\delta t)\rangle &amp;= \langle \psi(t)| \big(1 + i H^{\dagger}_\text{eff} \delta t \big) \big(1 - i H_\text{eff} \delta t\big) |\psi(t)\rangle \\
+\\
+&amp;\approx 1 - \delta p
+\end{align}
+\end{split}\]</div>
+<p>where the missing norm is tothe lowest order in <span class="math notranslate nohighlight">\(\delta t\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\delta p &amp;\approx i \delta t \langle \psi(t)| H_\text{eff} - H^{\dagger}_\text{eff}|\psi(t)\rangle  \\
+&amp;= \delta t \sum_{i} \langle \psi(t)|C_{i}^{\dagger} C_{i}|\psi(t)\rangle  
+\end{align}
+\end{split}\]</div>
+<p>Clearly <span class="math notranslate nohighlight">\(\delta p \ge 0\)</span> and thus the norm is indeed reduced.  If <span class="math notranslate nohighlight">\(\delta p = \)</span>, then, the norm is conserved and no jump takes place.  On the other hand, if <span class="math notranslate nohighlight">\(\delta p =1\)</span>, then the norm completely vanishes and one of jump processes takes place.  Therefore, <span class="math notranslate nohighlight">\(\delta p\)</span> behaves like a probability of a jump happens.  We introduce a stochastic process based on this probability. Our assumption is that a jump happens with probability <span class="math notranslate nohighlight">\(\delta p\)</span>.  In practice, we generate a uniform random number <span class="math notranslate nohighlight">\(r \in [0,1]\)</span> and if <span class="math notranslate nohighlight">\(r&gt;\delta p\)</span> then a jump happens and other wise, the new state <a class="reference internal" href="#equation-eq-no-jump">(2.10)</a> is accepted.  If there are multiple jump channels, we need to pick one channel.  Notice that <span class="math notranslate nohighlight">\(\delta n_{i} = \delta t \langle \psi(t)|C_{i}^{\dagger} C_{i}|\psi(t)\rangle\)</span> is the expectation value of <span class="math notranslate nohighlight">\(C_{i}^\dagger C_{i}\)</span> which looks like a number operator (it is indeed a number operator in many cases in optics).  <span class="math notranslate nohighlight">\(\delta n_{i}\)</span> indicate a likelihood of jump to <span class="math notranslate nohighlight">\(C_{i}|\psi\rangle\)</span>.  We define the probability that a particular jump happens as <span class="math notranslate nohighlight">\(\delta p_{i} = \delta n_{i} /\sum_{i} \delta n_{i} = \delta n_{i}/\delta p \)</span>.</p>
+<p>Here is the summary of algorithm.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -481,6 +554,23 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-summary-of-the-jump-method">2.2.1. A brief summary of the jump method</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
