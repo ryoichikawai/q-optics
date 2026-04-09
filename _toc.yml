@@ -5,22 +5,25 @@ format: jb-book
 root: cover
 parts:
 -  caption:
+   numbered: false
    chapters:
    -  file: aboutme
    -  file: preface
--  caption: Photons from a cluster of quantum dots
-   numbered: true
+-  caption: Basics
+   numbered: 3
    chapters:
    -  file: detection/intro
       sections:
       -  file: detection/classical-lights
-      -  file: detection/quantum-lights
-      -  file: detection/photon-measurement
+      -  file: detection/counting-statistics
       -  file: detection/quantum-correlations
    -  file: openqm/intro
       sections:
       -  file: openqm/lindblad
       -  file: openqm/jumps
+-  caption: Case Studies
+   numbered: 3
+   chapters:
    -  file: monomer/intro
       sections:
       -  file: monomer/model

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.2. Steady State &#8212; Computational Methods for Physics with Python.</title>
+    <title>3.2. Steady State &#8212; Numerical Quantum Optics</title>
   
   
   
@@ -148,8 +148,8 @@
       
     
     
-    <img src="../_static/me-tiny.png" class="logo__image only-light" alt="Computational Methods for Physics with Python. - Home"/>
-    <img src="../_static/me-tiny.png" class="logo__image only-dark pst-js-only" alt="Computational Methods for Physics with Python. - Home"/>
+    <img src="../_static/me-tiny.png" class="logo__image only-light" alt="Numerical Quantum Optics - Home"/>
+    <img src="../_static/me-tiny.png" class="logo__image only-dark pst-js-only" alt="Numerical Quantum Optics - Home"/>
   
   
 </a></div>
@@ -174,20 +174,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Photons from a cluster of quantum dots</span></p>
-<ul class="current nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Detection of quantum lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/photon-measurement.html">1.3. Quantum measurement of photons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.2. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.3. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../openqm/lindblad.html">2.1. Quantum master equation (Lindblad equation)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../openqm/jumps.html">2.2. Stochstic jumps (quantum trajectory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openqm/jumps.html">2.2. Jump method and quantum trajectory</a></li>
 </ul>
 </details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">3. A single two-level system</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="model.html">3.1. Model</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Steady State</a></li>
@@ -424,9 +426,9 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements">3.2.1. Matrix elements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">3.2.1.1. Case 1: Thermal state</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">3.2.1.2. Case 2: resonant fluorescence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">3.2.1.3. Case 3: Off-resonance fluorescence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">Case 1: Thermal state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">Case 2: resonant fluorescence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">Case 3: Off-resonance fluorescence</a></li>
 </ul>
 </li>
 </ul>
@@ -497,7 +499,7 @@ X^{ss} \\ Y^{ss} \\ Z^{ss}
 \end{split}\]</div>
 <p>We first solve simple cases.</p>
 <section id="case-1-thermal-state">
-<h3><span class="section-number">3.2.1.1. </span>Case 1: Thermal state<a class="headerlink" href="#case-1-thermal-state" title="Link to this heading">#</a></h3>
+<h3>Case 1: Thermal state<a class="headerlink" href="#case-1-thermal-state" title="Link to this heading">#</a></h3>
 <p>When no external drive is applied, the system relax to a thermal equilibrium.  Let <span class="math notranslate nohighlight">\(\Delta=0\)</span> and <span class="math notranslate nohighlight">\(\Omega=0\)</span>, The steady steady state solution is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -531,7 +533,7 @@ X^{ss} \\ Y^{ss} \\ Z^{ss}
 <p><span class="math notranslate nohighlight">\(X^{ss}=Y^{ss}=0\)</span> imply <span class="math notranslate nohighlight">\(\rho_{eg}^{ss}=\rho_{ge}^{ss}=0\)</span>.  <span class="math notranslate nohighlight">\(Z^{ss}=\rho_{ee}^{ss} = \frac{\gamma-\gamma_0}{2\gamma} = \frac{N}{2N+1} = \frac{1}{e^{\omega_0/T}+1}\)</span>, which is the probability of finding the atom in the excited state under the thermal equilibrium.  The last matrix element is <span class="math notranslate nohighlight">\(\rho_{gg} = 1-\rho_{ee} = \frac{e^{\omega_0/T}}{e^{\omega_0/T}+1}\)</span>.</p>
 </section>
 <section id="case-2-resonant-fluorescence">
-<h3><span class="section-number">3.2.1.2. </span>Case 2: resonant fluorescence<a class="headerlink" href="#case-2-resonant-fluorescence" title="Link to this heading">#</a></h3>
+<h3>Case 2: resonant fluorescence<a class="headerlink" href="#case-2-resonant-fluorescence" title="Link to this heading">#</a></h3>
 <p>The external drive is tuned to the excitation energy, and thus <span class="math notranslate nohighlight">\(\Delta=0\)</span>.  Then, the equation becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -568,7 +570,7 @@ Y^{ss} \\ Z^{ss}
 \end{split}\]</div>
 </section>
 <section id="case-3-off-resonance-fluorescence">
-<h3><span class="section-number">3.2.1.3. </span>Case 3: Off-resonance fluorescence<a class="headerlink" href="#case-3-off-resonance-fluorescence" title="Link to this heading">#</a></h3>
+<h3>Case 3: Off-resonance fluorescence<a class="headerlink" href="#case-3-off-resonance-fluorescence" title="Link to this heading">#</a></h3>
 <p>Now, we have to invert the full matrix, which can be done but needs a bit of algebra.  The result is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -671,9 +673,9 @@ Z^{ss} = \frac{\gamma\left(\gamma(\gamma-\gamma_0) + 2 \Omega^2\right)-4 \Delta^
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements">3.2.1. Matrix elements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">3.2.1.1. Case 1: Thermal state</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">3.2.1.2. Case 2: resonant fluorescence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">3.2.1.3. Case 3: Off-resonance fluorescence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-thermal-state">Case 1: Thermal state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-resonant-fluorescence">Case 2: resonant fluorescence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-off-resonance-fluorescence">Case 3: Off-resonance fluorescence</a></li>
 </ul>
 </li>
 </ul>

@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Computational Methods for Physics with Python.
+title: Numerical Quantum Optics
 author: Ryoichi Kawai
-copyright: "2025 Ryoichi Kawai. All rights reserved."
+copyright: "2026 Ryoichi Kawai. All rights reserved."
 logo: me-tiny.png
 only_build_toc_files: true
 
