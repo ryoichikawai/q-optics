@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.3. Quantum correlation functions &#8212; Numerical Quantum Optics</title>
+    <title>1.4. Quantum correlation functions &#8212; Numerical Quantum Optics</title>
   
   
   
@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Open quantum system approaches" href="../openqm/intro.html" />
-    <link rel="prev" title="1.2. Full counting statistics" href="counting-statistics.html" />
+    <link rel="prev" title="1.3. Photons and full counting statistics" href="counting-statistics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -170,16 +170,25 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/jupyter.html">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/cloud.html">Google Colab</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">1. Photon counting statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="classical-lights.html">1.1. Detection of classical lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="counting-statistics.html">1.2. Full counting statistics</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum-lights.html">1.2. Quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="counting-statistics.html">1.3. Photons and full counting statistics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -425,9 +434,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-mode">1.3.1. What is a mode?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-with-photons-and-electric-fields">1.3.2. Relation with photons and electric fields.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-first-order-correlation">1.3.3. Quantum first-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-mode">1.4.1. What is a mode?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-with-photons-and-electric-fields">1.4.2. Relation with photons and electric fields.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-first-order-correlation">1.4.3. Quantum first-order correlation</a></li>
 </ul>
             </nav>
         </div>
@@ -440,10 +449,10 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quantum-correlation-functions">
-<h1><span class="section-number">1.3. </span>Quantum correlation functions<a class="headerlink" href="#quantum-correlation-functions" title="Link to this heading">#</a></h1>
-<p>In <a class="reference internal" href="counting-statistics.html#sec-fcs"><span class="std std-numref">Section 1.2</span></a>, we learn three different types of photon counting statistics.  The key point was that the size of variance with respect to the mean determines the character of the light. We also see in <a class="reference internal" href="classical-lights.html#sec-classical-lights"><span class="std std-numref">Section 1.1</span></a> that <span class="math notranslate nohighlight">\(g^(2)(0)\)</span> dictates the variance of intensity at least for classical lights.  Hence, the correlation function <span class="math notranslate nohighlight">\(g^(2)(\tau)\)</span> for quantum lights can be a good indicator of the photon counting statistics.  In this chapter, we derive a general mathematical expression of the correlation functions and discuss their general properties.  The case studies with simple models follows in separate sections.</p>
+<h1><span class="section-number">1.4. </span>Quantum correlation functions<a class="headerlink" href="#quantum-correlation-functions" title="Link to this heading">#</a></h1>
+<p>In <a class="reference internal" href="counting-statistics.html#sec-fcs"><span class="std std-numref">Section 1.3</span></a>, we learn three different types of photon counting statistics.  The key point was that the size of variance with respect to the mean determines the character of the light. We also see in <a class="reference internal" href="classical-lights.html#sec-classical-lights"><span class="std std-numref">Section 1.1</span></a> that <span class="math notranslate nohighlight">\(g^(2)(0)\)</span> dictates the variance of intensity at least for classical lights.  Hence, the correlation function <span class="math notranslate nohighlight">\(g^(2)(\tau)\)</span> for quantum lights can be a good indicator of the photon counting statistics.  In this chapter, we derive a general mathematical expression of the correlation functions and discuss their general properties.  The case studies with simple models follows in separate sections.</p>
 <section id="what-is-a-mode">
-<h2><span class="section-number">1.3.1. </span>What is a mode?<a class="headerlink" href="#what-is-a-mode" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.4.1. </span>What is a mode?<a class="headerlink" href="#what-is-a-mode" title="Link to this heading">#</a></h2>
 <p>What is a mode of photons?  It is a state of photons?  In many literature, it is not clear how a mode is defined.  To understand the concept of modes, we first look at the standard quantum mechanics.  A state of quantum particles is mathematically described by a vector <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> in a Hilbert space.  To specify a particular state, we use a basis set <span class="math notranslate nohighlight">\(\{|u_i\rangle, i=1, \cdots, N\}\)</span> (a finite dimention <span class="math notranslate nohighlight">\(N\)</span>).  The state is now expressed as a superposition of the basis vectors as <span class="math notranslate nohighlight">\(|\psi\rangle = \sum_i c_i |u_i\rangle\)</span> where <span class="math notranslate nohighlight">\(c_i\)</span> is an expansion coefficient.  The basis set is not associated with the state and we can pick any basis set to express the state.</p>
 <p>Similarly, in quantum optics, a mode picks a particular “basis” in a Fock space by defining creation and annihilation operators <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(a^{\dagger}\)</span>. When we need more than one mode, we have a set of creation and annihilation operators <span class="math notranslate nohighlight">\(\{a_k, a_k^{\dagger},k=1,\cdots,M\}\)</span> where <span class="math notranslate nohighlight">\(M\)</span> is the number of modes.  Like a basis set expansion in the Hilbert space, a state of photons are created by applying creation and annihilation operators on the vacuum state, like <span class="math notranslate nohighlight">\(|\psi\rangle=f(a,a^{\dagger})|0\rangle\)</span> with a single mode. Then we say that the photons are in a single mode.  For example,  a so-called squeezed state of a single mode can be constructed</p>
 <div class="math notranslate nohighlight">
@@ -455,7 +464,7 @@
 <p>Utilizing the freedom to choose modes, we focus on photons in a single mode relevant to experimental setups we are interested in.</p>
 </section>
 <section id="relation-with-photons-and-electric-fields">
-<h2><span class="section-number">1.3.2. </span>Relation with photons and electric fields.<a class="headerlink" href="#relation-with-photons-and-electric-fields" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.4.2. </span>Relation with photons and electric fields.<a class="headerlink" href="#relation-with-photons-and-electric-fields" title="Link to this heading">#</a></h2>
 <p>To derive the quantum version of <a class="reference internal" href="classical-lights.html#equation-eq-g1-classical">(1.1)</a>, we define field operators corresponding to electric field <span class="math notranslate nohighlight">\(\mathbf{E(t)}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{E}^{*}(t)\)</span> in a single mode.  We need to define the mode first.  We choose modes <span class="math notranslate nohighlight">\(\{a_{\omega}\}\)</span> such that the free Hamiltonian of photons is given by <span class="math notranslate nohighlight">\(H_{0} = \sum_{\omega} \frac{\omega}{2}a^{\dagger}_{\omega} a_{\omega}\)</span>.  The experimental setup selects one mode with a particular frequency by some filtering mechanism.  If the frequency spectrum is continuous, there is a mathematical issue in selecting one particular frequency.  Then, we define a mode with frequency <span class="math notranslate nohighlight">\(\omega_0\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -472,18 +481,18 @@ E^{(-)}(t) &amp;=&amp; \mathcal{E} a^{\dagger}(t) = \mathcal{E}_0 a^{\dagger} e^
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a(t)\)</span> and <span class="math notranslate nohighlight">\(a^{\dagger}(t)\)</span> are annihilation and creation operators in the Heisenberg picture and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(a^{\dagger}\)</span> are corresponding operators in the Schrödinger picture.     <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> is a proportional constant.  Since the photons are in a single mode, the direction of polarization is fixed and thus we consider only the field component in that direction.  Then, the intensity of the field is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-intensity-quantum">
-<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-intensity-quantum" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-intensity-quantum" title="Link to this equation">#</a></span>\[
 I(t) = \langle E^{(-)}(t) E^{(+)}(t)\rangle = \mathcal{E}^{2} \langle a^{\dagger}(t) a(t) \rangle = \mathcal{E}^{2} \text{tr} \left[n \rho(t)\right]
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(n=a^{\dagger} a\)</span> is the number operator and <span class="math notranslate nohighlight">\(\rho(t)\)</span> is the density operator of photons. Th expectation value <span class="math notranslate nohighlight">\(\langle \cdots \rangle \equiv \text{tr} (\cdots \rho)\)</span> is an ensemble average.  At the last step we switched from the the Heisenberg picture to Schrödinger picture in which the density operator evolves in time.</p>
-<p>Equation <a class="reference internal" href="#equation-eq-intensity-quantum">(1.4)</a> indicates that the intensity of light (in the mode we are looking at) is simply an average number of photons in the mode.    Be aware that we are counting only the photons in a particular mode, not necessarily all photons in the light beam.  <em>Full counting statistics depends on the selection of a mode.</em></p>
+<p>Equation <a class="reference internal" href="#equation-eq-intensity-quantum">(1.6)</a> indicates that the intensity of light (in the mode we are looking at) is simply an average number of photons in the mode.    Be aware that we are counting only the photons in a particular mode, not necessarily all photons in the light beam.  <em>Full counting statistics depends on the selection of a mode.</em></p>
 </section>
 <section id="quantum-first-order-correlation">
-<h2><span class="section-number">1.3.3. </span>Quantum first-order correlation<a class="headerlink" href="#quantum-first-order-correlation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.4.3. </span>Quantum first-order correlation<a class="headerlink" href="#quantum-first-order-correlation" title="Link to this heading">#</a></h2>
 <p>The classical first-order correlation function <a class="reference internal" href="classical-lights.html#equation-eq-g1-classical">(1.1)</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, experimental data show that both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device.<span id="id1">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">11</a>]</span>.</p>
+<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, experimental data show that both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device.<span id="id1">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">14</a>]</span>.</p>
 </div>
 </section>
 </section>
@@ -524,7 +533,7 @@ I(t) = \langle E^{(-)}(t) E^{(+)}(t)\rangle = \mathcal{E}^{2} \langle a^{\dagger
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.2. </span>Full counting statistics</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Photons and full counting statistics</p>
       </div>
     </a>
     <a class="right-next"
@@ -554,9 +563,9 @@ I(t) = \langle E^{(-)}(t) E^{(+)}(t)\rangle = \mathcal{E}^{2} \langle a^{\dagger
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-mode">1.3.1. What is a mode?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-with-photons-and-electric-fields">1.3.2. Relation with photons and electric fields.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-first-order-correlation">1.3.3. Quantum first-order correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-mode">1.4.1. What is a mode?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-with-photons-and-electric-fields">1.4.2. Relation with photons and electric fields.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-first-order-correlation">1.4.3. Quantum first-order correlation</a></li>
 </ul>
   </nav></div>
 

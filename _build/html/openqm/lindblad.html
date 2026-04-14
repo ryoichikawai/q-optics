@@ -170,16 +170,25 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/jupyter.html">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/cloud.html">Google Colab</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.2. Full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.3. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum system approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -603,7 +612,7 @@ N=\frac{1}{e^{\hbar \omega_0/T}-1}
 \[
 \rho(t) = \frac{1}{2}\left(I + \vec{r}(t) \cdot \vec{\sigma} \right)
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\vec{r}(t) = (r_{1}(t),r_{2}(t),r_{3}(t))\)</span> is the Bloch vector, which uniquely determine the density operator.<span id="id1">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">14</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">16</a>]</span>  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{r} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.4)</a> and taking trace, we obtain the equation of motion for the Bloch vector is given by</p>
+<p>where <span class="math notranslate nohighlight">\(\vec{r}(t) = (r_{1}(t),r_{2}(t),r_{3}(t))\)</span> is the Bloch vector, which uniquely determine the density operator.<span id="id1">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">19</a>]</span>  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{r} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.4)</a> and taking trace, we obtain the equation of motion for the Bloch vector is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-bloch-eq">
 <span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-bloch-eq" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{eqnarray}
@@ -612,7 +621,7 @@ N=\frac{1}{e^{\hbar \omega_0/T}-1}
 \frac{d}{dt} \langle \sigma_3(t)\rangle &amp;=&amp; - \gamma \langle \sigma_1(t)\rangle  - \gamma_{0}
 \end{eqnarray}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.  Equation <a class="reference internal" href="#equation-eq-bloch-eq">(2.5)</a> is called the Bloch equation.<span id="id2">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">14</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">15</a>]</span></p>
+<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.  Equation <a class="reference internal" href="#equation-eq-bloch-eq">(2.5)</a> is called the Bloch equation.<span id="id2">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">18</a>]</span></p>
 <p>By letting the left hand side 0, we can immediately find the steady state.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -758,7 +767,7 @@ g^{(2)}(\tau) = \frac{\langle :I(\tau)I(0): \rangle_{ss}}{(\langle I(0) \rangle_
 <p>There is a problem with the definitions <a class="reference internal" href="#equation-eq-g1-two-level-atom">(2.7)</a> and <a class="reference internal" href="#equation-eq-g2-two-level-atom">(2.8)</a>.  We don’t how to calculate the expectation value  <span class="math notranslate nohighlight">\(\langle \cdots\rangle_{ss}\)</span> since two different times are involved. There is a trick that works only when the Born-Markovian approximation is valid as discussed next.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device due to quantum interference effects.<span id="id3">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">11</a>]</span>.  If all photons from the pair were counted, bunching and anti-bunching would be cancelled out.</p>
+<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device due to quantum interference effects.<span id="id3">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">14</a>]</span>.  If all photons from the pair were counted, bunching and anti-bunching would be cancelled out.</p>
 </div>
 </section>
 <section id="quantum-regression-theorem">

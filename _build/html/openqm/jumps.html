@@ -170,16 +170,25 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/jupyter.html">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/cloud.html">Google Colab</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.2. Full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.3. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum system approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -446,10 +455,10 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="jump-method-and-quantum-trajectory">
 <h1><span class="section-number">2.2. </span>Jump method and quantum trajectory<a class="headerlink" href="#jump-method-and-quantum-trajectory" title="Link to this heading">#</a></h1>
-<p>The quantum master equation  is useful if we are interested in the expectation value of observables.  We are able to calculate <span class="math notranslate nohighlight">\(g^{(2)(\tau)\)</span> utilizing the quantum regression theorem.  However, it is not the best way to calculate the full counting statistics.  In this section, we explore an alternative method suitable for counting statistics. The method is known as the jump method in which the system jumps from a state to another and produces quantum trajectories.  It seems that no quantum trajectory of two-level system has been reported, perhaps because the process is too rapid.  Quantum trajectories have been observed in a two-level system with additional staging state where jumps between the excited state and the staging state were clearly seen.<span id="id1">[<a class="reference internal" href="../references/references.html#id40" title="Warren Nagourney, Jon Sandberg, and Hans Dehmelt. Shelved optical electron amplifier: observation of quantum jumps. Phys. Rev. Lett., 56:2797–2799, Jun 1986. doi:10.1103/PhysRevLett.56.2797.">18</a>, <a class="reference internal" href="../references/references.html#id41" title="J. C. Bergquist, Randall G. Hulet, Wayne M. Itano, and D. J. Wineland. Observation of quantum jumps in a single atom. Phys. Rev. Lett., 57:1699–1702, Oct 1986. doi:10.1103/PhysRevLett.57.1699.">19</a>, <a class="reference internal" href="../references/references.html#id42" title="Th. Sauter, W. Neuhauser, R. Blatt, and P. E. Toschek. Observation of quantum jumps. Phys. Rev. Lett., 57:1696–1698, Oct 1986. URL: https://link.aps.org/doi/10.1103/PhysRevLett.57.1696, doi:10.1103/PhysRevLett.57.1696.">20</a>]</span>  The jump method has been used to simulate the observed quantum trajectories. <span id="id2">[<a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">21</a>]</span></p>
+<p>The quantum master equation  is useful if we are interested in the expectation value of observables.  We are able to calculate <span class="math notranslate nohighlight">\(g^{(2)(\tau)\)</span> utilizing the quantum regression theorem.  However, it is not the best way to calculate the full counting statistics.  In this section, we explore an alternative method suitable for counting statistics. The method is known as the jump method in which the system jumps from a state to another and produces quantum trajectories.  It seems that no quantum trajectory of two-level system has been reported, perhaps because the process is too rapid.  Quantum trajectories have been observed in a two-level system with additional staging state where jumps between the excited state and the staging state were clearly seen.<span id="id1">[<a class="reference internal" href="../references/references.html#id40" title="Warren Nagourney, Jon Sandberg, and Hans Dehmelt. Shelved optical electron amplifier: observation of quantum jumps. Phys. Rev. Lett., 56:2797–2799, Jun 1986. doi:10.1103/PhysRevLett.56.2797.">21</a>, <a class="reference internal" href="../references/references.html#id41" title="J. C. Bergquist, Randall G. Hulet, Wayne M. Itano, and D. J. Wineland. Observation of quantum jumps in a single atom. Phys. Rev. Lett., 57:1699–1702, Oct 1986. doi:10.1103/PhysRevLett.57.1699.">22</a>, <a class="reference internal" href="../references/references.html#id42" title="Th. Sauter, W. Neuhauser, R. Blatt, and P. E. Toschek. Observation of quantum jumps. Phys. Rev. Lett., 57:1696–1698, Oct 1986. URL: https://link.aps.org/doi/10.1103/PhysRevLett.57.1696, doi:10.1103/PhysRevLett.57.1696.">23</a>]</span>  The jump method has been used to simulate the observed quantum trajectories. <span id="id2">[<a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">24</a>]</span></p>
 <section id="a-brief-summary-of-the-jump-method">
 <h2><span class="section-number">2.2.1. </span>A brief summary of the jump method<a class="headerlink" href="#a-brief-summary-of-the-jump-method" title="Link to this heading">#</a></h2>
-<p>Here only a brief summary of the jump method is provided. Many textbooks of quantum optics or open quantum systems discuss the details of the method.<span id="id3">[<a class="reference internal" href="../references/references.html#id34" title="Howard Carmichael. An Open Systems Approach to Quantum Optics. Number v.18 in Lecture Notes in Physics Monographs. Springer Berlin / Heidelberg, Berlin, Heidelberg, 1st ed. edition, 1993. ISBN 9783540476207. Description based on publisher supplied metadata and other sources.">12</a>, <a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">14</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">15</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">16</a>, <a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">21</a>]</span></p>
+<p>Here only a brief summary of the jump method is provided. Many textbooks of quantum optics or open quantum systems discuss the details of the method.<span id="id3">[<a class="reference internal" href="../references/references.html#id34" title="Howard Carmichael. An Open Systems Approach to Quantum Optics. Number v.18 in Lecture Notes in Physics Monographs. Springer Berlin / Heidelberg, Berlin, Heidelberg, 1st ed. edition, 1993. ISBN 9783540476207. Description based on publisher supplied metadata and other sources.">15</a>, <a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">18</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">19</a>, <a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">24</a>]</span></p>
 <p>We begin with the quantum master equation</p>
 <div class="math notranslate nohighlight">
 \[
@@ -684,7 +693,7 @@ i \frac{d}{dt} |\psi\rangle = H_\text{eff} | \psi\rangle.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/686e078c3268daa30f41814cec20175628c37b060603f9788061d87ff18ad31f.png" src="../_images/686e078c3268daa30f41814cec20175628c37b060603f9788061d87ff18ad31f.png" />
+<img alt="../_images/06c0f85edf5e1be2d60c3bc58773aacdd2206df73585639ccee80dab5a8de853.png" src="../_images/06c0f85edf5e1be2d60c3bc58773aacdd2206df73585639ccee80dab5a8de853.png" />
 </div>
 </div>
 <p>To see what is going on, we write the effective Hamiltonian.</p>
@@ -731,7 +740,7 @@ H_\text{eff} = \frac{\omega_0}{2}\left[ \left( 1 - i \frac{\Gamma_{e}}{\omega_0}
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;likely poissonian&quot;</span><span class="p">)</span>
     
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Waiting time ditribution&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Waiting time&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Event Count&quot;</span><span class="p">)</span>
@@ -740,12 +749,12 @@ H_\text{eff} = \frac{\omega_0}{2}\left[ \left( 1 - i \frac{\Gamma_{e}}{\omega_0}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean waiting time  =  23.993993993993993
-standard deviation =  18.629837218794037
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean waiting time  =  23.553453453453454
+standard deviation =  18.792469302570993
 likely sub-poissonian
 </pre></div>
 </div>
-<img alt="../_images/0c8d099e18c8715af5062d477f60b4ac4aeb563ae365f25417383086c5e996bb.png" src="../_images/0c8d099e18c8715af5062d477f60b4ac4aeb563ae365f25417383086c5e996bb.png" />
+<img alt="../_images/1b0621279c236ca9eecc0eaae6a1417829fc14dd4a36199aecd9d75f937cbc65.png" src="../_images/1b0621279c236ca9eecc0eaae6a1417829fc14dd4a36199aecd9d75f937cbc65.png" />
 </div>
 </div>
 </section>
@@ -758,7 +767,7 @@ n(\tau) = \sum_{i &lt; j} \delta(\tau - t_{j}+t_{i})
 \]</div>
 <p>which is proportional to <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span>.  We must scale <span class="math notranslate nohighlight">\(n(\tau)\)</span> so that  <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> is appropriately normalized.  Due to the presence of delta function,  Equation <a class="reference internal" href="#equation-eq-pair-counting">(2.11)</a> is numerically not practical. We usually plot it as a histogram, which shows the number of photons per the bin width <span class="math notranslate nohighlight">\(\Delta \tau\)</span>. Since <span class="math notranslate nohighlight">\(g^{(2)}\)</span> is dimensionless, the scaling functor must cancel <span class="math notranslate nohighlight">\(\Delta t\)</span>. Recall that <span class="math notranslate nohighlight">\(\lim_{\tau\rightarrow\infty} g^{(2)}(\tau) = 1\)</span>.  That means there is no correlation at a large <span class="math notranslate nohighlight">\(\tau\)</span>.  Then, <span class="math notranslate nohighlight">\(n(\tau)\)</span> also does not depend on <span class="math notranslate nohighlight">\(\tau\)</span>.  Now, we evaluate <span class="math notranslate nohighlight">\(n\)</span> when there is no correlation. The summation over <span class="math notranslate nohighlight">\(i\)</span> generates <span class="math notranslate nohighlight">\(N\)</span>.   The summation over <span class="math notranslate nohighlight">\(j\)</span> counts the average number of photons with <span class="math notranslate nohighlight">\(\Delta \tau\)</span>, which is <span class="math notranslate nohighlight">\(N \Delta \tau / t_\text{max}\)</span> where <span class="math notranslate nohighlight">\(t_\text{max}\)</span> is total measurement time.  Thus <span class="math notranslate nohighlight">\(n(\infty) \approx N^2 \Delta \tau / t_\text{max}\)</span>. Finally we have a properly normalized <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> as
 $<span class="math notranslate nohighlight">\(
-g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N \Delta \tau}
+g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \Delta \tau}
 \)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,7 +801,7 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N \Delt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/952c679b9b0a0da0b6aa6d4864fad89bd12399b6229e51ac53bb0b1296309cbf.png" src="../_images/952c679b9b0a0da0b6aa6d4864fad89bd12399b6229e51ac53bb0b1296309cbf.png" />
+<img alt="../_images/2e4bf873125010abdb4d89cf66e22d0a7bfa4e813e6af732793a76a3fb701fa9.png" src="../_images/2e4bf873125010abdb4d89cf66e22d0a7bfa4e813e6af732793a76a3fb701fa9.png" />
 </div>
 </div>
 <p>The plot is still noisy due to insufficient number of photons.  However, it is close to the plot obtained from the quantum master equation in the previous section. Anti-bunching is clearly visible.</p>

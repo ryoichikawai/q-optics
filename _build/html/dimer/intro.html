@@ -170,16 +170,25 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/jupyter.html">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frontmatter/cloud.html">Google Colab</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.2. Full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.3. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Quantum lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -429,7 +438,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-pair-of-identical-quantum-dots">
 <h1><span class="section-number">4. </span>A pair of identical quantum dots<a class="headerlink" href="#a-pair-of-identical-quantum-dots" title="Link to this heading">#</a></h1>
-<p>In this chapter, we consider a pair of identical quantum dots. We shall call the pair a dimer.  In addition to absorption and emission of photons by individual QDs,  collective processes carried out jointly and coherently by the two QDs are expected to happen.  They are theoretically investigated by pioneering work  <span id="id1">[<a class="reference internal" href="../references/references.html#id17" title="R. H. Lehmberg. Radiation from an $n$-atom system. ii. spontaneous emission from a pair of atoms. Phys. Rev. A, 2:889–896, Sep 1970. doi:10.1103/PhysRevA.2.889.">22</a>]</span> and <span id="id2">[<a class="reference internal" href="../references/references.html#id15" title="G. S. Agarwal. Master-equation approach to spontaneous emission. Phys. Rev. A, 2:2038–2046, Nov 1970. doi:10.1103/PhysRevA.2.2038.">23</a>]</span>.  Since then, quantum master equations become a standard method to study the coupled systems, which we also use in this chapter.</p>
+<p>In this chapter, we consider a pair of identical quantum dots. We shall call the pair a dimer.  In addition to absorption and emission of photons by individual QDs,  collective processes carried out jointly and coherently by the two QDs are expected to happen.  They are theoretically investigated by pioneering work  <span id="id1">[<a class="reference internal" href="../references/references.html#id17" title="R. H. Lehmberg. Radiation from an $n$-atom system. ii. spontaneous emission from a pair of atoms. Phys. Rev. A, 2:889–896, Sep 1970. doi:10.1103/PhysRevA.2.889.">25</a>]</span> and <span id="id2">[<a class="reference internal" href="../references/references.html#id15" title="G. S. Agarwal. Master-equation approach to spontaneous emission. Phys. Rev. A, 2:2038–2046, Nov 1970. doi:10.1103/PhysRevA.2.2038.">26</a>]</span>.  Since then, quantum master equations become a standard method to study the coupled systems, which we also use in this chapter.</p>
 <p>The state of the dimer is described by the four-dimensional Hilbert space and the corresponding density matrix is <span class="math notranslate nohighlight">\(4 \times 4\)</span>.  If the QDs are completely independent from each other, photons are also emitted independently from each QD.</p>
 <p>There are two possible ways that the two QDs  are coupled.  First of all, if two QDs directly interact through some mechanism such as the dipole-dipole interaction, the Hamiltonian of the system contains an interaction term <span class="math notranslate nohighlight">\(H_{int}\)</span>.  The net Hamiltonian looks like
 $<span class="math notranslate nohighlight">\(
