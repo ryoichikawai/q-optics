@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'openqm/jumps';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. A single two-level system" href="../monomer/intro.html" />
+    <link rel="next" title="3. A driven TLS: Rabi oscillation" href="../monomer/intro.html" />
     <link rel="prev" title="2.1. Quantum master equation (Lindblad equation)" href="lindblad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="../cover.html">
+<a class="navbar-brand logo" href="../frontmatter/cover.html">
   
   
   
@@ -165,15 +165,15 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../cover.html">
-                    <no title>
+                <a class="reference internal" href="../frontmatter/cover.html">
+                    A Note on Quantum Optics
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/preface.html">Preface</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
@@ -187,8 +187,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Quantum lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum coherence functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum system approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -199,13 +199,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A driven TLS:  Rabi oscillation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../monomer/model.html">3.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../monomer/steady_state.html">3.2. Steady State</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/analytic.html">3.2. QME: Analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/qme.html">3.3. QME: Numerical Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/jumps.html">3.4. Quantum Trajectory</a></li>
 </ul>
 </details></li>
 </ul>
@@ -439,7 +437,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-level-system-in-thermal-environment">2.2.3. Example:  Two-level system in thermal environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-trajectory">Quantum trajectory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-time-distribution-and-statistics">Waiting time distribution and statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-g-2-tau">Calculation of <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-second-order-coherence">Calculation of second-order coherence</a></li>
 </ul>
 </li>
 </ul>
@@ -454,7 +452,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="jump-method-and-quantum-trajectory">
-<h1><span class="section-number">2.2. </span>Jump method and quantum trajectory<a class="headerlink" href="#jump-method-and-quantum-trajectory" title="Link to this heading">#</a></h1>
+<span id="sec-jump"></span><h1><span class="section-number">2.2. </span>Jump method and quantum trajectory<a class="headerlink" href="#jump-method-and-quantum-trajectory" title="Link to this heading">#</a></h1>
 <p>The quantum master equation  is useful if we are interested in the expectation value of observables.  We are able to calculate <span class="math notranslate nohighlight">\(g^{(2)(\tau)\)</span> utilizing the quantum regression theorem.  However, it is not the best way to calculate the full counting statistics.  In this section, we explore an alternative method suitable for counting statistics. The method is known as the jump method in which the system jumps from a state to another and produces quantum trajectories.  It seems that no quantum trajectory of two-level system has been reported, perhaps because the process is too rapid.  Quantum trajectories have been observed in a two-level system with additional staging state where jumps between the excited state and the staging state were clearly seen.<span id="id1">[<a class="reference internal" href="../references/references.html#id40" title="Warren Nagourney, Jon Sandberg, and Hans Dehmelt. Shelved optical electron amplifier: observation of quantum jumps. Phys. Rev. Lett., 56:2797–2799, Jun 1986. doi:10.1103/PhysRevLett.56.2797.">21</a>, <a class="reference internal" href="../references/references.html#id41" title="J. C. Bergquist, Randall G. Hulet, Wayne M. Itano, and D. J. Wineland. Observation of quantum jumps in a single atom. Phys. Rev. Lett., 57:1699–1702, Oct 1986. doi:10.1103/PhysRevLett.57.1699.">22</a>, <a class="reference internal" href="../references/references.html#id42" title="Th. Sauter, W. Neuhauser, R. Blatt, and P. E. Toschek. Observation of quantum jumps. Phys. Rev. Lett., 57:1696–1698, Oct 1986. URL: https://link.aps.org/doi/10.1103/PhysRevLett.57.1696, doi:10.1103/PhysRevLett.57.1696.">23</a>]</span>  The jump method has been used to simulate the observed quantum trajectories. <span id="id2">[<a class="reference internal" href="../references/references.html#id7" title="M. B. Plenio and P. L. Knight. The quantum-jump approach to dissipative dynamics in quantum optics. Rev. Mod. Phys., 70:101–144, Jan 1998. doi:10.1103/RevModPhys.70.101.">24</a>]</span></p>
 <section id="a-brief-summary-of-the-jump-method">
 <h2><span class="section-number">2.2.1. </span>A brief summary of the jump method<a class="headerlink" href="#a-brief-summary-of-the-jump-method" title="Link to this heading">#</a></h2>
@@ -493,7 +491,7 @@ i \frac{d}{dt} |\psi\rangle = H_\text{eff} | \psi\rangle.
 <p>This is not exactly Schrödinger equation because <span class="math notranslate nohighlight">\(H_\text{eff}\)</span> is not self-adjoint, that is <span class="math notranslate nohighlight">\(H_\text{eff} \ne H^{\dagger}_\text{eff}\)</span>.  Hence, the norm of <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is not conserved.  We know that the master equation does conserve the norm of the density operator (<span class="math notranslate nohighlight">\(\text{tr}\rho = 1\)</span>).  If we take into account the jump term, the norm must be conserved but it cannot be included directly in the Schrödinger-like equation.  We need a mathematical trick to take into account the jump term.  What does the jump term do the the pure state <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>?   <span class="math notranslate nohighlight">\(\mathcal{L}_\text{jump} (|\psi\rangle\langle\psi|) = \sum_i C_{i}|\psi\rangle\langle\psi|C^{\dagger}_{i}\)</span> tells that the the system jump out from <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> to <span class="math notranslate nohighlight">\(C_{i}|\psi\rangle\)</span>, suggesting that the norm of <span class="math notranslate nohighlight">\(|psi\rangle\)</span> decreases.  In other words, the system changes in two different ways, smooth change according to the Schrödinger equation and jump by the jump operator <span class="math notranslate nohighlight">\(C_{i}\)</span>. We don’t know which one happens.  So, we resort to Monte Carlo method which chose one at random.</p>
 <p>Now, we implement this idea in a mathematical form.  Suppose that the system is in a pure state <span class="math notranslate nohighlight">\(|\psi(t)\rangle\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> and it is normalized as <span class="math notranslate nohighlight">\(\langle\psi(t)|\psi(t)\rangle=1\)</span>.  If the system were to evolve for a brief time <span class="math notranslate nohighlight">\(\delta t\)</span> according to the  Schrödinger equation, the new state is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-no-jump">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-no-jump" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-no-jump" title="Link to this equation">#</a></span>\[
 |\psi(t+\delta t)\rangle = \left(1 - i H_\text{eff} \delta t\right) |\psi(t)\rangle
 \]</div>
 <p>and its norm is</p>
@@ -513,7 +511,7 @@ i \frac{d}{dt} |\psi\rangle = H_\text{eff} | \psi\rangle.
 &amp;= \delta t \sum_{i} \langle \psi(t)|C_{i}^{\dagger} C_{i}|\psi(t)\rangle  
 \end{align}
 \end{split}\]</div>
-<p>Clearly <span class="math notranslate nohighlight">\(\delta p \ge 0\)</span> and thus the norm is indeed reduced.  If <span class="math notranslate nohighlight">\(\delta p = \)</span>, then, the norm is conserved and no jump takes place.  On the other hand, if <span class="math notranslate nohighlight">\(\delta p =1\)</span>, then the norm completely vanishes and one of jump processes takes place.  Therefore, <span class="math notranslate nohighlight">\(\delta p\)</span> behaves like a probability of a jump happens.  We introduce a stochastic process based on this probability. Our assumption is that a jump happens with probability <span class="math notranslate nohighlight">\(\delta p\)</span>.  In practice, we generate a uniform random number <span class="math notranslate nohighlight">\(r \in [0,1]\)</span> and if <span class="math notranslate nohighlight">\(r&gt;\delta p\)</span> then a jump happens and other wise, the new state <a class="reference internal" href="#equation-eq-no-jump">(2.10)</a> is accepted.  If there are multiple jump channels, we need to pick one channel.  Notice that <span class="math notranslate nohighlight">\(\delta n_{i} = \delta t \langle \psi(t)|C_{i}^{\dagger} C_{i}|\psi(t)\rangle\)</span> is the expectation value of <span class="math notranslate nohighlight">\(C_{i}^\dagger C_{i}\)</span> which looks like a number operator (it is indeed a number operator in many cases in optics).  <span class="math notranslate nohighlight">\(\delta n_{i}\)</span> indicate a likelihood of jump to <span class="math notranslate nohighlight">\(C_{i}|\psi\rangle\)</span>.  We define the probability that a particular jump happens as <span class="math notranslate nohighlight">\(\delta p_{i} = \delta n_{i} /\sum_{i} \delta n_{i} = \delta n_{i}/\delta p \)</span>.</p>
+<p>Clearly <span class="math notranslate nohighlight">\(\delta p \ge 0\)</span> and thus the norm is indeed reduced.  If <span class="math notranslate nohighlight">\(\delta p = \)</span>, then, the norm is conserved and no jump takes place.  On the other hand, if <span class="math notranslate nohighlight">\(\delta p =1\)</span>, then the norm completely vanishes and one of jump processes takes place.  Therefore, <span class="math notranslate nohighlight">\(\delta p\)</span> behaves like a probability of a jump happens.  We introduce a stochastic process based on this probability. Our assumption is that a jump happens with probability <span class="math notranslate nohighlight">\(\delta p\)</span>.  In practice, we generate a uniform random number <span class="math notranslate nohighlight">\(r \in [0,1]\)</span> and if <span class="math notranslate nohighlight">\(r&gt;\delta p\)</span> then a jump happens and other wise, the new state <a class="reference internal" href="#equation-eq-no-jump">(2.11)</a> is accepted.  If there are multiple jump channels, we need to pick one channel.  Notice that <span class="math notranslate nohighlight">\(\delta n_{i} = \delta t \langle \psi(t)|C_{i}^{\dagger} C_{i}|\psi(t)\rangle\)</span> is the expectation value of <span class="math notranslate nohighlight">\(C_{i}^\dagger C_{i}\)</span> which looks like a number operator (it is indeed a number operator in many cases in optics).  <span class="math notranslate nohighlight">\(\delta n_{i}\)</span> indicate a likelihood of jump to <span class="math notranslate nohighlight">\(C_{i}|\psi\rangle\)</span>.  We define the probability that a particular jump happens as <span class="math notranslate nohighlight">\(\delta p_{i} = \delta n_{i} /\sum_{i} \delta n_{i} = \delta n_{i}/\delta p \)</span>.</p>
 </section>
 <section id="algorithm">
 <h2><span class="section-number">2.2.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading">#</a></h2>
@@ -561,7 +559,7 @@ i \frac{d}{dt} |\psi\rangle = H_\text{eff} | \psi\rangle.
 <section id="example-two-level-system-in-thermal-environment">
 <h2><span class="section-number">2.2.3. </span>Example:  Two-level system in thermal environment<a class="headerlink" href="#example-two-level-system-in-thermal-environment" title="Link to this heading">#</a></h2>
 <p>In <a class="reference internal" href="lindblad.html#sec-qme"><span class="std std-numref">Section 2.1</span></a>, we calculated the state of a two-level system using the quantum master equation.  Let us simulate the quantum trajectory of the same system. The following code calculate a quantum trajectory using the algorithm given above.  Only one trajectory is computed and no statistical analysis is done.  Run the code several times. A different trajectory is obtained each time because the process is stochastic.</p>
-<p>In the following code, the simulation continues until the photon counts reaches the maximum. It takes a while to complete the simulation if a large number of photons are specified.   At each time step, <span class="math notranslate nohighlight">\(\langle \sigma_z \rangle\)</span> is computed and the time a photon is emitted is recorded.</p>
+<p>In the following code, the simulation continues until the photon counts reaches the maximum. It takes a while to complete the simulation if a large number of photons are specified.   At each time step, <span class="math notranslate nohighlight">\(\langle \sigma_z \rangle\)</span> is computed and the time a photon is emitted is recorded.  This code takes several minutes or more to complete.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignore warnings (qutip issues various unwanted warnings)</span>
@@ -693,7 +691,7 @@ i \frac{d}{dt} |\psi\rangle = H_\text{eff} | \psi\rangle.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06c0f85edf5e1be2d60c3bc58773aacdd2206df73585639ccee80dab5a8de853.png" src="../_images/06c0f85edf5e1be2d60c3bc58773aacdd2206df73585639ccee80dab5a8de853.png" />
+<img alt="../_images/815629a4d383373facac63ceb8209f3c89e566ded9dac09c7ad2a2cf3a7e4ba2.png" src="../_images/815629a4d383373facac63ceb8209f3c89e566ded9dac09c7ad2a2cf3a7e4ba2.png" />
 </div>
 </div>
 <p>To see what is going on, we write the effective Hamiltonian.</p>
@@ -749,59 +747,78 @@ H_\text{eff} = \frac{\omega_0}{2}\left[ \left( 1 - i \frac{\Gamma_{e}}{\omega_0}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean waiting time  =  23.553453453453454
-standard deviation =  18.792469302570993
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean waiting time  =  23.908208208208208
+standard deviation =  19.130495250809155
 likely sub-poissonian
 </pre></div>
 </div>
-<img alt="../_images/1b0621279c236ca9eecc0eaae6a1417829fc14dd4a36199aecd9d75f937cbc65.png" src="../_images/1b0621279c236ca9eecc0eaae6a1417829fc14dd4a36199aecd9d75f937cbc65.png" />
+<img alt="../_images/6e17bb28e1939141c4a47944075c775060c972c1fbc2c88b504ac2df12a6fe10.png" src="../_images/6e17bb28e1939141c4a47944075c775060c972c1fbc2c88b504ac2df12a6fe10.png" />
 </div>
 </div>
 </section>
-<section id="calculation-of-g-2-tau">
-<h3>Calculation of <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span><a class="headerlink" href="#calculation-of-g-2-tau" title="Link to this heading">#</a></h3>
-<p>Calculating <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> from the spike train of photons is strait forward.  For a spike train <span class="math notranslate nohighlight">\(\{t_{1}, t_{2}, \cdots, t_{N}\}\)</span> of <span class="math notranslate nohighlight">\(N\)</span> photons, the number of photons separated by time difference  <span class="math notranslate nohighlight">\(\tau\)</span> is given by</p>
-<div class="math notranslate nohighlight" id="equation-eq-pair-counting">
-<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-pair-counting" title="Link to this equation">#</a></span>\[
+<section id="calculation-of-second-order-coherence">
+<h3>Calculation of second-order coherence<a class="headerlink" href="#calculation-of-second-order-coherence" title="Link to this heading">#</a></h3>
+<p>Calculating <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> from the spike train of photons is strait forward as discussed in <a class="reference internal" href="../detection/counting-statistics.html#sec-fcs"><span class="std std-numref">Section 1.3</span></a>.  For a spike train <span class="math notranslate nohighlight">\(\{t_{1}, t_{2}, \cdots, t_{N}\}\)</span> of <span class="math notranslate nohighlight">\(N\)</span> photons, the number of photons separated by time difference  <span class="math notranslate nohighlight">\(\tau\)</span> is given by [same as Eq. <a class="reference internal" href="../detection/counting-statistics.html#equation-eq-pair-counting">(1.5)</a>]</p>
+<div class="math notranslate nohighlight">
+\[
 n(\tau) = \sum_{i &lt; j} \delta(\tau - t_{j}+t_{i})
 \]</div>
-<p>which is proportional to <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span>.  We must scale <span class="math notranslate nohighlight">\(n(\tau)\)</span> so that  <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> is appropriately normalized.  Due to the presence of delta function,  Equation <a class="reference internal" href="#equation-eq-pair-counting">(2.11)</a> is numerically not practical. We usually plot it as a histogram, which shows the number of photons per the bin width <span class="math notranslate nohighlight">\(\Delta \tau\)</span>. Since <span class="math notranslate nohighlight">\(g^{(2)}\)</span> is dimensionless, the scaling functor must cancel <span class="math notranslate nohighlight">\(\Delta t\)</span>. Recall that <span class="math notranslate nohighlight">\(\lim_{\tau\rightarrow\infty} g^{(2)}(\tau) = 1\)</span>.  That means there is no correlation at a large <span class="math notranslate nohighlight">\(\tau\)</span>.  Then, <span class="math notranslate nohighlight">\(n(\tau)\)</span> also does not depend on <span class="math notranslate nohighlight">\(\tau\)</span>.  Now, we evaluate <span class="math notranslate nohighlight">\(n\)</span> when there is no correlation. The summation over <span class="math notranslate nohighlight">\(i\)</span> generates <span class="math notranslate nohighlight">\(N\)</span>.   The summation over <span class="math notranslate nohighlight">\(j\)</span> counts the average number of photons with <span class="math notranslate nohighlight">\(\Delta \tau\)</span>, which is <span class="math notranslate nohighlight">\(N \Delta \tau / t_\text{max}\)</span> where <span class="math notranslate nohighlight">\(t_\text{max}\)</span> is total measurement time.  Thus <span class="math notranslate nohighlight">\(n(\infty) \approx N^2 \Delta \tau / t_\text{max}\)</span>. Finally we have a properly normalized <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> as
+<p>which is proportional to <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span>.  We must scale <span class="math notranslate nohighlight">\(n(\tau)\)</span> so that  <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> is appropriately normalized.  Due to the presence of delta function,  Equation <a class="reference internal" href="../detection/counting-statistics.html#equation-eq-pair-counting">(1.5)</a> is numerically not practical. We usually plot it as a histogram, which shows the number of photons per the bin width <span class="math notranslate nohighlight">\(\Delta \tau\)</span>. Since <span class="math notranslate nohighlight">\(g^{(2)}\)</span> is dimensionless, the scaling functor must cancel <span class="math notranslate nohighlight">\(\Delta t\)</span>. Recall that <span class="math notranslate nohighlight">\(\lim_{\tau\rightarrow\infty} g^{(2)}(\tau) = 1\)</span>.  That means there is no correlation at a large <span class="math notranslate nohighlight">\(\tau\)</span>.  Then, <span class="math notranslate nohighlight">\(n(\tau)\)</span> also does not depend on <span class="math notranslate nohighlight">\(\tau\)</span>.  Now, we evaluate <span class="math notranslate nohighlight">\(n\)</span> when there is no correlation. The summation over <span class="math notranslate nohighlight">\(i\)</span> generates <span class="math notranslate nohighlight">\(N\)</span>.   The summation over <span class="math notranslate nohighlight">\(j\)</span> counts the average number of photons with <span class="math notranslate nohighlight">\(\Delta \tau\)</span>, which is <span class="math notranslate nohighlight">\(N \Delta \tau / t_\text{max}\)</span> where <span class="math notranslate nohighlight">\(t_\text{max}\)</span> is total measurement time.  Thus <span class="math notranslate nohighlight">\(n(\infty) \approx N^2 \Delta \tau / t_\text{max}\)</span>. Finally we have a properly normalized <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> as
 $<span class="math notranslate nohighlight">\(
-g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \Delta \tau}
+g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N \Delta \tau}
 \)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pair_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-<span class="n">i</span><span class="o">=</span><span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pair_times = np.array([])</span>
+<span class="c1">#i=1</span>
 
 <span class="n">tau_max</span> <span class="o">=</span> <span class="mi">40</span>  <span class="c1"># max correlation time</span>
+<span class="n">N_spikes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span>
+<span class="n">dN</span> <span class="o">=</span> <span class="mi">50</span>
 
-<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">max_photons</span><span class="o">-</span><span class="mi">20</span><span class="p">:</span>
-    <span class="n">t0</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-    <span class="k">while</span>  <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="o">+</span><span class="mi">20</span><span class="p">)</span> <span class="p">:</span>
-        <span class="n">t1</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span> <span class="o">&lt;</span> <span class="n">tau_max</span><span class="p">:</span>
-            <span class="n">pair_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pair_times</span><span class="p">,</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
-        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pair_times</span><span class="p">(</span><span class="n">spikes</span><span class="p">):</span>
+
+    <span class="n">time_gap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">1</span>
+
+
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N_spikes</span><span class="o">-</span><span class="n">dN</span><span class="p">:</span>
+        <span class="n">t0</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">while</span>  <span class="p">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">N_spikes</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span> <span class="o">&lt;=</span> <span class="n">tau_max</span><span class="p">:</span>
+                <span class="n">time_gap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_gap</span><span class="p">,</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">time_gap</span>
+
+<span class="n">pair_time_gap</span> <span class="o">=</span> <span class="n">pair_times</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span>
 
 <span class="n">nbins</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">dtau</span> <span class="o">=</span> <span class="n">tau_max</span><span class="o">/</span><span class="n">nbins</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">max_photons</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="n">times</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">dtau</span> 
+<span class="n">norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">N_spikes</span><span class="o">-</span><span class="n">dN</span><span class="p">)</span><span class="o">*</span><span class="n">N_spikes</span> <span class="o">/</span><span class="n">spikes</span><span class="p">[</span><span class="n">N_spikes</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dtau</span> 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pair_times</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">pair_times</span><span class="p">)</span><span class="o">/</span><span class="n">norm</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;0.8&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="nb">bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">pair_time_gap</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">bin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">counts</span><span class="o">/</span><span class="n">norm</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">tau_max</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$g^{(2)}(\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2e4bf873125010abdb4d89cf66e22d0a7bfa4e813e6af732793a76a3fb701fa9.png" src="../_images/2e4bf873125010abdb4d89cf66e22d0a7bfa4e813e6af732793a76a3fb701fa9.png" />
+<img alt="../_images/d50871e129877dbdca9004170b18705e9d902ed9fe502273554d88431f82c496.png" src="../_images/d50871e129877dbdca9004170b18705e9d902ed9fe502273554d88431f82c496.png" />
 </div>
 </div>
 <p>The plot is still noisy due to insufficient number of photons.  However, it is close to the plot obtained from the quantum master equation in the previous section. Anti-bunching is clearly visible.</p>
@@ -853,7 +870,7 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>A single two-level system</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>A driven TLS:  Rabi oscillation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -880,7 +897,7 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-level-system-in-thermal-environment">2.2.3. Example:  Two-level system in thermal environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-trajectory">Quantum trajectory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-time-distribution-and-statistics">Waiting time distribution and statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-g-2-tau">Calculation of <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-second-order-coherence">Calculation of second-order coherence</a></li>
 </ul>
 </li>
 </ul>

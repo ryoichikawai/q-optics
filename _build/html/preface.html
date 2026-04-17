@@ -164,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="cover.html">
-                    <no title>
+                    A Note on Quantum Optics
                 </a>
             </li>
         </ul>
@@ -185,8 +185,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="detection/classical-lights.html">1.1. Detection of classical lights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="detection/quantum-lights.html">1.2. Quantum lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detection/counting-statistics.html">1.3. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detection/quantum-correlations.html">1.4. Quantum coherence functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -197,13 +197,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="monomer/intro.html">3. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="monomer/intro.html">3. A driven TLS:  Rabi oscillation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="monomer/model.html">3.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="monomer/steady_state.html">3.2. Steady State</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="dimer/numerical.html">4.1. Numerical calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monomer/analytic.html">3.2. QME: Analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monomer/qme.html">3.3. QME: Numerical Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monomer/jumps.html">3.4. Quantum Trajectory</a></li>
 </ul>
 </details></li>
 </ul>
@@ -255,6 +253,37 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ryoichikawai/q-optics/blob/main/preface.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -315,7 +344,7 @@
       
       
       
-      <li><a href="_sources/preface.md" target="_blank"
+      <li><a href="_sources/preface.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +354,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -405,7 +434,9 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="preface">
 <h1>Preface<a class="headerlink" href="#preface" title="Link to this heading">#</a></h1>
-<p>This is my personal notes on research with Dr. Krishen Appavoo.  I am familiar with open quantum systems and statistical mechanics but not with quantum optics.   I am sure that I make silly mistakes.  Let me know if you find errors.</p>
+<p>Primarily this is my personal note needed to prepare for a joint research program with Dr. Krishen Appavoo.  I am familiar with open quantum systems and statistical mechanics but not with quantum optics.  I studied quantum optics briefly when I was student back in 1980’s. My memory faded out over the years and I needed to refresh it.  That is my first objective to write this note.  Furthermore, my knowledge lacks modern aspects of quantum optics. I need to learn them.  That is my second objective.</p>
+<p>I am sure that there are many silly mistakes.  Please read it carefully and do not just trust the contents.</p>
+<p>I will add new materials whenever I have free time.  Due to my age, it will be slow.  Please be patient.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -417,16 +448,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "book"
         },
         kernelOptions: {
-            name: "python3",
+            name: "book",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'book'</script>
 
                 </article>
               

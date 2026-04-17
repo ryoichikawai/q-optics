@@ -2,13 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: cover
+root: frontmatter/cover
 parts:
 -  caption: Front matter
    numbered: false
    chapters:
-   -  file: aboutme
-   -  file: preface
+   -  file: frontmatter/aboutme
+   -  file: frontmatter/preface
    -  file: frontmatter/intro
       sections:
       -  file: frontmatter/thisbook
@@ -34,10 +34,12 @@ parts:
    -  file: monomer/intro
       sections:
       -  file: monomer/model
-      -  file: monomer/steady_state
-   -  file: dimer/intro
-      sections:
-      -  file: dimer/numerical
+      -  file: monomer/analytic
+      -  file: monomer/qme
+      -  file: monomer/jumps
+#   -  file: dimer/intro
+#      sections:
+#      -  file: dimer/numerical
 -  caption:
    numbered: false
    chapters:

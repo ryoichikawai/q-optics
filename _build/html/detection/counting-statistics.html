@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.3. Photons and full counting statistics &#8212; Numerical Quantum Optics</title>
+    <title>1.3. Full counting statistics &#8212; Numerical Quantum Optics</title>
   
   
   
@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'detection/counting-statistics';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.4. Quantum correlation functions" href="quantum-correlations.html" />
+    <link rel="next" title="1.4. Quantum coherence functions" href="quantum-correlations.html" />
     <link rel="prev" title="1.2. Quantum lights" href="quantum-lights.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="../cover.html">
+<a class="navbar-brand logo" href="../frontmatter/cover.html">
   
   
   
@@ -165,15 +165,15 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../cover.html">
-                    <no title>
+                <a class="reference internal" href="../frontmatter/cover.html">
+                    A Note on Quantum Optics
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/preface.html">Preface</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
@@ -187,8 +187,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">1. Photon counting statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="classical-lights.html">1.1. Detection of classical lights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantum-lights.html">1.2. Quantum lights</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Photons and full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum-correlations.html">1.4. Quantum coherence functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -199,13 +199,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A driven TLS:  Rabi oscillation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../monomer/model.html">3.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../monomer/steady_state.html">3.2. Steady State</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/analytic.html">3.2. QME: Analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/qme.html">3.3. QME: Numerical Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/jumps.html">3.4. Quantum Trajectory</a></li>
 </ul>
 </details></li>
 </ul>
@@ -424,7 +422,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Photons and full counting statistics</h1>
+    <h1>Full counting statistics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -453,12 +451,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="photons-and-full-counting-statistics">
-<span id="sec-fcs"></span><h1><span class="section-number">1.3. </span>Photons and full counting statistics<a class="headerlink" href="#photons-and-full-counting-statistics" title="Link to this heading">#</a></h1>
-<p>As Glaubver defined photons, our focus is on the photons detected by the measurement device.  The detector only records the time of clicks for s certain period of time.  After detecting <span class="math notranslate nohighlight">\(N\)</span> photons, we have a time series <span class="math notranslate nohighlight">\(\{t_{1}, t_{2}, \cdots, t_{N} \}\)</span>.  A question is what information we can get out of the time series.  In this section, we introduce some statistical methods to analyze such data.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="full-counting-statistics">
+<span id="sec-fcs"></span><h1><span class="section-number">1.3. </span>Full counting statistics<a class="headerlink" href="#full-counting-statistics" title="Link to this heading">#</a></h1>
+<p>Following Glauber’s definition of photons, our focus is on the photons detected by the measurement device.  The detector only records the time of clicks for a certain period of time.  After detecting <span class="math notranslate nohighlight">\(N\)</span> photons, we have a time series <span class="math notranslate nohighlight">\(\{t_{1}, t_{2}, \cdots, t_{N} \}\)</span>.  A question is what information we can get out of the time series.  In this section, we introduce some statistical methods to analyze such data.</p>
 <section id="instantaneous-and-mean-counting-rates">
 <h2><span class="section-number">1.3.1. </span>Instantaneous and mean counting rates<a class="headerlink" href="#instantaneous-and-mean-counting-rates" title="Link to this heading">#</a></h2>
-<p>An obvious information is the number of photons per a unit time or counting rate.  If <span class="math notranslate nohighlight">\(\Delta N\)</span> photons are detected during a small time interval <span class="math notranslate nohighlight">\(\Delta t\)</span> around time <span class="math notranslate nohighlight">\(t\)</span> (or more precisely a period <span class="math notranslate nohighlight">\([t,t+\Delta t]\)</span>), the counting rate is given by <span class="math notranslate nohighlight">\(\lambda(t) = m/\Delta t\)</span>, which is assumed to be proportional to the intensity of light.  The counting rate fluctuates around the mean <span class="math notranslate nohighlight">\(\langle \lambda \rangle = \frac{1}{t_\text{max}} \int_{0}^{t_\text{max}} \lambda(t) dt\)</span>.  Some interesting feature of quantum light is related to the fluctuation of the counting rate, which we discuss next.</p>
+<p>An obvious information is the number of photons per a unit time or counting rate.  If <span class="math notranslate nohighlight">\(\Delta N\)</span> photons are detected during a small time interval <span class="math notranslate nohighlight">\(\Delta t\)</span> around time <span class="math notranslate nohighlight">\(t\)</span> (or more precisely a period <span class="math notranslate nohighlight">\([t,t+\Delta t]\)</span>), the counting rate is given by <span class="math notranslate nohighlight">\(\lambda(t) = \Delta N/\Delta t\)</span>, which is assumed to be proportional to the intensity of light.  The counting rate fluctuates around the mean <span class="math notranslate nohighlight">\(\lambda = \frac{1}{t_\text{max}} \int_{0}^{t_\text{max}} \lambda(t) dt\)</span>.  Some interesting features of quantum light can be seen in the fluctuation of the counting rate, which we discuss next.</p>
 </section>
 <section id="three-types-of-waiting-time-distribution">
 <h2><span class="section-number">1.3.2. </span>Three types of waiting time distribution<a class="headerlink" href="#three-types-of-waiting-time-distribution" title="Link to this heading">#</a></h2>
@@ -582,9 +580,9 @@ When <span class="math notranslate nohighlight">\(k=1\)</span>, the fluctuation 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of photons detected during time period of  100
-  sub-poisson = 103
+  sub-poisson = 95
       poisson = 93
-super-poisson = 103
+super-poisson = 112
 </pre></div>
 </div>
 </div>
@@ -605,7 +603,7 @@ super-poisson = 103
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6c472bc6c476705c5243bc8ebc306857c4c0e20281200acf1161eee8173d66c8.png" src="../_images/6c472bc6c476705c5243bc8ebc306857c4c0e20281200acf1161eee8173d66c8.png" />
+<img alt="../_images/ea97121436d28837bdcae795d8185bbda5748ed154dbbb67bea2623de1b4962c.png" src="../_images/ea97121436d28837bdcae795d8185bbda5748ed154dbbb67bea2623de1b4962c.png" />
 </div>
 </div>
 <p>Roughly speaking the spikes are spread evenly for the sub-poissonian distribution, indicating that photons arrive constantly with little fluctuation.  For super-poissonian distribution, on the other hand, wide gaps between spikes can be seen and photons tend to arrive together in clusters .  Since photons in coherent laser is known to obey the poisson distribution, we consider it as a reference.  The tendency that photons in the super-poissonian distribution arrive together in clusters with respect to photons in  the poisson distribution is known as <em>photon bunching</em>.  In the opposite direction, the tendency that photons in the sub-poissonian distribution arrive constantly is called <em>photon anti-bunching</em>.</p>
@@ -656,9 +654,9 @@ super-poisson = 103
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>waiting time statistics
-  sub-poisson: λ= 0.9992091394990305 Δλ= 0.6052737474746315
-      poisson: λ= 0.9847619260868398 Δλ= 0.9805645228165805
-super-poisson: λ= 0.9450170659932456 Δλ= 1.33584311579099
+  sub-poisson: λ= 0.9798159344774297 Δλ= 0.5886070826194967
+      poisson: λ= 0.9942299164967543 Δλ= 1.0238800086296598
+super-poisson: λ= 1.0340933784976285 Δλ= 1.4612401817354803
 </pre></div>
 </div>
 </div>
@@ -668,27 +666,28 @@ super-poisson: λ= 0.9450170659932456 Δλ= 1.33584311579099
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime_poisson</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;poisson&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">5.2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;wating time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;probability density&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime_superpoisson</span><span class="p">,</span>  <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;superpoisson&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">5.2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;wating time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime_subpoisson</span><span class="p">,</span>  <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;subpoisson&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">5.2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;wating time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;probability density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime_poisson</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;poisson&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">5.2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;wating time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wtime_superpoisson</span><span class="p">,</span>  <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;superpoisson&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">5.2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;wating time&quot;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/af029b55b11de2505e943332587c2135d198d3bc611c65ac00c35aeb20810ffe.png" src="../_images/af029b55b11de2505e943332587c2135d198d3bc611c65ac00c35aeb20810ffe.png" />
+<img alt="../_images/013c4577d0a522743952c5eaaa42cdd08e85e02e720548a7eb1b705f68f57885.png" src="../_images/013c4577d0a522743952c5eaaa42cdd08e85e02e720548a7eb1b705f68f57885.png" />
 </div>
 </div>
 </section>
@@ -708,24 +707,27 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
 <p>The following code computes it for the above three cases.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nbins</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">tau_max</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># max correlatio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nbins</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># number of bins</span>
+<span class="n">tau_max</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># max time separation to be counted</span>
+<span class="n">dN</span> <span class="o">=</span> <span class="mi">30</span>
 
+<span class="c1"># the time gaps between two spikes</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">pair_times</span><span class="p">(</span><span class="n">spikes</span><span class="p">):</span>
 
     <span class="n">time_gap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
     <span class="n">i</span><span class="o">=</span><span class="mi">1</span>
-    <span class="n">tau_max</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># max correlation time</span>
     <span class="n">N_spikes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span>
-    <span class="n">dN</span> <span class="o">=</span> <span class="mi">50</span>
+
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N_spikes</span><span class="o">-</span><span class="n">dN</span><span class="p">:</span>
         <span class="n">t0</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-        <span class="k">while</span>  <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="o">+</span><span class="n">dN</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">while</span>  <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">N_spikes</span><span class="p">)</span> <span class="p">:</span>
             <span class="n">t1</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span> <span class="o">&lt;</span> <span class="n">tau_max</span><span class="p">:</span>
                 <span class="n">time_gap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_gap</span><span class="p">,</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
-            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">time_gap</span>
 
@@ -733,37 +735,38 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
 <span class="n">pair_times_subpoisson</span> <span class="o">=</span> <span class="n">pair_times</span><span class="p">(</span><span class="n">spikes_subpoisson</span><span class="p">)</span>
 <span class="n">pair_times_superpoisson</span> <span class="o">=</span> <span class="n">pair_times</span><span class="p">(</span><span class="n">spikes_superpoisson</span><span class="p">)</span>
 
+<span class="c1"># Normalization constants</span>
 <span class="n">dtau</span> <span class="o">=</span> <span class="n">tau_max</span><span class="o">/</span><span class="n">nbins</span>
-<span class="n">norm_poisson</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes_poisson</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="n">tmax</span> <span class="o">*</span> <span class="n">dtau</span> 
-<span class="n">norm_subpoisson</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes_subpoisson</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="n">tmax</span> <span class="o">*</span> <span class="n">dtau</span> 
-<span class="n">norm_superpoisson</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes_superpoisson</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="n">tmax</span> <span class="o">*</span> <span class="n">dtau</span> 
+<span class="n">N_spikes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes_poisson</span><span class="p">)</span>
+<span class="n">norm_poisson</span> <span class="o">=</span> <span class="p">(</span><span class="n">N_spikes</span><span class="o">-</span><span class="n">dN</span><span class="p">)</span><span class="o">*</span><span class="n">N_spikes</span> <span class="o">/</span><span class="n">tmax</span> <span class="o">*</span> <span class="n">dtau</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">get_x</span><span class="p">(</span><span class="nb">bin</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="nb">bin</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">bin</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
-    
+<span class="n">N_spikes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes_subpoisson</span><span class="p">)</span>
+<span class="n">norm_subpoisson</span> <span class="o">=</span> <span class="p">(</span><span class="n">N_spikes</span><span class="o">-</span><span class="n">dN</span><span class="p">)</span><span class="o">*</span><span class="n">N_spikes</span><span class="o">/</span><span class="n">tmax</span> <span class="o">*</span> <span class="n">dtau</span> 
 
-<span class="n">count</span><span class="p">,</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pair_times_poisson</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">x_poisson</span> <span class="o">=</span> <span class="n">get_x</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
-<span class="n">y_poisson</span><span class="o">=</span><span class="n">count</span><span class="o">/</span><span class="n">norm_poisson</span>
-<span class="n">count</span><span class="p">,</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pair_times_subpoisson</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">x_subpoisson</span> <span class="o">=</span> <span class="n">get_x</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
-<span class="n">y_subpoisson</span><span class="o">=</span><span class="n">count</span><span class="o">/</span><span class="n">norm_subpoisson</span>
-<span class="n">count</span><span class="p">,</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pair_times_superpoisson</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">x_superpoisson</span> <span class="o">=</span> <span class="n">get_x</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
-<span class="n">y_superpoisson</span><span class="o">=</span><span class="n">count</span><span class="o">/</span><span class="n">norm_superpoisson</span>
+<span class="n">N_spikes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes_superpoisson</span><span class="p">)</span>
+<span class="n">norm_superpoisson</span> <span class="o">=</span>  <span class="p">(</span><span class="n">N_spikes</span><span class="o">-</span><span class="n">dN</span><span class="p">)</span><span class="o">*</span><span class="n">N_spikes</span> <span class="o">/</span><span class="n">tmax</span> <span class="o">*</span> <span class="n">dtau</span> 
 
+<span class="c1"># Generate normalized counts and bin center position</span>
+<span class="n">counts</span><span class="p">,</span> <span class="nb">bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">pair_times_poisson</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
+<span class="n">x_poisson</span> <span class="o">=</span> <span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">bin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y_poisson</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="n">norm_poisson</span>
+
+<span class="n">counts</span><span class="p">,</span> <span class="nb">bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">pair_times_subpoisson</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
+<span class="n">x_subpoisson</span> <span class="o">=</span> <span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">bin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y_subpoisson</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="n">norm_subpoisson</span>
+
+<span class="n">counts</span><span class="p">,</span> <span class="nb">bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">pair_times_superpoisson</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span>
+<span class="n">x_superpoisson</span> <span class="o">=</span> <span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">bin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y_superpoisson</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="n">norm_superpoisson</span>
+
+<span class="c1"># plot the results</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_poisson</span><span class="p">,</span><span class="n">y_poisson</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;poisson&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_subpoisson</span><span class="p">,</span><span class="n">y_subpoisson</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;subpoisson&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$g^{(2)}(\tau)$&quot;</span><span class="p">)</span>
@@ -771,14 +774,14 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_superpoisson</span><span class="p">,</span><span class="n">y_superpoisson</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;superpoisson&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_poisson</span><span class="p">,</span><span class="n">y_poisson</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;poisson&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_subpoisson</span><span class="p">,</span><span class="n">y_subpoisson</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;subpoisson&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_superpoisson</span><span class="p">,</span><span class="n">y_superpoisson</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;superpoisson&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
@@ -788,10 +791,10 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/afb1a145ad74abb83edd2630d18ba01b2335c47d81e94d8d41069ed1e8cdd5ae.png" src="../_images/afb1a145ad74abb83edd2630d18ba01b2335c47d81e94d8d41069ed1e8cdd5ae.png" />
+<img alt="../_images/8aa3a4f592d851cfffbceafdae5ffbb14227e1ff6aaf571217cdbc49d448fc35.png" src="../_images/8aa3a4f592d851cfffbceafdae5ffbb14227e1ff6aaf571217cdbc49d448fc35.png" />
 </div>
 </div>
-<p>While the plot is still noisy due to insufficient sampling, the signature of three statistical types is very clear.  The poisson process shows no sign of correlation. While the superpoisson process exhibits positive correlation near <span class="math notranslate nohighlight">\(\tau=0\)</span>, suggesting bunching, the subpoisson process negative correlation, corresponding to anti-bunching.</p>
+<p>While the plot is still noisy due to insufficient sampling, the signature of three statistical types is very clear.  The poisson process shows no sign of correlation. While the superpoisson process exhibits positive correlation near <span class="math notranslate nohighlight">\(\tau=0\)</span>, suggesting bunching, the subpoisson process shows negative correlation, corresponding to anti-bunching.</p>
 </section>
 </section>
 </section>
@@ -840,7 +843,7 @@ g^{(2)}(\tau) = \frac{n(\tau)}{n(\infty)}  = \frac{n(\tau) t_\text{max}}{N^2 \De
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.4. </span>Quantum correlation functions</p>
+        <p class="prev-next-title"><span class="section-number">1.4. </span>Quantum coherence functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

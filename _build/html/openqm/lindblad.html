@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="../cover.html">
+<a class="navbar-brand logo" href="../frontmatter/cover.html">
   
   
   
@@ -165,15 +165,15 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../cover.html">
-                    <no title>
+                <a class="reference internal" href="../frontmatter/cover.html">
+                    A Note on Quantum Optics
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/preface.html">Preface</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
@@ -187,8 +187,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Quantum lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum coherence functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Open quantum system approaches</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -199,13 +199,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A driven TLS:  Rabi oscillation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../monomer/model.html">3.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../monomer/steady_state.html">3.2. Steady State</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/analytic.html">3.2. QME: Analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/qme.html">3.3. QME: Numerical Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/jumps.html">3.4. Quantum Trajectory</a></li>
 </ul>
 </details></li>
 </ul>
@@ -435,10 +433,10 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-quantum-master-equation-a-summary">2.1.1. Derivation of quantum master equation - a summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-atom">2.1.2. A simple example - optical master equation for a two-level atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-system">2.1.2. A simple example - optical master equation for a two-level system</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-equations">2.1.3. Bloch equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-master-equation-numerically-using-qutip">2.1.4. Solving a master equation numerically using QuTiP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-g-2-tau">2.1.5. Calculation of <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-coherence">2.1.5. Second-order coherence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-regression-theorem">2.1.6. Quantum regression theorem</a></li>
 </ul>
             </nav>
@@ -548,9 +546,9 @@ H_\text{SL} = \frac{1}{2i} \sum_{\omega} \sum{ij}  \left(\Gamma_{ij}(\omega) - \
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(C_{i}(\omega) = \sqrt{\Gamma_i(\omega)} L_i(\omega)\)</span>, which we shall call <em>collapse operator</em>.</p>
 </section>
-<section id="a-simple-example-optical-master-equation-for-a-two-level-atom">
-<h2><span class="section-number">2.1.2. </span>A simple example - optical master equation for a two-level atom<a class="headerlink" href="#a-simple-example-optical-master-equation-for-a-two-level-atom" title="Link to this heading">#</a></h2>
-<p>Consider a system with two energy levels, a ground state <span class="math notranslate nohighlight">\(| g\rangle\)</span> of energy <span class="math notranslate nohighlight">\(E_{g}\)</span> and  an excited state <span class="math notranslate nohighlight">\(|e\rangle\)</span> of energy <span class="math notranslate nohighlight">\(E_{e}\)</span>. I shall call such a system a two-level atom in this note.  However, it can be a molecule, a quantum dot or some other systems in which only two energy levels are dominantly involved in the processes we are interested in and contribution from other levels is assumed to be negligibly small.</p>
+<section id="a-simple-example-optical-master-equation-for-a-two-level-system">
+<h2><span class="section-number">2.1.2. </span>A simple example - optical master equation for a two-level system<a class="headerlink" href="#a-simple-example-optical-master-equation-for-a-two-level-system" title="Link to this heading">#</a></h2>
+<p>Consider a two-level system (TLS) with two energy levels, a ground state <span class="math notranslate nohighlight">\(| g\rangle\)</span> of energy <span class="math notranslate nohighlight">\(E_{g}\)</span> and  an excited state <span class="math notranslate nohighlight">\(|e\rangle\)</span> of energy <span class="math notranslate nohighlight">\(E_{e}\)</span>. I shall call such a system a two-level atom in this note.  However, it can be a molecule, a quantum dot or some other systems in which only two energy levels are dominantly involved in the processes we are interested in and contribution from other levels is assumed to be negligibly small.</p>
 <p>Lowering and raising operators are defined with <span class="math notranslate nohighlight">\(\ket{g}\)</span> and <span class="math notranslate nohighlight">\(\ket{e}\)</span> as basis  respectively by</p>
 <div class="math notranslate nohighlight" id="equation-eq-sigma-plus-minus">
 <span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-sigma-plus-minus" title="Link to this equation">#</a></span>\[
@@ -571,7 +569,35 @@ H_\text{SL} = \frac{1}{2i} \sum_{\omega} \sum{ij}  \left(\Gamma_{ij}(\omega) - \
 H_\text{S} = \frac{\hbar}{2} \omega_{0} \sigma_{3}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\hbar\omega_{0} = E_{e} - E_{g}\)</span> is the excitation energy.</p>
-<p>Since there is only one <span class="math notranslate nohighlight">\(\omega\)</span>, and two transitions, we have two modes,</p>
+<p>The environment is a photon gas at temperature <span class="math notranslate nohighlight">\(T\)</span>.  The Hamiltonian of the environment is given by</p>
+<div class="math notranslate nohighlight">
+\[
+H_\text{B} = \sum_{i=1,2} \sum_\mathbf{k} \hbar \omega_\mathbf{k} \left(b_{i}^{\dagger}(\mathbf{k}) b_{i}(\mathbf{k})+\frac{1}{2}\right)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(b_{i}(\mathbf{k})\)</span> and <span class="math notranslate nohighlight">\(b_{i}^{\dagger}(\mathbf{k})\)</span> are annihilation and creation operators for photon with momentum <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> and plarization <span class="math notranslate nohighlight">\(\mathbf{e}_{i}(\mathbf{k})\)</span>.</p>
+<p>The interaction between the TLS and the environment is given by <span class="math notranslate nohighlight">\(H_\text{SB} = - \mathbf{D}\cdot\mathbf{E}\)</span>, where the dipole operator <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and the electric field <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> are defined by</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{D} = \mathbf{d} \sigma_{+} + \mathbf{d}^{*} \sigma_{-}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E} = i \sum_{i=1,2} \sum_\mathbf{k} \sqrt{\frac{2\pi\hbar\omega(\mathbf{k})}{V}} \mathbf{e}_{i}(\mathbf{k}) \left(b_{i}(\mathbf{k}) - b_{i}^{\dagger}(\mathbf{k})\right)
+\]</div>
+<p>The dipole moment <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and a volume of the space <span class="math notranslate nohighlight">\(V\)</span> are used in the above expression.</p>
+<p>Taking the rotating wave approximation, the interaction Hamiltonian is simplified to</p>
+<div class="math notranslate nohighlight">
+\[
+H_\text{SB} \approx \sum_{i=1,2} \sum_\mathbf{k} \left( g_{\mathbf{k},i} \sigma_{+} b_{i}(\mathbf{k}) + g_{\mathbf{k},i}^{*} \sigma_{-} b_{i}^{\dagger}(\mathbf{k}) \right)
+\]</div>
+<p>where the coupling constant is</p>
+<div class="math notranslate nohighlight">
+\[
+g_{\mathbf{k},i} = i \sqrt{\frac{2\pi\hbar\omega(\mathbf{k})}{V}} \mathbf{e}_{i}(\mathbf{k})\cdot \mathbf{d}
+\]</div>
+<p>Notice that <span class="math notranslate nohighlight">\(\sigma_{+}\)</span> interact with <span class="math notranslate nohighlight">\(b_{i}(\mathbf{k})\)</span> and <span class="math notranslate nohighlight">\(\sigma_{-}\)</span> interact with <span class="math notranslate nohighlight">\(b_{i}^{\dagger}(\mathbf{k})\)</span>, which indicates that a transition from <span class="math notranslate nohighlight">\(|e\rangle\)</span> to <span class="math notranslate nohighlight">\(|g\rangle\)</span> create a photon. Hence, the number of downward jumps in the TLS state equals the number of photons emitted.</p>
+<p>Following the standard derivation of quantum master equation (a bit lengthy calculation)<span id="id1">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">18</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">19</a>]</span>, we obtain two channels of dissipators.</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{D}_{a}(\rho) = \Gamma_{a} \left(\sigma_{+}\rho\sigma_{-} - \frac{1}{2} \sigma_{-}\sigma_{+}\rho - \frac{1}{2} \rho \sigma_{-}\sigma_{+} \right)
@@ -612,7 +638,7 @@ N=\frac{1}{e^{\hbar \omega_0/T}-1}
 \[
 \rho(t) = \frac{1}{2}\left(I + \vec{r}(t) \cdot \vec{\sigma} \right)
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\vec{r}(t) = (r_{1}(t),r_{2}(t),r_{3}(t))\)</span> is the Bloch vector, which uniquely determine the density operator.<span id="id1">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">19</a>]</span>  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{r} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.4)</a> and taking trace, we obtain the equation of motion for the Bloch vector is given by</p>
+<p>where <span class="math notranslate nohighlight">\(\vec{r}(t) = (r_{1}(t),r_{2}(t),r_{3}(t))\)</span> is the Bloch vector, which uniquely determine the density operator.<span id="id2">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id38" title="Peter Lambropoulos. Fundamentals of Quantum Optics and Quantum Information. Springer Berlin Heidelberg, Berlin, Heidelberg, 2007. doi:10.1007/978-3-540-34572-5.">19</a>]</span>  Since the density operator is self-adjoint, <span class="math notranslate nohighlight">\(\vec{v}\)</span> is real.  In fact, it is easy to show that <span class="math notranslate nohighlight">\(\vec{r} = \langle \vec{\sigma}\rangle = \text{tr}\left[\vec{\sigma}\rho(t)\right]\)</span>.  Multiply <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> to Eq. <a class="reference internal" href="#equation-eq-qme-optical">(2.4)</a> and taking trace, we obtain the equation of motion for the Bloch vector is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-bloch-eq">
 <span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-bloch-eq" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{eqnarray}
@@ -621,7 +647,7 @@ N=\frac{1}{e^{\hbar \omega_0/T}-1}
 \frac{d}{dt} \langle \sigma_3(t)\rangle &amp;=&amp; - \gamma \langle \sigma_1(t)\rangle  - \gamma_{0}
 \end{eqnarray}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.  Equation <a class="reference internal" href="#equation-eq-bloch-eq">(2.5)</a> is called the Bloch equation.<span id="id2">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">18</a>]</span></p>
+<p>where <span class="math notranslate nohighlight">\(\gamma = \gamma_0 (2N+1)\)</span>.  Equation <a class="reference internal" href="#equation-eq-bloch-eq">(2.5)</a> is called the Bloch equation.<span id="id3">[<a class="reference internal" href="../references/references.html#id33" title="H.-P. Breuer and F. Petruccione. The theory of open quantum systems. Oxford, Oxford [u.a.], repr. edition, 2002. ISBN 9780199213900. doi:10.1093/acprof:oso/9780199213900.001.0001.">17</a>, <a class="reference internal" href="../references/references.html#id37" title="Pierre Meystre. Elements of Quantum Optics. Springer Berlin Heidelberg, Berlin, Heidelberg, 4. 4th ed. 2007 edition, 2007. doi:10.1007/978-3-540-74211-1.">18</a>]</span></p>
 <p>By letting the left hand side 0, we can immediately find the steady state.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -641,15 +667,15 @@ p_{e}^{ss} = \frac{1}{2} \left(1 + \langle \sigma_3\rangle_{ss}\right) = \frac{N
 <p>The initial condition for the Bloch equation is</p>
 <div class="math notranslate nohighlight">
 \[
-\langle \sigma_1(0) \rangle =\sin (2\theta), \quad \langle \sigma_2(0) \rangle = 0, \quad \langle \sigma_3(0) \rangle = \cos(2\theta)
+\langle \sigma_1(0) \rangle =\sin (2\theta), \quad \langle \sigma_2(0) \rangle = 0, \quad \langle \sigma_3(0) \rangle = -\cos(2\theta)
 \]</div>
 <p>The solution is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eq-qme-bloch-solution">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-qme-bloch-solution" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{eqnarray}
 \langle \sigma_1(t) \rangle &amp;=&amp; e^{-\gamma t/2} \cos(\omega_{0} t) \sin(2\theta) \\
 \langle \sigma_2(t) \rangle &amp;=&amp; e^{-\gamma t/2} \sin(\omega_{0} t) \sin(2\theta) \\
-\langle \sigma_3(t) \rangle &amp;=&amp; e^{-\gamma t}  \cos(2\theta)  + (1- e^{-\gamma t}) \rangle \sigma_3(t) \langle_{ss}
+\langle \sigma_3(t) \rangle &amp;=&amp; - e^{-\gamma t}  \cos(2\theta)  + (1- e^{-\gamma t}) \langle \sigma_3 \rangle_{ss}
 \end{eqnarray}
 \end{split}\]</div>
 <p>which indicates <span class="math notranslate nohighlight">\(\gamma\)</span> is the relaxation rate.</p>
@@ -740,35 +766,26 @@ p_{e}^{ss} = \frac{1}{2} \left(1 + \langle \sigma_3\rangle_{ss}\right) = \frac{N
 </div>
 </div>
 </section>
-<section id="calculation-of-g-2-tau">
-<h2><span class="section-number">2.1.5. </span>Calculation of <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span><a class="headerlink" href="#calculation-of-g-2-tau" title="Link to this heading">#</a></h2>
+<section id="second-order-coherence">
+<h2><span class="section-number">2.1.5. </span>Second-order coherence<a class="headerlink" href="#second-order-coherence" title="Link to this heading">#</a></h2>
 <p>An extra step i sneeded to compute <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span>.  By definition, <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span> measures the correlation of photon intensity.  But we are not calculating photons.  How can we calculate it?  When the transition from <span class="math notranslate nohighlight">\(|e\rangle\)</span> to <span class="math notranslate nohighlight">\(|g\rangle\)</span> takes place, a photon is emitted.  Therefore, if we know the statistics of the  emission transition, we have statistics of photons assuming that we measure all photons coming out from the atom. In other words, the optical mode we measure is all photons emitted by the atom.</p>
-<p>Since the creation of photon is equivalent to the deexcitation of the atom the filed opetators can be expressed as follows:</p>
-<div class="math notranslate nohighlight">
-\[
-E^{(+)}(t) = \mathcal{E}_0 a(t) \propto  \sigma_{-}, \qquad E^{(-)}(t) = \mathcal{E}_0 a(t) \propto  \sigma_{+},
-\]</div>
-<p>and thus th eoperator corresponding to the intensity is</p>
+<p>Thus the operator corresponding to the intensity is</p>
 <div class="math notranslate nohighlight">
 \[
 I (t) = E^{(-)}(t) E^{(+)}(t) = \mathcal{E}_0^2 a^{\dagger}(t) a(t) \propto \sigma_{+}(t) \sigma_{-}(t)
 \]</div>
 <p>The correlation functions are now defined as</p>
 <div class="math notranslate nohighlight" id="equation-eq-g1-two-level-atom">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-g1-two-level-atom" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-g1-two-level-atom" title="Link to this equation">#</a></span>\[
 g^{(1)}(\tau) = \frac{\langle \sigma_{+}(\tau) \sigma_{-}(0)\rangle_{ss}}{\langle  \sigma_{+}(0)\sigma_{-}(0) \rangle_{ss}}
 \]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-g2-two-level-atom">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-g2-two-level-atom" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-g2-two-level-atom" title="Link to this equation">#</a></span>\[
 g^{(2)}(\tau) = \frac{\langle :I(\tau)I(0): \rangle_{ss}}{(\langle I(0) \rangle_{ss})^2} = \frac{\langle \sigma_{+}(0)\sigma_{+}(\tau)\sigma_{-}(\tau) \sigma_{-}(0) \rangle_{ss}}{(\langle  \sigma_{+}(0)\sigma_{-}(0) \rangle_{ss})^2}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(:\cdots:\)</span> indicates normal order of creation and annihilation operators and <span class="math notranslate nohighlight">\(\langle \cdots\rangle_{ss}\)</span> average over the steady state.</p>
-<p>There is a problem with the definitions <a class="reference internal" href="#equation-eq-g1-two-level-atom">(2.7)</a> and <a class="reference internal" href="#equation-eq-g2-two-level-atom">(2.8)</a>.  We don’t how to calculate the expectation value  <span class="math notranslate nohighlight">\(\langle \cdots\rangle_{ss}\)</span> since two different times are involved. There is a trick that works only when the Born-Markovian approximation is valid as discussed next.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is an important remark in place.   Popular theoretical approaches seen in books and papers do not calculate photon counting statistics.  They actually calculate “emission statistics” by measuring the time intervals of electron deexcitation. When an electron is deexcited, a photon is emitted.  Hence, the emission counting statisrtics and photon counting statistics should be the same.  However, it is true only when all photons emitted by quantum dots are counted.  In reality, many experiments don’t capture all photons.  They may be measuring photons emitted in a certain direction.  Then, there is difference between emission counting and actual photon counting.  In fact, both bunching and antibunching photons are simultaneously observed from a pair of atoms depending on the location of the measurement device due to quantum interference effects.<span id="id3">[<a class="reference internal" href="../references/references.html#id19" title="Sebastian Wolf, Stefan Richter, Joachim von Zanthier, and Ferdinand Schmidt-Kaler. Light of two atoms in free space: bunching or antibunching? Phys. Rev. Lett., 124:063603, Feb 2020. doi:10.1103/PhysRevLett.124.063603.">14</a>]</span>.  If all photons from the pair were counted, bunching and anti-bunching would be cancelled out.</p>
-</div>
+<p>There is a problem with the definitions <a class="reference internal" href="#equation-eq-g1-two-level-atom">(2.8)</a> and <a class="reference internal" href="#equation-eq-g2-two-level-atom">(2.9)</a>.  We don’t how to calculate the expectation value  <span class="math notranslate nohighlight">\(\langle \cdots\rangle_{ss}\)</span> since two different times are involved. There is a trick that works only when the Born-Markovian approximation is valid as discussed next.</p>
 </section>
 <section id="quantum-regression-theorem">
 <h2><span class="section-number">2.1.6. </span>Quantum regression theorem<a class="headerlink" href="#quantum-regression-theorem" title="Link to this heading">#</a></h2>
@@ -797,11 +814,16 @@ g^{(2)}(\tau) = \text{tr} [ \sigma_{+} \sigma_{-} e^{\mathcal{L} \tau} ( \sigma_
 <p>where we have rotated the operators inside the trace.</p>
 <p>Substituting Eqs. <a class="reference internal" href="#equation-eq-sigma-plus-minus">(2.3)</a>, we find an explicit expression of the correlation function</p>
 <div class="math notranslate nohighlight" id="equation-eq-g2-explicit">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-g2-explicit" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-g2-explicit" title="Link to this equation">#</a></span>\[
 g^{(2)}(\tau)= \frac{\langle e | \left(e^{\mathcal{L}\tau} |g\rangle\langle g |\right) | e \rangle}{\langle e | \rho_{ss} | e \rangle}  = \frac{\langle e | \rho(\tau;g) | e \rangle}{\langle e | \rho_{ss} | e \rangle} = \frac{p_{e}(\tau;g)}{p_{e}^{ss}}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\rho(\tau;g)\)</span> is a state at <span class="math notranslate nohighlight">\(t=\tau\)</span> starting from the ground state at <span class="math notranslate nohighlight">\(t=0\)</span> and <span class="math notranslate nohighlight">\(p_{e}(\tau;g)\)</span> is a conditional probability that the system is in the ground state at <span class="math notranslate nohighlight">\(t=0\)</span> and in the excited state at <span class="math notranslate nohighlight">\(t=\tau\)</span>.  <span class="math notranslate nohighlight">\(p_{s}^{ss}\)</span> is the probability of the steady state being in <span class="math notranslate nohighlight">\(|e\rangle\)</span> whci we already know from <a class="reference internal" href="#equation-eq-p-e-ss">(2.6)</a>.  Noting that <span class="math notranslate nohighlight">\(\lim_{\tau \rightarrow \infty} p_{e}(\tau;g) = p_{e}^{ss}\)</span>, we find <span class="math notranslate nohighlight">\(\lim_{\tau \rightarrow \infty} g^{(2)}(\tau) = 1\)</span>.  On the other hand, <span class="math notranslate nohighlight">\(\lim_{\tau \rightarrow 0} p_{e}(\tau;g) = 0\)</span> since <span class="math notranslate nohighlight">\(|e\rangle\)</span> and <span class="math notranslate nohighlight">\(|g\rangle\)</span> are orthogonal.  Thus we have <span class="math notranslate nohighlight">\(g^{(2)}(0) = 0\)</span>.</p>
-<p>From the final expression of Eq. <a class="reference internal" href="#equation-eq-g2-explicit">(2.9)</a>, only we need is <span class="math notranslate nohighlight">\(p_{e}(\tau;g)\)</span> which can be obtained by solving the master equation.  The following code implements this method.  The result shows clearly anti-bunching.</p>
+<p>From the final expression of Eq. <a class="reference internal" href="#equation-eq-g2-explicit">(2.10)</a>, only we need is <span class="math notranslate nohighlight">\(p_{e}(\tau;g)\)</span> which can be obtained by solving the master equation. Using the general solution <a class="reference internal" href="#equation-eq-qme-bloch-solution">(2.7)</a> with initial condition <span class="math notranslate nohighlight">\(\theta=0\)</span>, we find <span class="math notranslate nohighlight">\(p_{e}(\tau;g) = \frac{1}{2}\left(1-e^{-\gamma \tau}\right)\left(1+\langle\sigma_z^{ss}\right)\)</span> and <span class="math notranslate nohighlight">\(p_{e}^{ss} = \frac{1}{2}\left(1+\langle\sigma_z^{ss}\right)\)</span>.  WE obtain an explicite expression of the second-order coherence:</p>
+<div class="math notranslate nohighlight">
+\[
+g^{(2)}(\tau) =  1-e^{-\gamma |\tau|}
+\]</div>
+<p>The following code calculates it numerically using qmesolver in QuTip, which agrees with the analytical result.  The plot shows clearly anti-bunching.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Continued from the previous code block. </span>
@@ -820,19 +842,23 @@ g^{(2)}(\tau)= \frac{\langle e | \left(e^{\mathcal{L}\tau} |g\rangle\langle g |\
 <span class="n">pe_ss</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">g2</span> <span class="o">=</span> <span class="n">pe_tau</span><span class="o">/</span><span class="n">pe_ss</span>
-
+<span class="n">g2_exact</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="n">times</span><span class="p">)</span>
+    
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;qutip&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">times</span><span class="p">,</span><span class="n">g2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">g2_exact</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">times</span><span class="p">,</span> <span class="n">g2_exact</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\tau$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$g^{(2)}(\tau)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b683dc3c750a2545862abb4ced04eaea517d7f415501a2a2b7ee7e1486626011.png" src="../_images/b683dc3c750a2545862abb4ced04eaea517d7f415501a2a2b7ee7e1486626011.png" />
+<img alt="../_images/ccb32743529b28e3caadfdaa4caffda36de8031ed1f66a154b2b7c8120410645.png" src="../_images/ccb32743529b28e3caadfdaa4caffda36de8031ed1f66a154b2b7c8120410645.png" />
 </div>
 </div>
 <p>QuTip has a built-in function for <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span>. If you don’t need other quantities, it is a handy tool for quick estimation.  The following code just uses it and the result is identical to the above result.</p>
@@ -927,10 +953,10 @@ g^{(2)}(\tau)= \frac{\langle e | \left(e^{\mathcal{L}\tau} |g\rangle\langle g |\
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-quantum-master-equation-a-summary">2.1.1. Derivation of quantum master equation - a summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-atom">2.1.2. A simple example - optical master equation for a two-level atom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example-optical-master-equation-for-a-two-level-system">2.1.2. A simple example - optical master equation for a two-level system</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-equations">2.1.3. Bloch equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-master-equation-numerically-using-qutip">2.1.4. Solving a master equation numerically using QuTiP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-g-2-tau">2.1.5. Calculation of <span class="math notranslate nohighlight">\(g^{(2)}(\tau)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-coherence">2.1.5. Second-order coherence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-regression-theorem">2.1.6. Quantum regression theorem</a></li>
 </ul>
   </nav></div>

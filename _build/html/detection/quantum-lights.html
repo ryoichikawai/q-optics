@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'detection/quantum-lights';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.3. Photons and full counting statistics" href="counting-statistics.html" />
+    <link rel="next" title="1.3. Full counting statistics" href="counting-statistics.html" />
     <link rel="prev" title="1.1. Detection of classical lights" href="classical-lights.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="../cover.html">
+<a class="navbar-brand logo" href="../frontmatter/cover.html">
   
   
   
@@ -165,15 +165,15 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../cover.html">
-                    <no title>
+                <a class="reference internal" href="../frontmatter/cover.html">
+                    A Note on Quantum Optics
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/preface.html">Preface</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
@@ -187,8 +187,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">1. Photon counting statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="classical-lights.html">1.1. Detection of classical lights</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Quantum lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="counting-statistics.html">1.3. Photons and full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="counting-statistics.html">1.3. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum-correlations.html">1.4. Quantum coherence functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -199,13 +199,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A single two-level system</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../monomer/intro.html">3. A driven TLS:  Rabi oscillation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../monomer/model.html">3.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../monomer/steady_state.html">3.2. Steady State</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/analytic.html">3.2. QME: Analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/qme.html">3.3. QME: Numerical Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monomer/jumps.html">3.4. Quantum Trajectory</a></li>
 </ul>
 </details></li>
 </ul>
@@ -434,7 +432,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-of-electromagnetic-fields">1.2.1. Quantization of electromagnetic fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-modes">1.2.1. Optical modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-of-electromagnetic-fields">1.2.2. Quantization of electromagnetic fields</a></li>
 </ul>
             </nav>
         </div>
@@ -448,22 +447,43 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quantum-lights">
 <h1><span class="section-number">1.2. </span>Quantum lights<a class="headerlink" href="#quantum-lights" title="Link to this heading">#</a></h1>
-<p>Classical light is described by electromagnetic fields which are continuous both in space and time.  Quantum light is described also by electromagnetic fields but they are quantum fields.  The quantum fields are also continuous.  So, where is “quantumness” in the quantum light?  Photons immediately pops up in our head.  But what are they?  They are poorly defined in many books and misused by many people. In 1951 Albert Einstein said “All these fifty years of conscious brooding have brought me no nearer to the answer to the question ‘What are light quanta?’ Nowadays every Tom, Dick and Harry thinks he knows it, but he is mistaken.”<span id="id1">[<a class="reference internal" href="../references/references.html#id45" title="A. P. French. Einstein: A Centenary Volume. Harvard University Press, Cambridge, Mass., 1979. ISBN 978-0674242302.">11</a>]</span>  Since a correct use of the photon concept is so difficult, W. E. Lamb suggested that a license be required for use of the word photon.”<span id="id2">[<a class="reference internal" href="../references/references.html#id44" title="W. E. Lamb. Anti-photon. Applied Physics B, 60(2–3):77–84, February 1995. doi:10.1007/BF01135846.">12</a>]</span>  Among a few people given a licence, Roy J. Clauber defined photon as  “A photon is what a photodetector detects” and also “A photon is where the photodetector detects it” rather than defining a photon as a pre-existing “particle” in space.  When three Nobel laureates in quantum optics were saying like that, the meaning of photons must be very difficult for laymen to understand.</p>
-<p>Although we don’t have a license to use the word “photon”, we shall use it within a limited scope as discussed below.</p>
-<section id="quantization-of-electromagnetic-fields">
-<h2><span class="section-number">1.2.1. </span>Quantization of electromagnetic fields<a class="headerlink" href="#quantization-of-electromagnetic-fields" title="Link to this heading">#</a></h2>
-<p>The starting point of electromagnetic field quantization is a classical solution to the Maxwell equation, which is a vector in a vector space of infinite dimensions.  Consider a set of basis vectors <span class="math notranslate nohighlight">\(\{u_j(x,t)\}\)</span>, a solution can be written as</p>
+<p>Classical light is described by electromagnetic fields which are continuous both in space and time.  Quantum light is described also by electromagnetic fields but they are quantum fields.  The quantum fields are also continuous.  So, where is “quantumness” in the quantum light?  Photons immediately pops up in our head.  But what are they?  Unfortunately, they are poorly defined in literature  and misused by many people. In 1951 Albert Einstein said “All these fifty years of conscious brooding have brought me no nearer to the answer to the question ‘What are light quanta?’ Nowadays every Tom, Dick and Harry thinks he knows it, but he is mistaken.”<span id="id1">[<a class="reference internal" href="../references/references.html#id45" title="A. P. French. Einstein: A Centenary Volume. Harvard University Press, Cambridge, Mass., 1979. ISBN 978-0674242302.">11</a>]</span>  Since a correct use of the photon concept is so difficult, W. E. Lamb suggested that a license be required for use of the word photon.”<span id="id2">[<a class="reference internal" href="../references/references.html#id44" title="W. E. Lamb. Anti-photon. Applied Physics B, 60(2–3):77–84, February 1995. doi:10.1007/BF01135846.">12</a>]</span>  Roy J. Clauber, who were given a license, defined photon as  “A photon is what a photodetector detects” and also “A photon is where the photodetector detects it” rather than defining a photon as a pre-existing “particle” in space.  When three Nobel laureates in quantum optics were saying like that, the meaning of photons must be very difficult for laymen to understand.</p>
+<p>Although we don’t have a license, we shall use the word “photon” in this note within a limited scope as discussed below.</p>
+<section id="optical-modes">
+<h2><span class="section-number">1.2.1. </span>Optical modes<a class="headerlink" href="#optical-modes" title="Link to this heading">#</a></h2>
+<p>To define photons, first we need to define optical modes. But what are they?  Mathematically, they are a set of basis vectors in a Hilbert space.  Recall that a classical electromagnetic field, which is a solution to the Maxwell equation, is a vector in a vector space of infinite dimension.  In other words, the filed is expressed as a linear combination of basis functions <span class="math notranslate nohighlight">\(\{u_{i}(x,t)\}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mode-decomposition">
 <span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-mode-decomposition" title="Link to this equation">#</a></span>\[
-E(x,t) = \sum_{j} (a_{j} u_{j}(x,t) + a^{*}_{j} u^{*}_{j}(x,t))
+\mathbf{E}(x,t) = \sum_{j} \mathbf{e}_{j} (a_{j} u_{j}(x,t) + a^{*}_{j} u^{*}_{j}(x,t))
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(a_{j}\)</span> are expansion coefficients to be determined. (polarization vectors are omitted for simplicity.) Each basis vector is called <em>mode</em> and the expansion <a class="reference internal" href="#equation-eq-mode-decomposition">(1.4)</a> is known as mode decomposition.  Since the choice of a basis set is arbitrary, the modes are also not uniquely determined until specific physical conditions restrict them. In usual application, it is convenient to choose modes such that the Hamiltonian is diagonal in that basis.</p>
-<p>Once we have modes, quantization is straight forward.  the coefficients <span class="math notranslate nohighlight">\(a_{j}\)</span> and <span class="math notranslate nohighlight">\(a^{*}_{j}\)</span> become annihilation operator <span class="math notranslate nohighlight">\(a_{j}\)</span> and creation operators <span class="math notranslate nohighlight">\(a^{\dagger}_{j}\)</span>, respectively. They satisfy commutation relation <span class="math notranslate nohighlight">\([a_{i},a^{\dagger}_{j}] = \delta_ij\)</span> and follow the usual operator algebra of a Harmonic oscillator.  The Hamiltonian is given by <span class="math notranslate nohighlight">\(\sum_{j} \frac{\omega_{j}}{2} \left(a^{\dagger}_{j} a_{j} + \frac{1}{2}\right)\)</span>.
-We define photons using the creation and annihilation operators. Defining a vacuum state by <span class="math notranslate nohighlight">\(a_{j}|0\rangle=0\)</span>, we create a photon in  <span class="math notranslate nohighlight">\(j\)</span>-th mode by <span class="math notranslate nohighlight">\(|1_j\rangle = a^{\dagger}_{j}|0\rangle\)</span>.  <span class="math notranslate nohighlight">\(N_{j} = a^\dagger_{j}a_{j}\)</span> is a number operator.  It is important to know that the operators are associated with the modes.  When different modes are used, we have different operators.</p>
+<p>where <span class="math notranslate nohighlight">\(a_{j}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}_{j}\)</span> are an expansion coefficient and a polarization vector associate with the <span class="math notranslate nohighlight">\(j\)</span>-th mode. In a free space, <span class="math notranslate nohighlight">\(u_{j}(x,t) = e^{i(\mathbf{k}_{j} - \omega_{j})}\)</span> is commonly used. We have used summation rather integration to avoid mathematical complication but in the real world, we have to use a continuous spectrum.</p>
+<p>In principle, the choice of modes are arbitrary. We can pick modes that are convenient for the physical situation we are investigating. A problem is that a convenient choice of modes to describe a light source is not necessarily a good choice for the setup of photon detection.<a class="footnote-reference brackets" href="#relativistic-mode" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.  It is very important to pick modes consistent to the experimental setup. We shall discuss it in chapters of case studies.</p>
+</section>
+<section id="quantization-of-electromagnetic-fields">
+<h2><span class="section-number">1.2.2. </span>Quantization of electromagnetic fields<a class="headerlink" href="#quantization-of-electromagnetic-fields" title="Link to this heading">#</a></h2>
+<p>Once we have a set of modes, field quatization is a straight forward. The coefficients <span class="math notranslate nohighlight">\(a_{j}\)</span> and <span class="math notranslate nohighlight">\(a^{*}_{j}\)</span> become annihilation operator <span class="math notranslate nohighlight">\(\hat{a}_{j}\)</span> and creation operators <span class="math notranslate nohighlight">\(\hat{a}^{\dagger}_{j}\)</span>, respectively. They satisfy commutation relation <span class="math notranslate nohighlight">\([\hat{a}_{i},\hat{a}^{\dagger}_{j}] = \delta_{ij}\)</span> and follow the usual operator algebra of a Harmonic oscillator.  The Hamiltonian is given by <span class="math notranslate nohighlight">\(\sum_{j} \frac{\omega_{j}}{2} \left(a^{\dagger}_{j} a_{j} + \frac{1}{2}\right)\)</span>.
+We define photons using the creation and annihilation operators. Defining a vacuum state by <span class="math notranslate nohighlight">\(a_{j}|0\rangle=0\)</span>, we create a photon in  <span class="math notranslate nohighlight">\(j\)</span>-th mode by <span class="math notranslate nohighlight">\(|1_j\rangle = a^{\dagger}_{j}|0\rangle\)</span>.  <span class="math notranslate nohighlight">\(N_{j} = a^\dagger_{j}a_{j}\)</span> is a number operator as usual.  It is important to know that the operators are associated with the specific modes  we picked.  When different modes are used, we have different operators.   Foe example, consider a Bogoliubov transformation of basis from <span class="math notranslate nohighlight">\(u_{j}\)</span> to <span class="math notranslate nohighlight">\(v_{k}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{k} = \sum_{j} \left( \alpha_{kj} u_{j} + \beta_{kj} u_{j}^{*}\right).
+\]</div>
+<p>The annihilation operator for the new mode <span class="math notranslate nohighlight">\(v_{k}\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{b}_{k} = \sum_{j} \left( \alpha_{kj}^* \hat{a}_{j} - \beta_{kj}^* \hat{a}_{j}^{\dagger} \right).
+\]</div>
+<p>Note that the annihilation of photon in mode <span class="math notranslate nohighlight">\(v_{k}\)</span> involves the creation of photon in mode <span class="math notranslate nohighlight">\(u_{j}\)</span>.  In general number of photons is not invariant under the transformation. This is quite confusing.  Are photons really  particles?</p>
 <p>It is tempting to think that photons are particles like electrons.  They are NOT.  There is no position operator for photons, indicating that they are not point particles. Since the operators are tied to the modes, the number of photons also depends on the choice of modes.  The bottom line is that the quantum electromagnetic fields are fundamental but photons are emergent.  Some people call photon a pseudo particle.  This is why Glauber said “a photon is what a photodetector detects”, which implies that we should not think about photons traveling around in the space.</p>
 <p>Until a license is given, we shall not discuss the details of photons in this note.<br />
-We will mostly deal with a field of a well-defined single mode and assume that both the light source and the detector are interacting with the same mode.  We use the word in two different senses.  When a photodector records a “click”, we say a photon is detected.  When electron in a light source jumps from a higher energy state to a lower energy state, we say a photon is emitted.  What these statements mean is that the electron deposits a quanta of energy to the field, and then the energy stored in the field somehow travels to the detector and gives a click. That is all we need for now.</p>
-<p>If you are interested in the discussion of <em>What is a photon</em>, read Ref.<span id="id3">[<a class="reference internal" href="../references/references.html#id43" title="Chandra Roychoudhuri, A. F. Kracklauer, and Kathy Creath, editors. Nature of Light What Is a Photon? CRC Press, 2017. ISBN 9781351835831.">13</a>]</span>.</p>
+We will mostly deal with a well-defined single mode and assume that both the light source and the detector are interacting with the same mode.  We use the word in two different occasions.  When a photodector records a “click”, we say a photon is detected.  When an electron in a light source jumps from a higher energy state to a lower energy state, we say a photon is emitted.  What these statements mean is that the electron deposits a quanta of energy to the field, and then the energy stored in the field somehow travels to the detector and gives a click. That is all we need for now.</p>
+<p>If you are interested in the discussion of <em>What is a photon</em>, read Ref.<span id="id4">[<a class="reference internal" href="../references/references.html#id43" title="Chandra Roychoudhuri, A. F. Kracklauer, and Kathy Creath, editors. Nature of Light What Is a Photon? CRC Press, 2017. ISBN 9781351835831.">13</a>]</span>.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="relativistic-mode" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p>The situation is more complicated in a relativistic case where the source and observer are not in the same inertial frame but that is not our concern in this note.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -511,7 +531,7 @@ We will mostly deal with a field of a well-defined single mode and assume that b
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Photons and full counting statistics</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Full counting statistics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -533,7 +553,8 @@ We will mostly deal with a field of a well-defined single mode and assume that b
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-of-electromagnetic-fields">1.2.1. Quantization of electromagnetic fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-modes">1.2.1. Optical modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization-of-electromagnetic-fields">1.2.2. Quantization of electromagnetic fields</a></li>
 </ul>
   </nav></div>
 

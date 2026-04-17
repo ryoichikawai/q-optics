@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. A single two-level system &#8212; Numerical Quantum Optics</title>
+    <title>3. A driven TLS: Rabi oscillation &#8212; Numerical Quantum Optics</title>
   
   
   
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="../cover.html">
+<a class="navbar-brand logo" href="../frontmatter/cover.html">
   
   
   
@@ -165,15 +165,15 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../cover.html">
-                    <no title>
+                <a class="reference internal" href="../frontmatter/cover.html">
+                    A Note on Quantum Optics
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/preface.html">Preface</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../frontmatter/intro.html">Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/thisbook.html">How to use this note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../frontmatter/python.html">Python</a></li>
@@ -187,8 +187,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../detection/intro.html">1. Photon counting statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../detection/classical-lights.html">1.1. Detection of classical lights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../detection/quantum-lights.html">1.2. Quantum lights</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Photons and full counting statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum correlation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/counting-statistics.html">1.3. Full counting statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../detection/quantum-correlations.html">1.4. Quantum coherence functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../openqm/intro.html">2. Open quantum system approaches</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -199,13 +199,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Case Studies</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. A single two-level system</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. A driven TLS:  Rabi oscillation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="model.html">3.1. Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="steady_state.html">3.2. Steady State</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dimer/intro.html">4. A pair of identical quantum dots</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dimer/numerical.html">4.1. Numerical calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analytic.html">3.2. QME: Analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qme.html">3.3. QME: Numerical Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jumps.html">3.4. Quantum Trajectory</a></li>
 </ul>
 </details></li>
 </ul>
@@ -422,7 +420,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>A single two-level system</h1>
+    <h1>A driven TLS:  Rabi oscillation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -436,8 +434,10 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="a-single-two-level-system">
-<h1><span class="section-number">3. </span>A single two-level system<a class="headerlink" href="#a-single-two-level-system" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="a-driven-tls-rabi-oscillation">
+<span id="ch-driven-tls"></span><h1><span class="section-number">3. </span>A driven TLS:  Rabi oscillation<a class="headerlink" href="#a-driven-tls-rabi-oscillation" title="Link to this heading">#</a></h1>
+<p>In this chapter, we investigate a single two-level system (TLS) driven by an time-dependent external field. The system Hamiltonian is no longer diagonal in the energy basis due to the driving and thus the situation is slightly different from the example discussed in <a class="reference internal" href="../openqm/lindblad.html#sec-qme"><span class="std std-numref">Section 2.1</span></a> and <a class="reference internal" href="../openqm/jumps.html#sec-jump"><span class="std std-numref">Section 2.2</span></a>. First we introduce a mathematical model.  Then, the time-evolution of the system and second order coherence are investigated by two different approaches, 1) open quantum system, and 2) quantum trajectory.</p>
+<p>The main difference from the simple example discussed in <a class="reference internal" href="../openqm/lindblad.html#sec-qme"><span class="std std-numref">Section 2.1</span></a> is the presence of a driving term in the system Hamiltonian.  The main consequence is the appearance of the Rabi oscillation in the system evolution and in the first/second-order coherence.  Hence, the focus on this chapter is the Rabi oscillation.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
